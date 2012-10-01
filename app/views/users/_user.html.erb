@@ -1,0 +1,6 @@
+<% c = "user" %>
+<% c = "author" if user.author? %>
+<% c = "admin" if user.admin? %>
+<li class="<%= c %>">
+	<%= link_to user.name, user %>, <%= user.email %>
+</li>

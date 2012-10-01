@@ -1,0 +1,12 @@
+<% provide :title, "user #{@user.name}" %>
+<h1><%= @user.name %></h1>
+<p>Email: <%= @user.email %></p>
+<p>
+	<% if @user.admin? then %>
+		This user is administrator.
+	<% end %>
+	<% if @user.author? then %>
+		This user is author.
+	<% end %>
+</p>
+
