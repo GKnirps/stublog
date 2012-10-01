@@ -12,7 +12,14 @@ class User < ActiveRecord::Base
 	
 	#save emails lowercase 
 	before_save {|user| user.email = email.downcase}
+	#create remember token for sessions
+	before_save :create_remember_token
 
 	validates :password, presence: true, length: {minimum: 6}
 	validates :password_confirmation, presence: true
+
+	private
+	def create_remember_token
+		self.remember_token = SecureRandom.urlsafe_base64
+	end
 end

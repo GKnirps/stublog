@@ -1,6 +1,11 @@
 <div class="header">
 	<ul>
-		<li><%= link_to home_path %> </li>
-		<li><%= link_to contact_path %> </li>
+		<li><%= link_to "Home", home_path %> </li>
+		<li><%= link_to "Contact", contact_path %> </li>
+		<% if signed_in? then %>
+			<li><%= link_to "Sign out", signout_path%></li>
+		<% else %>
+			<li><%= link_to "Sign in", signin_path %></li>
+		<% end %>
 	</ul>
 </div>

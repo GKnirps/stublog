@@ -6,11 +6,19 @@ Stublog::Application.routes.draw do
 	end
   end
 
+  resources :sessions, only: [:new, :create, :destroy]
+
   root to: 'static_pages#home'
 
   match '/home', to: "static_pages#home"
 
   match '/contact', to: "static_pages#contact"
+
+  match '/signup', to: "users#new"
+
+  match '/signin', to: "sessions#new"
+
+  match '/signout', to: "sessions#destroy"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
