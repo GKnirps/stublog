@@ -1,20 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%=full_title yield :title %></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<%= render 'layouts/header' %>
-	<% flash.each do |key, value| %>
-		<div class="alert alert-<%= key %>"><%=value %></div>
-	<% end %>
-	<div class = "content">
-		<%= yield %>
-	</div>
-	<%= render 'layouts/footer' %>
-	<%= debug(params) if Rails.env.development? %>
-
-</body>
+    <head>
+    
+        <title><%=full_title yield :title %></title>
+    	<meta name="generator" content="WordPress <?php bloginfo('version'); ?>" />
+    	
+        <link rel="stylesheet" href="/assets/style.css" type="text/css" media="screen" />
+    
+    
+    	<!-- <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="FEEDURL" /> -->
+    	
+    	<link rel="icon" type="image/icon" href="/images/favicon.ico" />
+    	<link rel="apple-touch-icon" type="image/png" href="/images/apple-touch-icon-iphone.png" /> <!-- 57x57 px -->
+    	<link rel="apple-touch-icon" type="image/png" href="/images/apple-touch-icon-iphone@2x.png" sizes="114x114" />
+    	<link rel="apple-touch-icon" type="image/png" href="/images/apple-touch-icon-ipad.png" sizes="72x72" />
+    	<link rel="apple-touch-icon" type="image/png" href="/images/apple-touch-icon-ipad@2x.png" sizes="144x144" />
+      
+        <%= csrf_meta_tags %>
+        
+    </head>
+    
+    <body>
+        
+        <div class="wrap-all">
+            <div class="wrapper">
+            	<%= render 'layouts/header' %>
+            	<% flash.each do |key, value| %>
+            		<div class="alert alert-<%= key %>"><%=value %></div>
+            	<% end %>
+            	<div class="content">
+            		<%= yield %>
+            	</div>
+            	<%= render 'layouts/widgetbar' %>
+            	<%= render 'layouts/footer' %>
+            	<%= debug(params) if Rails.env.development? %>
+            </div>
+        </div>
+        
+    </body>
 </html>
