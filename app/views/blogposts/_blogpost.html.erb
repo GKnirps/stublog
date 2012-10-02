@@ -1,0 +1,10 @@
+<div class="blogpost">
+	<div class="metainfo">
+		<div class="user"><%= blogpost.user.name %></div>
+		<div class="date"><%= blogpost.created_at %></div>
+	</div>
+	<h3 class="caption"><%= link_to blogpost.caption, blogpost_path(blogpost) %></h3>
+	<p class="content">
+		<%= blogpost.content %>
+	</p>
+</div>

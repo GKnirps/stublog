@@ -10,7 +10,7 @@ class Blogpost < ActiveRecord::Base
   validates :user_id, presence: true
 
   #order the blogposts by date, newest first
-  default_scope order: 'blogpost.created_at DESC'
+  default_scope order: 'blogposts.created_at DESC'
 
 
 end

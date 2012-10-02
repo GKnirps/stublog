@@ -1,0 +1,7 @@
+<% provide :title, "archive" %>
+<h1>Blogposts Archive</h1>
+<p class="blogposts">
+	<%= will_paginate %>
+	<%= render @blogposts %>
+	<%= will_paginate %>
+</p>
