@@ -3,7 +3,8 @@
 		<li><%= link_to "Home", home_path %> </li>
 		<li><%= link_to "Contact", contact_path %> </li>
 		<% if signed_in? then %>
-			<li><%= link_to "Sign out", signout_path%></li>
+			<li><%= link_to "Users", users_path %></li>
+			<li><%= link_to "Sign out", signout_path %></li>
 		<% else %>
 			<li><%= link_to "Sign in", signin_path %></li>
 		<% end %>

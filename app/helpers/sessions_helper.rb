@@ -4,8 +4,8 @@ module SessionsHelper
 			cookies.permanent[:remember_token] = user.remember_token
 		else
 			expire_time = 1.hour.from_now
-			expire_time = 1.minute.from_now if Rails.env.environment?
-			cookies[:remember_token] = {value: user.remember_token, expires: 1.hour.from_now}
+			expire_time = 1.minute.from_now if Rails.env.development?
+			cookies[:remember_token] = {value: user.remember_token, expires: expire_time}
 		end
 		self.current_user = user
 	end

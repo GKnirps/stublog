@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  before_filter :signed_in_user, only: [:update, :edit, :index, :destroy]
+  before_filter :correct_user, only: [:update, :edit, :destroy, :confirm_destroy]
+  #before_filter :admin_user, only: [:destroy, :confirm_destroy]
+
   def new
   	@user = User.new
   end
@@ -31,6 +35,8 @@ class UsersController < ApplicationController
   end
 
   def index
+  	#only show user list if logged in
+  	signed_in_user
   	@users = User.paginate(:page => params[:page])
   end
 
@@ -43,5 +49,19 @@ class UsersController < ApplicationController
 
   def confirm_destroy
   	@user = User.find(params[:id])
+  end
+
+  private
+
+  #filter function for actions the user can only do with his own account
+  #also returns true if the session's user is admin
+  def correct_user
+  	@user = User.find(params[:id])
+	unless current_user?(@user) or current_user.admin?
+		redirect_to root_path, notice: "You are not allowed to do that."
+	end
+  end
+  def admin_user
+	redirect_to root_path notice: "Only adminiistrators can do that." unless current_user.admin?
   end
 end

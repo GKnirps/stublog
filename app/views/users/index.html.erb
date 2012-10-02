@@ -1,5 +1,6 @@
 <% provide :title, "all users" %>
 <h1>All users</h1>
 <ol>
-	<%= render @users %>	
+	<%= render @users %>
 </ol>
+<div class="paginate"><%= will_paginate %></div>
