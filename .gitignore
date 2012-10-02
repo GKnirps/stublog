@@ -16,3 +16,6 @@
 
 #ignore vim swp files
 *.swp
+
+#ignore OS X's .DS_Store
+.DS_Store
