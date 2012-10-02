@@ -1,2 +1,12 @@
-<h1>Users#confirm_destroy</h1>
-<p>Find me in app/views/users/confirm_destroy.html.erb</p>
+<%= provide :title, "delete user #{@user.name}" %>
+<h2>Delete user <%= @user.name %>?</h2>
+<% if @user.admin? then %>
+	<p class="warning">This user is an administrator.</p>
+<% end %>
+<%= form_tag(user_path(@user), method: 'delete') do %>
+	<p>
+		<%= submit_tag "Delete" %>
+		or <%= link_to "cancel", users_path %>
+	</p>
+<% end %>
+

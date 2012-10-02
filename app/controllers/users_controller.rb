@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:update, :edit, :index, :destroy]
+  before_filter :signed_in_user, only: [:update, :edit, :index, :destroy, :confirm_destroy]
   before_filter :correct_user, only: [:update, :edit, :destroy, :confirm_destroy]
   #before_filter :admin_user, only: [:destroy, :confirm_destroy]
 
@@ -62,6 +62,6 @@ class UsersController < ApplicationController
 	end
   end
   def admin_user
-	redirect_to root_path notice: "Only adminiistrators can do that." unless current_user.admin?
+	redirect_to root_path notice: "Only administrators can do that." unless current_user.admin?
   end
 end

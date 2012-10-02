@@ -24,7 +24,7 @@ module SessionsHelper
 		@current_user ||=User.find_by_remember_token(cookies[:remember_token])
 	end
 	def current_user?(user)
-		@current_user = u
+		@current_user == user
 	end
 
 	#if the user needs to be logged in (but is not), this function redirects to the
