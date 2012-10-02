@@ -1,0 +1,59 @@
+/******************************************   B O D Y   ******************************************/
+
+    body {
+        margin: 0;
+        vertical-align: top;
+    }
+  
+/******************************   G L O B A L E R   W R A P P E R   ******************************/
+
+    .wrap-all {
+        margin: 0;
+        width: 100%;    /* Füllt das gesamte Browserfenster aus */
+        height: 100%;
+    }
+    
+/****************************************   W R A P P E R   **************************************/
+
+    .wrapper {
+        margin: 0 auto 0 auto;  /* Zentriert die Website */
+        width: 820px;    /* Breite der Website */
+        height: 100%;
+        text-align: left;
+    }
+    
+/*****************************************   H E A D E R   ***************************************/
+
+    .wrapper .header {
+        width: inherit;
+    }
+    
+/****************************************   B A N N E R   ****************************************/
+
+    .wrapper .header .banner {
+        width: inherit;
+    }
+
+/************************************   N A V I G A T I O N    ***********************************/
+
+    .wrapper .header .navigation {
+        width: inherit;
+    }
+    
+/*******************************   C O N T E N T - W R A P P E R   *******************************/
+
+    .wrapper .content {
+        width: inherit;
+    }
+    
+/*************************************   W I D G E T B A R   *************************************/
+
+    .wrapper .widgetbar {
+        width: inherit;
+    }
+
+/****************************************   F O O T E R   ****************************************/
+
+    .wrapper .footer {
+        width: inherit;
+    }
