@@ -1,2 +1,9 @@
-<h1>Blogposts#confirm_destroy</h1>
-<p>Find me in app/views/blogposts/confirm_destroy.html.erb</p>
+<% provide :title, "Delete Post: #{@blogpost.caption}" %>
+<h1>Delete Post: <%= @blogpost.caption %></h1>
+<%= form_tag(blogpost_path(@blogpost), method: 'delete') do %>
+	<p>
+		<%= submit_tag "Delete this post" %>
+		or <%= link_to "cancel", root_path %>
+	</p>
+<% end %>
+<%= render @blogpost %>

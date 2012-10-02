@@ -37,6 +37,15 @@ module SessionsHelper
 		end
 	end
 
+	#if the user
+	def author_user
+		redirect_to root_path, notice: "You are no author in this blog." unless current_user.author?
+  	end
+
+	def admin_user
+		redirect_to root_path, notice: "Only administrators can do that." unless current_user.admin?
+	end
+
 	#redirect to the stored location (if there is one)
 	def redirect_back_or(default)
 		redirect_to(session[:return_to] || default)
