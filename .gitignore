@@ -16,3 +16,6 @@
 
 #ignore vim swp files
 *.swp
+
+#ignore uploaded files
+hosted_files/*
