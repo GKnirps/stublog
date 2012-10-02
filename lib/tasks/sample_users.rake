@@ -8,8 +8,13 @@ namespace :db do
 					password_confirmation: "foobar")
 		admin.toggle!(:admin)
 		#new author user
-		author = User.create!(	name: "Author",
-					email: "author@strangerthanusual.de",
+		author = User.create!(	name: "Author1",
+					email: "author1@strangerthanusual.de",
+					password: "foobar",
+					password_confirmation: "foobar")
+		author.toggle!(:author)
+		author = User.create!(	name: "Author2",
+					email: "author2@strangerthanusual.de",
 					password: "foobar",
 					password_confirmation: "foobar")
 		author.toggle!(:author)

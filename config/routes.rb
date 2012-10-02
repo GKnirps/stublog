@@ -1,4 +1,12 @@
 Stublog::Application.routes.draw do
+  get "blogposts/create"
+
+  get "blogposts/destroy"
+
+  get "blogposts/confirm_destroy"
+
+  get "blogposts/new"
+
   resources :users do
   	#Add a rout for confirm destroy (I don't want to use JS)
   	member do
