@@ -1,17 +1,24 @@
 <div class="header">
-	<ul>
-		<li><%= link_to "Home", home_path %> </li>
-		<li><%= link_to "Archive", blogposts_path %></li>
-		<li><%= link_to "Contact", contact_path %> </li>
-		<% if signed_in? then %>
-			<% if current_user.author? then %>
-				<li><%= link_to "New Post", new_blogpost_path %></li>
-			<% end %>
-			<li><%= link_to "Users", users_path %></li>
-			<li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
-			<li><%= link_to "Sign out", signout_path %></li>
-		<% else %>
-			<li><%= link_to "Sign in", signin_path %></li>
-		<% end %>
-	</ul>
+    
+    <div class="banner">
+    </div>
+    
+    <div class="navigation">
+    	<ul class="">
+    		<li><%= link_to "Home", home_path %> </li>
+    		<li><%= link_to "Archive", blogposts_path %></li>
+    		<li><%= link_to "Contact", contact_path %> </li>
+    		<% if signed_in? then %>
+    			<% if current_user.author? then %>
+    				<li><%= link_to "New Post", new_blogpost_path %></li>
+    			<% end %>
+    			<li><%= link_to "Users", users_path %></li>
+    			<li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+    			<li><%= link_to "Sign out", signout_path %></li>
+    		<% else %>
+    			<li><%= link_to "Sign in", signin_path %></li>
+    		<% end %>
+    	</ul>
+    </div>
+    
 </div>

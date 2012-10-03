@@ -19,3 +19,6 @@
 
 #ignore uploaded files
 hosted_files/*
+
+#ignore OS X's .DS_Store
+.DS_Store
