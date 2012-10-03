@@ -1,0 +1,17 @@
+<% provide :title, "Edit file details" %>
+<h1>Upload a file</h1>
+<div class="edit_file">
+<%= form_for(@hosted_file) do |f| %>
+	<%= render 'shared/error_messages', object: @hosted_file %>
+
+	<p class="description">
+		<%= f.label :descripton, "File Description" %>
+		<%= f.text_area :description %>
+	</p>
+	<%= f.label :public, "File is public?" %>
+	<%= f.check_box :public %>
+
+	<%= f.submit "Update", class: "submit_button" %>
+
+<% end %>
+</div>
