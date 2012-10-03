@@ -3,6 +3,7 @@
     body {
         margin: 0;
         vertical-align: top;
+        background-color: #fffff6;
     }
   
 /******************************   G L O B A L E R   W R A P P E R   ******************************/
@@ -17,9 +18,18 @@
 
     .wrapper {
         margin: 0 auto 0 auto;  /* Zentriert die Website */
+        padding: 0 10px 0 10px; /* Abstand der Rahmen zum Content (Wird zur width hinzugerechnet) */
         width: 820px;    /* Breite der Website */
         height: 100%;
         text-align: left;
+        
+        border-left-style: solid;
+        border-left-width: 1px;
+        border-left-color: #80bb66;
+        
+        border-right-style: solid;
+        border-right-width: 1px;
+        border-right-color: #80bb66;
     }
     
 /*****************************************   H E A D E R   ***************************************/
@@ -37,15 +47,115 @@
 /************************************   N A V I G A T I O N    ***********************************/
 
     .wrapper .header .navigation {
-        width: inherit;
+        padding: 1px 5px 1px 5px; /* Raum um das Set der Navigations-Buttons */
     }
     
+    .header .navigation ul.main-nav {
+        width: inherit;
+        
+        /* Aus mir unerklärlichen Gründen werden diese Werte immer mit 40px vorbelegt. */
+        -webkit-padding-start: 0px;
+        -moz-padding-start: 0px;
+        padding-left: 0px;  /* Für den IE 8 & Opera */
+    }
+    
+    .header .navigation ul.main-nav li {
+        display: inline-block;  /* Ordnet die Buttons der Haupt-Navigation nebeneinander an */
+    }
+    
+    /* Element-Beschriftungen Inaktiv (Unbesucht & Besucht) */
+    ul.main-nav li a:link, ul.main-nav li a:visited {
+        font-family: Georgia, serif;
+        font-size: 1.5em;
+        color: #80bb66;
+        text-decoration: none;
+        
+        margin: 0 5px 0 5px;  /* Abstand zwischen den Elementen */
+    }
+    
+    /* Hover über aktivem Element */
+    ul.main-nav li a:hover {
+        color: #44bb11;
+        text-decoration: none;
+    }
+    
+    /* Login/Logout-Button */
+    ul.main-nav li.signinout {
+        float: right;   /* Platziert Login/out am rechten Rand der Navigation */
+    }
 /*******************************   C O N T E N T - W R A P P E R   *******************************/
 
     .wrapper .content {
         width: inherit;
+
+        padding-top: 30px;
     }
     
+    /* Überschriften über bestimmten Bereichen der Website */
+    h2.section-heading {
+        font-family: Georgia, serif;
+        font-size: 2em;
+        color: #80bb66;
+        
+        margin: 0 0 25px 10px;
+    }
+    
+    /* Ein einzelner Blogpost */
+    .wrapper .content .blogpost {
+        width: inherit;
+    }
+
+
+    /* Datum des Postings */
+    h3.postdate {
+        font-family: Georgia, serif;
+        font-size: .9em;
+        font-weight: normal;
+        
+        margin: 0 0 .5em 10px;
+    } 
+
+    /* Titel des Postings */
+    h3.posttitle {
+        font-family: Georgia, serif;
+        font-size: 1.4em;
+        
+        margin: 0 0 0 10px;
+    }
+    h3.posttitle a:link, h3.posttitle a:visited {
+        text-decoration: none;
+        color: #80bb66;
+    }
+    h3.posttitle a:hover {
+        text-decoration: underline;
+        color: #44bb11;
+    }
+    
+    /* Fließtext des Postings */
+    .blogpost .entry {
+        font-family: serif;
+
+        margin-top: 2em;
+        margin-bottom: 1.4em;
+    }
+    
+    /* Metadaten unter dem Posting */
+    .blogpost .metainfo {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: .6em;
+    }
+    
+    /* „Bearbeiten“ & „Löschen“ */
+    .blogpost .modify {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: .6em;
+    }
+
+/****************************   T E X T F O R M A T I E R U N G E N   ****************************/
+
+    /*** HIER KOMMEN DIE TEXTFORMATIERUNGEN HIN ***/
+    /*** BLOCKQUOTE, CODE, IMG, UL, OL ETC. ***/
+
 /*************************************   W I D G E T B A R   *************************************/
 
     .wrapper .widgetbar {

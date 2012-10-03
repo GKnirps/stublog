@@ -1,5 +1,5 @@
 <% provide :title, "edit post" %>
-<h1>Edit Post: <%= @blogpost.caption %></h1>
+<h2 class="section-heading">Edit Post: <%= @blogpost.caption %></h2>
 <div class="editpost">
 	<%= form_for(@blogpost) do |f| %>
 		<%= render "shared/error_messages", object: f.object %>

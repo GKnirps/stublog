@@ -1,21 +1,25 @@
 <div class="blogpost">
-	<div class="metainfo">
-		<div class="user"><%= blogpost.user.name %></div>
-		<div class="date"><%= blogpost.created_at %></div>
+    
+    <h3 class="postdate"><%= blogpost.created_at %></h3>
+    <h3 class="posttitle"><%= link_to blogpost.caption, blogpost_path(blogpost) %></h3>
+
+	<div class="entry">
+		<%= blogpost.content %>
 	</div>
+
+	<div class="metainfo">
+		<div class="postedby"><%= blogpost.user.name %></div>
+	</div>
+	
 	<% if current_user?(blogpost.user) or current_user and current_user.admin? then %>
 		<div class="modify">
 			<span class="edit_button">
 				<%= link_to "edit post", edit_blogpost_path(blogpost) %>
-			</span>
+			</span>|
 			<span>
 				<%= link_to "delete post", confirm_destroy_blogpost_path(blogpost) %>
 			</span>
 		</div>
 	<% end %>
-	<h3 class="caption"><%= link_to blogpost.caption, blogpost_path(blogpost) %></h3>
-	<p class="content">
-		<%= blogpost.content %>
-	</p>
-
+	
 </div>

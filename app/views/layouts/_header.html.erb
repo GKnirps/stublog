@@ -4,7 +4,7 @@
     </div>
     
     <div class="navigation">
-    	<ul class="">
+    	<ul class="main-nav">
     		<li><%= link_to "Home", home_path %> </li>
     		<li><%= link_to "Archive", blogposts_path %></li>
     		<li><%= link_to "Contact", contact_path %> </li>
@@ -14,9 +14,9 @@
     			<% end %>
     			<li><%= link_to "Users", users_path %></li>
     			<li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
-    			<li><%= link_to "Sign out", signout_path %></li>
+    			<li class="signinout"><%= link_to "Sign out", signout_path %></li>
     		<% else %>
-    			<li><%= link_to "Sign in", signin_path %></li>
+    			<li class="signinout"><%= link_to "Sign in", signin_path %></li>
     		<% end %>
     	</ul>
     </div>
