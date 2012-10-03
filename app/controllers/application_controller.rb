@@ -3,4 +3,7 @@ class ApplicationController < ActionController::Base
 
   #SessionHelper: functions to log in, out, see if someone is logged in etc.
   include SessionsHelper
+
+  #HostedFilesHelper: functions to save files etc.
+  include HostedFilesHelper
 end

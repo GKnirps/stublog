@@ -1,7 +1,8 @@
 Stublog::Application.routes.draw do
-  resources :uploaded_files do
+  resources :hosted_files do
 	member do
 		get 'confirm_destroy'
+		get 'download'
 	end
   end
   resources :blogposts do

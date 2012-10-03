@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121002192252) do
+ActiveRecord::Schema.define(:version => 20121003142723) do
 
   create_table "blogposts", :force => true do |t|
     t.string   "caption"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20121002192252) do
     t.boolean  "public"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "mime_type"
   end
 
   add_index "hosted_files", ["name"], :name => "index_hosted_files_on_name", :unique => true

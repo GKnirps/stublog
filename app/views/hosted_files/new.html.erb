@@ -1,0 +1,19 @@
+<% provide :title, "upload file" %>
+<h1>Upload a file</h1>
+<div class="upload">
+<%= form_tag(hosted_files_path, method: 'post', multipart: true) do %>
+	<%= render 'shared/error_messages', object: @hosted_file %>
+	
+	<p class="description">
+		<label for="description">File Description</label>
+		<%= text_field_tag :description %>
+	</p>
+
+	<label for="public">public file (unregistered users can see it)</label>
+	<%= check_box_tag :public %>
+
+	<p class="file_selection"><label for="upload_hosted_file">Select file</label>
+	<%= file_field_tag :file %></p>
+	<%= submit_tag "Upload" %>
+<% end %>
+</div>
