@@ -1,0 +1,9 @@
+<% provide :title, "upload file" %>
+<h1>Upload a file</h1>
+<div class="upload">
+<%= form_tag(uploaded_files_path, method: 'post') do %>
+	<p class="file_selection"><label for="upload_file">Select file</label>
+	<%= file_field 'upload', 'hosted_file' %></p>
+	<%= submit_tag "Upload" %>
+<% end %>
+</div>

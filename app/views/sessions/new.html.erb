@@ -2,13 +2,13 @@
 <h1>Sign in</h1>
 <div class=signin_form>
 	<%=form_tag(sessions_path, method: 'post') do %>
-		<label>Email</label>
+		<label for="email">Email</label>
 		<%= text_field_tag :email %>
 
-		<label>Password</label>
+		<label for="password">Password</label>
 		<%= password_field_tag :password %>
 
-		<label>Stay logged in</label>
+		<label for="permanent">Stay logged in</label>
 		<%= check_box_tag :permanent %>
 
 		<%= submit_tag "Sign in", class: "signin_button" %>

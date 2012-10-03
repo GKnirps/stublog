@@ -7,6 +7,5 @@ class HostedFile < ActiveRecord::Base
 	#each file belongs to a user
 	belongs_to :user
 
-	FILE_DIRECTORY = 'hosted_files'
 
 end
