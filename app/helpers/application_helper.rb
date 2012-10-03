@@ -8,4 +8,9 @@ module ApplicationHelper
 			return "#{base_title} - #{page_title}"
 		end
 	end
+
+	#return nicely formatted date
+	def format_date(date)
+		return "#{date.mday}.#{date.mon}.#{date.year}  #{date.hour}:#{date.min}"
+	end
 end
