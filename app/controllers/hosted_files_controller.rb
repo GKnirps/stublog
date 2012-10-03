@@ -36,6 +36,15 @@ class HostedFilesController < ApplicationController
   	@hosted_file = HostedFile.find(params[:id])
   end
 
+  def update
+	if @hosted_file.update_attributes(params[:hosted_file]) then
+		flash[:success] = "File attributes updated"
+		redirect_to @hosted_file
+	else
+		render 'edit'
+	end
+  end
+
   def index
   	@hosted_files = HostedFile.paginate(page: params[:page])
   end
