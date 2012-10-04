@@ -9,7 +9,7 @@
 		<%= blogpost.content %>
 	</div>
 
-	<% if current_user?(blogpost.user) or current_user and current_user.admin? then %>
+	<% if current_user?(blogpost.user) or (current_user and current_user.admin?) then %>
 		<div class="modify">
 			<span class="edit_button">
 				<%= link_to "edit post", edit_blogpost_path(blogpost) %>
