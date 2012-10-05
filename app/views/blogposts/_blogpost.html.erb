@@ -6,7 +6,7 @@
 		<div class="postedby">by: <%= blogpost.user.name %></div>
 	</div>
 	<div class="entry">
-		<%= blogpost.content %>
+		<%= bbparse(blogpost.content) %>
 	</div>
 
 	<% if current_user?(blogpost.user) or (current_user and current_user.admin?) then %>

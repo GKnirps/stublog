@@ -49,3 +49,6 @@ gem 'faker'
 
 #for pagination
 gem 'will_paginate'
+
+#bb-code parser
+gem 'rbbcode'
