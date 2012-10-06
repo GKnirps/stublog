@@ -1,5 +1,5 @@
 <% provide :title, "Delete Post: #{@blogpost.caption}" %>
-<h1>Delete Post: <%= @blogpost.caption %></h1>
+<h2 class="section-heading">Delete Post: <%= @blogpost.caption %></h2>
 <%= form_tag(blogpost_path(@blogpost), method: 'delete') do %>
 	<p>
 		<%= submit_tag "Delete this post" %>

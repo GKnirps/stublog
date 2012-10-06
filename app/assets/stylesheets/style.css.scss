@@ -83,6 +83,7 @@
     ul.main-nav li.signinout {
         float: right;   /* Platziert Login/out am rechten Rand der Navigation */
     }
+
 /*******************************   C O N T E N T - W R A P P E R   *******************************/
 
     .wrapper .content {
@@ -97,23 +98,20 @@
         font-size: 2em;
         color: #80bb66;
         
-        margin: 0 0 25px 10px;
+        margin: 0 0 60px 10px;
+    }
+    
+    /* Artikel Vor/Zurück */
+    .wrapper .content .pagination {
+        text-align: right;
     }
     
     /* Ein einzelner Blogpost */
     .wrapper .content .blogpost {
         width: inherit;
-    }
-
-
-    /* Datum des Postings */
-    h3.postdate {
-        font-family: Georgia, serif;
-        font-size: .9em;
-        font-weight: normal;
         
-        margin: 0 0 .5em 10px;
-    } 
+        padding-bottom: 40px;
+    }
 
     /* Titel des Postings */
     h3.posttitle {
@@ -130,12 +128,21 @@
         text-decoration: underline;
         color: #44bb11;
     }
+
+    /* Datum des Postings */
+    h3.postdate {
+        font-family: Georgia, serif;
+        font-size: .9em;
+        font-weight: normal;
+        
+        margin: 0 0 0 10px;
+    } 
     
     /* Fließtext des Postings */
     .blogpost .entry {
         font-family: serif;
 
-        margin-top: 2em;
+        margin-top: .8em;
         margin-bottom: 1.4em;
     }
     
@@ -166,4 +173,38 @@
 
     .wrapper .footer {
         width: inherit;
+    }
+    
+/********************************   L O G I N - F O R M U L A R   ********************************/
+
+    .wrapper .content .sign-in-form {
+        width: 200px;
+        margin: 0 auto 0 auto;
+        text-align: right;
+    }
+    
+    .wrapper .content .new-user-form {
+        width: 300px;
+        margin: 0 auto 0 auto;
+        text-align: right;
+    }
+    
+/*****************************   B E I T R A G   V E R F A S S E N   *****************************/
+
+    .wrapper .content .editpost {
+        
+    }
+    
+    .editpost form input#blogpost_caption {
+        width: 400px;
+    }
+    
+    .editpost form .field textarea#blogpost_content {
+        width: 600px;
+    }
+    
+/* F E H L E R   &   W A R N U N G E N   */
+
+    .warning {
+        color: #bb5811;
     }

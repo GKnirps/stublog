@@ -1,21 +1,20 @@
-<div class="file">
-	<h3>File: <%= hosted_file.name %></h3>
-	<p class="file_description">
-		<%= hosted_file.description %>
-		<p class="public">
-			<%= "Public file" if hosted_file.public? %>
-		</p>
-		<p class="content_type">
-			<%= hosted_file.mime_type %>
-		</p>
-		<p class="download">
-			<%= link_to "Download", download_hosted_file_path(hosted_file) %>
-		</p>
-		<% if signed_in? and (current_user.admin? or current_user.id == hosted_file.user_id) then %>
-			<p class="modify">
-				<%= link_to "Delete file", confirm_destroy_hosted_file_path(hosted_file) %>
-				<%= link_to "Modify file", edit_hosted_file_path(hosted_file) %>
-			</p>
-		<% end %>
+<% provide :title, "File: #{@hosted_file.name}" %>
+<h2 class="section-heading">File: <%= hosted_file.name %></h2>
+<p class="file_description">
+	<%= hosted_file.description %>
+	<p class="public">
+		<%= "Public file" if hosted_file.public? %>
 	</p>
-</div>
+	<p class="content_type">
+		<%= hosted_file.mime_type %>
+	</p>
+	<p class="download">
+		<%= link_to "Download", download_hosted_file_path(hosted_file) %>
+	</p>
+	<% if signed_in? and (current_user.admin? or current_user.id == hosted_file.user_id) then %>
+		<p class="modify">
+			<%= link_to "Delete file", confirm_destroy_hosted_file_path(hosted_file) %>
+			<%= link_to "Modify file", edit_hosted_file_path(hosted_file) %>
+		</p>
+	<% end %>
+</p>

@@ -1,5 +1,5 @@
 <% provide :title, "Delete File: #{@hosted_file.name}" %>
-<h1>Delete File: <%= @hosted_file.name %></h1>
+<h2 class="section-heading">Delete File: <%= @hosted_file.name %></h2>
 <%= form_tag(hosted_file_path(@hosted_file), method: 'delete') do %>
 	<p>
 		<%= submit_tag "Delete this file from server" %>

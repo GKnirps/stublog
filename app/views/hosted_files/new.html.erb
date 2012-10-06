@@ -1,5 +1,5 @@
-<% provide :title, "upload file" %>
-<h1>Upload a file</h1>
+<% provide :title, "Upload File" %>
+<h2 class="section-heading">Upload a file</h2>
 <div class="upload">
 <%= form_tag(hosted_files_path, method: 'post', multipart: true) do %>
 	<%= render 'shared/error_messages', object: @hosted_file %>

@@ -1,4 +1,4 @@
-<%= provide :title, "delete user #{@user.name}" %>
+<%= provide :title, "Delete User #{@user.name}" %>
 <h2 class="section-heading">Delete user <%= @user.name %>?</h2>
 <% if @user.admin? then %>
 	<p class="warning">This user is an administrator.</p>
@@ -9,4 +9,3 @@
 		or <%= link_to "cancel", users_path %>
 	</p>
 <% end %>
-
