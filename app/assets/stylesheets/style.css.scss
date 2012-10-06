@@ -5,6 +5,16 @@
         vertical-align: top;
         background-color: #fffff6;
     }
+    
+    /* Grundformatierung sämtlicher Links */
+    a:link, a:active, a:visited {
+        text-decoration: none;
+        color: #80bb66;
+    }
+    a:hover {
+        text-decoration: underline;
+        color: #44bb11;
+    }
   
 /******************************   G L O B A L E R   W R A P P E R   ******************************/
 
@@ -38,6 +48,16 @@
         width: inherit;
     }
     
+    h1 {
+        font-family: Georgia, serif;
+        font-size: 3em;
+        color: #80bb66;
+        text-align: center;
+        
+        margin: 0;
+        padding: 30px 0 40px 0;
+    }
+    
 /****************************************   B A N N E R   ****************************************/
 
     .wrapper .header .banner {
@@ -48,6 +68,8 @@
 
     .wrapper .header .navigation {
         padding: 1px 5px 1px 5px; /* Raum um das Set der Navigations-Buttons */
+        border-top: solid 1px #80bb66;
+        border-bottom: solid 1px #80bb66;
     }
     
     .header .navigation ul.main-nav {
@@ -67,15 +89,12 @@
     ul.main-nav li a:link, ul.main-nav li a:visited {
         font-family: Georgia, serif;
         font-size: 1.5em;
-        color: #80bb66;
-        text-decoration: none;
         
         margin: 0 5px 0 5px;  /* Abstand zwischen den Elementen */
     }
     
     /* Hover über aktivem Element */
     ul.main-nav li a:hover {
-        color: #44bb11;
         text-decoration: none;
     }
     
@@ -120,14 +139,6 @@
         
         margin: 0 0 0 10px;
     }
-    h3.posttitle a:link, h3.posttitle a:visited {
-        text-decoration: none;
-        color: #80bb66;
-    }
-    h3.posttitle a:hover {
-        text-decoration: underline;
-        color: #44bb11;
-    }
 
     /* Datum des Postings */
     h3.postdate {
@@ -147,15 +158,24 @@
     }
     
     /* Metadaten unter dem Posting */
-    .blogpost .metainfo {
-        font-family: Helvetica, Arial, sans-serif;
-        font-size: .6em;
+    .blogpost .metainfo span {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 10px;
     }
     
     /* „Bearbeiten“ & „Löschen“ */
-    .blogpost .modify {
-        font-family: Helvetica, Arial, sans-serif;
-        font-size: .6em;
+    .blogpost .modify span, .blogpost .modify span a:link, .blogpost .modify span a:active, .blogpost .modify span a:visited {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 10px;
+        color: #000000;
+        text-decoration: none;
+    }
+    .blogpost .modify span.edit a:hover {
+        text-decoration: underline;
+    }
+    .blogpost .modify span.delete a:hover {
+        text-decoration: underline;
+        color: #bb1129;
     }
 
 /****************************   T E X T F O R M A T I E R U N G E N   ****************************/
@@ -177,16 +197,45 @@
     
 /********************************   L O G I N - F O R M U L A R   ********************************/
 
+    /* Login-Formular */
     .wrapper .content .sign-in-form {
-        width: 200px;
-        margin: 0 auto 0 auto;
-        text-align: right;
+        width: 170px;
+        margin: 0 auto 70px auto;
+        padding: 15px 20px;
+                
+        border: #80bb66 1px dashed;
+    }
+    .sign-in-form .email {
+        padding-bottom: 10px;
+    }
+    .sign-in-form .email input {
+        width: 165px;
+    }
+    .sign-in-form .password {
+        padding-bottom: 20px;
+    }
+    .sign-in-form .password input {
+        width: 165px;
+    }
+    .sign-in-form .permanent {
+        padding-bottom: 20px;
+    }
+    .sign-in-form .sign-in {
+        float: right;
+        padding-bottom: 30px;
+    }
+    .sign-in-form .new-user {
+        clear: both;
     }
     
+    /* Formular um neuen Benutzer anzulegen */
     .wrapper .content .new-user-form {
-        width: 300px;
-        margin: 0 auto 0 auto;
+        width: 280px;
+        margin: 0 auto 60px auto;
         text-align: right;
+        padding: 15px 20px;
+
+        border: #80bb66 1px dashed;
     }
     
 /*****************************   B E I T R A G   V E R F A S S E N   *****************************/
@@ -203,8 +252,45 @@
         width: 600px;
     }
     
-/* F E H L E R   &   W A R N U N G E N   */
+/*************************************   E D I T   U S E R   *************************************/
 
-    .warning {
+    /* User-Löschen-Link */
+    .edit-user span.delete a:link, .edit-user span.delete a:active, .edit-user span.delete a:visited {
+        color: #bb1129;
+        text-decoration: none;
+    }
+    .edit-user span.delete a:hover {
+        color: #bb1129;
+        text-decoration: underline;
+    }
+
+/**********************************   M I T T E I L U N G E N   **********************************/
+
+    /* Nachricht mit orange gestricheltem Rahmen */
+    .message {
+        text-align: center;
+        
+        border: #bb5811 1px dashed; /* orange */
+        width: 400px;
+        padding: 20px 15px;
+        margin: 0 auto 60px auto;
+    }
+    
+    .message .message-text {
         color: #bb5811;
+    }
+    
+    .message span.cancel-delete, .message span.cancel-delete a:link, .message span.cancel-delete a:visited, .message span.cancel-delete a:active {
+        color: #000000;
+        text-decoration: underline;
+    }
+    
+    /* Nachricht mit grün gestricheltem Rahmen */
+    .alert-success {
+        text-align: center;
+
+        border: #80bb66 1px dashed; /* grün */
+        width: 400px;
+        padding: 15px 20px;
+        margin: 60px auto 40px auto;
     }

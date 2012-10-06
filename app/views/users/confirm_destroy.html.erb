@@ -1,11 +1,12 @@
 <%= provide :title, "Delete User #{@user.name}" %>
 <h2 class="section-heading">Delete user <%= @user.name %>?</h2>
 <% if @user.admin? then %>
-	<p class="warning">This user is an administrator.</p>
+	<div class="warning">This user is an administrator.</div>
 <% end %>
 <%= form_tag(user_path(@user), method: 'delete') do %>
-	<p>
-		<%= submit_tag "Delete" %>
-		or <%= link_to "cancel", users_path %>
-	</p>
+	<div class="message">
+	   <div class="message-text">Do you really want to delete the user <%= @user.name %>?</div><br /><br />
+		<%= submit_tag "Delete this user" %>
+		or <span class="cancel-delete"><%= link_to "cancel", users_path %></span>
+	</div>
 <% end %>

@@ -6,18 +6,20 @@
 		<%= bbparse(blogpost.content) %>
 	</div>
 	<div class="metainfo">
-		<div class="postedby">by: <%= blogpost.user.name %></div>
+		<span>by: <%= blogpost.user.name %></span>
+		
+    	<% if current_user?(blogpost.user) or (current_user and current_user.admin?) then %>
+    		<span class="modify">
+        		//
+    			<span class="edit">
+    				<%= link_to "edit post", edit_blogpost_path(blogpost) %>
+    			</span>
+    			<span>|</span>
+    			<span class="delete">
+    				<%= link_to "delete post", confirm_destroy_blogpost_path(blogpost) %>
+    			</span>
+    		</span>
+    	<% end %>
 	</div>
 
-	<% if current_user?(blogpost.user) or (current_user and current_user.admin?) then %>
-		<div class="modify">
-			<span class="edit_button">
-				<%= link_to "edit post", edit_blogpost_path(blogpost) %>
-			</span>|
-			<span>
-				<%= link_to "delete post", confirm_destroy_blogpost_path(blogpost) %>
-			</span>
-		</div>
-	<% end %>
-	
 </div>

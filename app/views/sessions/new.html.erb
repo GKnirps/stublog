@@ -1,18 +1,26 @@
 <% provide :title, "Sign in" %>
 <h2 class="section-heading">Sign in</h2>
 <div class="sign-in-form">
-	<%=form_tag(sessions_path, method: 'post') do %>
-		<label for="email">Email</label>
-		<%= text_field_tag :email %> <br />
+    <%=form_tag(sessions_path, method: 'post') do %>
+        <div class="email">
+            <label for="email">Email</label><br />
+            <%= text_field_tag :email %> <br />
+        </div>
 
-		<label for="password">Password</label>
-		<%= password_field_tag :password %> <br />
+		<div class="password">
+    		<label for="password">Password</label><br />
+    		<%= password_field_tag :password %> <br />
+		</div>
+		
+		<div class="permanent">
+    		<label for="permanent">Want to stay logged in?</label>
+    		<%= check_box_tag :permanent %><br />
+		</div>
 
-		<label for="permanent">Stay logged in</label>
-		<%= check_box_tag :permanent %> <br />
-
-		<%= submit_tag "Sign in", class: "sign-in-button" %>
+		<div class="sign-in">
+    		<%= submit_tag "Sign in", class: "sign-in-button" %>
+		</div>
 	<% end %>
 
-	<p>New user? <%= link_to "Create account", signup_path %></p>
+	<div class="new-user">New user? <%= link_to "Create account", signup_path %></div>
 </div>

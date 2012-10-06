@@ -1,9 +1,11 @@
 <% provide :title, "Delete Post: #{@blogpost.caption}" %>
 <h2 class="section-heading">Delete Post: <%= @blogpost.caption %></h2>
 <%= form_tag(blogpost_path(@blogpost), method: 'delete') do %>
-	<p>
+	<div class="message">
+        <div class="message-text">Do you really want to delete this post?</div><br /><br />
 		<%= submit_tag "Delete this post" %>
-		or <%= link_to "cancel", root_path %>
-	</p>
+		 or 
+		<span class="cancel-delete"><%= link_to "cancel", root_path %></span>
+	</div>
 <% end %>
 <%= render @blogpost %>
