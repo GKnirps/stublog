@@ -4,6 +4,7 @@
         margin: 0;
         vertical-align: top;
         background-color: #fffff6;
+        height: 100%;
     }
     
     /* Grundformatierung sämtlicher Links */
@@ -48,6 +49,7 @@
         width: inherit;
     }
     
+    /* Blog-Überschrift */
     h1 {
         font-family: Georgia, serif;
         font-size: 3em;
@@ -56,6 +58,9 @@
         
         margin: 0;
         padding: 30px 0 40px 0;
+    }
+    h1 a:hover {
+        text-decoration: none;
     }
     
 /****************************************   B A N N E R   ****************************************/
@@ -102,7 +107,7 @@
     ul.main-nav li.signinout {
         float: right;   /* Platziert Login/out am rechten Rand der Navigation */
     }
-
+    
 /*******************************   C O N T E N T - W R A P P E R   *******************************/
 
     .wrapper .content {
@@ -194,8 +199,8 @@
     .wrapper .footer {
         width: inherit;
     }
-    
-/********************************   L O G I N - F O R M U L A R   ********************************/
+
+/**********************************   L O G I N / L O G O U T   **********************************/
 
     /* Login-Formular */
     .wrapper .content .sign-in-form {
@@ -266,31 +271,40 @@
 
 /**********************************   M I T T E I L U N G E N   **********************************/
 
-    /* Nachricht mit orange gestricheltem Rahmen */
-    .message {
+    /* Alerts generell */
+    .alert {
         text-align: center;
         
-        border: #bb5811 1px dashed; /* orange */
+        border-style: dashed;
+        border-width: 1px;
         width: 400px;
         padding: 20px 15px;
-        margin: 0 auto 60px auto;
     }
     
-    .message .message-text {
+    /* Fehlermeldung mit Rot gestricheltem Rahmen */
+    .alert-error, .alert-notice {
+        color: #bb1129;
+        
+        border-color: #bb1129; /* rot */
+        margin: 50px auto 30px auto;
+    }
+
+    /* Nachricht mit orange gestricheltem Rahmen */
+    .alert-message {        
+        border-color: #bb5811; /* orange */
+        margin: 0 auto 60px auto;
+    }
+    .alert-message .message-text {
         color: #bb5811;
     }
     
-    .message span.cancel-delete, .message span.cancel-delete a:link, .message span.cancel-delete a:visited, .message span.cancel-delete a:active {
+    .alert-message span.cancel-delete, .alert-message span.cancel-delete a:link, .alert-message span.cancel-delete a:visited, .alert-message span.cancel-delete a:active {
         color: #000000;
         text-decoration: underline;
     }
     
     /* Nachricht mit grün gestricheltem Rahmen */
     .alert-success {
-        text-align: center;
-
-        border: #80bb66 1px dashed; /* grün */
-        width: 400px;
-        padding: 15px 20px;
+        border-color: #80bb66; /* grün */
         margin: 60px auto 40px auto;
     }
