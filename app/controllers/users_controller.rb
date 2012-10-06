@@ -36,9 +36,14 @@ class UsersController < ApplicationController
   end
 
   def index
-  	#only show user list if logged in
-  	signed_in_user
-  	@users = User.paginate(:page => params[:page])
+  	per_page = 30
+  	@users = User.paginate(page: params[:page], per_page: per_page)
+	#if this is not page 1, do not count the users from one
+	@count = 1
+	if params[:page] then
+		@count = per_page*(Integer(params[:page])-1)+1
+	end
+		
   end
 
   def destroy
