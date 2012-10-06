@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(params[:user])
 	if @user.save then
-		flash[:succes] = "Welcome to Stranger Than Usual"
+		flash[:success] = "Welcome to Stranger Than Usual"
 		redirect_to @user
 	else
 		render 'new'
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
   def update
   	if @user.update_attributes(params[:user]) then
-		flash[:succes] = "Profile Information updated."
+		flash[:success] = "Profile Information updated."
 		sign_in @user, false 
 		redirect_to @user
 	else
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   def destroy
   	u = User.find(params[:id])
 	u.destroy
-	flash[:succes] = "User #{u.name} deleted"
+	flash[:success] = "User #{u.name} deleted"
 	if current_user.admin? then
 		redirect_to users_url
 	else
