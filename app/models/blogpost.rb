@@ -3,6 +3,8 @@ class Blogpost < ActiveRecord::Base
 
   #exactly one user created a one blogpost
   belongs_to :user
+  #belongs to a category. If category is nil, the post should be marked as "uncategorized"
+  belongs_to :category
   #can has many tags
   has_many :post_tag_relationships, dependent: :destroy
   has_many :tags, through: :post_tag_relationships
