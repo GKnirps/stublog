@@ -10,6 +10,10 @@
 		<div class="field">
 			<%= f.text_area :content, placeholder: "Post content" %>
 		</div>
+
+		<%= label_tag :tags, "Tags, separated by commas" %>
+		<%= text_field_tag :tags %>
+
 		<%= f.submit "Create", class: "submit_button" %>
 	<% end %>
 </div>

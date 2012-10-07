@@ -22,6 +22,7 @@ class BlogpostsController < ApplicationController
   def create
   	@blogpost = current_user.blogposts.new(params[:blogpost])
 	if @blogpost.save then
+		@blogpost.add_taglist!(params[:tags])
 		flash[:success] = "New Blogpost published"
 		redirect_to @blogpost
 	else
@@ -40,10 +41,27 @@ class BlogpostsController < ApplicationController
 
   def edit
   	@blogpost = Blogpost.find(params[:id])
+	tags = []
+	@blogpost.tags.each do |tag|
+		tags.push tag.name
+	end
+	@tags = tags.join(", ")
   end
 
   def update
   	if @blogpost.update_attributes(params[:blogpost]) then
+		newtags = params[:tags].split(/\s*,\s*/)
+		oldtags = @blogpost.tags.map {|t| t.name}
+		
+		#add new tags
+		(newtags-oldtags).each do |tag|
+			@blogpost.add_tag!(tag)
+		end
+		#delete tags that are no longer valid
+		(oldtags-newtags).each do |tag|
+			@blogpost.destroy_tag_relationship!(tag)
+		end
+
 		flash[:success] = "Blogpost updated."
 		redirect_to @blogpost
 	else

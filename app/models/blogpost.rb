@@ -16,7 +16,7 @@ class Blogpost < ActiveRecord::Base
   default_scope order: 'blogposts.created_at DESC'
 
   def add_tag!(tag)
-  	t = Tag.find_by_name(tag)
+  	t = Tag.find_by_name(tag.downcase)
 	if not t then
 		t = Tag.create(name: tag.downcase)
 	end
@@ -27,6 +27,12 @@ class Blogpost < ActiveRecord::Base
   def add_taglist!(taglist)
 	taglist.split(/\s*,\s*/).each do |tag|
 		add_tag!(tag)
+	end
+  end
+  def destroy_tag_relationship!(tag)
+	t = Tag.find_by_name(tag.downcase)
+	if t and rel = post_tag_relationships.find_by_tag_id(t.id) then
+		rel.destroy
 	end
   end
 end
