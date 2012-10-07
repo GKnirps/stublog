@@ -1,5 +1,6 @@
 <% provide :title, "all users" %>
 <h2 class="section-heading">All users</h2>
+<div class="paginate"><%= will_paginate %></div>
 <ol start="<%= @count %>">
 	<%= render @users %>
 </ol>

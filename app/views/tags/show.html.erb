@@ -1,0 +1,10 @@
+<% provide :title, "Tag: #{@tag.name}" %>
+<h2 class="section-heading">There are <%= @tag.blogposts.count %> posts with tag "<%= @tag.name %>"</h2>
+<div class="paginate"><%= will_paginate(@blogposts) %></div>
+<ul>
+	<% @blogposts.each do |blogpost| %>
+		<li><%= link_to blogpost.caption, blogpost_path(blogpost) %></li>
+	<% end %>
+</ul>
+<div class="paginate"><%= will_paginate(@blogposts) %></div>
+<p><%= link_to "All Tags", tags_path %></p>

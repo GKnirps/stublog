@@ -1,8 +1,9 @@
 class TagsController < ApplicationController
 	def show
-		@tag = Tags.find(params[:id])
+		@tag = Tag.find(params[:id])
+  		@blogposts = @tag.blogposts.paginate(:page => params[:page])
 	end
 	def index
-		@tags = Tags.all
+		@tags = Tag.order("name")
 	end
 end
