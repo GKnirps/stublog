@@ -1,7 +1,7 @@
 <% provide :title, "Delete Post: #{@blogpost.caption}" %>
 <h2 class="section-heading">Delete Post: <%= @blogpost.caption %></h2>
 <%= form_tag(blogpost_path(@blogpost), method: 'delete') do %>
-	<div class="message">
+	<div class="alert alert-message">
         <div class="message-text">Do you really want to delete this post?</div><br /><br />
 		<%= submit_tag "Delete this post" %>
 		 or 
