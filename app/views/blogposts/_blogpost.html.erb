@@ -5,8 +5,10 @@
 	<div class="entry">
 		<%= bbparse(blogpost.content) %>
 	</div>
-	<div class="tags">
-		<%= blogpost.tags.join(", ") %>
+	<div class="tags">Tags:
+		<% blogpost.tags.each do |tag| %>
+			<%= link_to tag.name, tag_path(tag) %>
+		<% end %>
 	</div>
 	<div class="metainfo">
 		<span>by: <%= blogpost.user.name %></span>
