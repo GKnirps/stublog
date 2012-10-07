@@ -5,10 +5,15 @@
 	<div class="entry">
 		<%= bbparse(blogpost.content) %>
 	</div>
-	<div class="tags">Tags:
-		<% blogpost.tags.each do |tag| %>
-			<%= link_to tag.name, tag_path(tag) %>
+	<div class="category">
+		<% if blogpost.category then %>
+			Posted in: <%= link_to blogpost.category.name, category_path(blogpost.category) %>
+		<% else %>
+			Uncategorized
 		<% end %>
+	</div>
+	<div class="tags">Tags:
+		<%= (blogpost.tags.map {|t| link_to t.name, tag_path(t)}).join(", ").html_safe %>
 	</div>
 	<div class="metainfo">
 		<span>by: <%= blogpost.user.name %></span>

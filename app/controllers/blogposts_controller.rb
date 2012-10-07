@@ -9,6 +9,7 @@ class BlogpostsController < ApplicationController
 
   def new
   	@blogpost = current_user.blogposts.new
+	@categories = Category.all
   end
 
   def show
@@ -41,6 +42,9 @@ class BlogpostsController < ApplicationController
 
   def edit
   	@blogpost = Blogpost.find(params[:id])
+	@categories = Category.all
+	@category_selection_params = {prompt: true}
+	@category_selection_params = {selected: @blogpost.category} if @blogpost.category
 	tags = []
 	@blogpost.tags.each do |tag|
 		tags.push tag.name

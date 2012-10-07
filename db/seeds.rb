@@ -35,6 +35,13 @@ puts "Admin and authors created"
 end
 puts "Sample users created"
 
+#add sample categories
+6.times do |n|
+	Category.create!( name: "Cat #{n}" )
+end
+
+categories = Category.all
+
 #add sample posts with tags
 #sample tags
 tags = Faker::Lorem.words(10)
@@ -44,7 +51,7 @@ users = User.where(author: true)
 	caption = Faker::Lorem.sentence(3)
 	content = Faker::Lorem.paragraph(6)
 	users.each do |user|
-		p = user.blogposts.create!(content: content, caption: caption)
+		p = user.blogposts.create!(content: content, caption: caption, category_id: categories.sample.id)
 		taglist = tags.sample(3).join(",")
 		p.add_taglist! taglist
 	end

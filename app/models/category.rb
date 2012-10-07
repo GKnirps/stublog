@@ -14,7 +14,7 @@ class Category < ActiveRecord::Base
 
   private
   def delete_category_references
-	posts.each |p| do
+	self.blogposts.each do |p|
 		p.update_attribute(:category_id, nil)
 	end
   end

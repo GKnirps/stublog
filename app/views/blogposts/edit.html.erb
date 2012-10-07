@@ -11,6 +11,8 @@
 			<%= f.text_area :content %>
 		</div>
 
+		<%= f.label :category_id, "Category" %>
+		<%= f.collection_select :category_id, @categories, :id,  :name, @category_selection_params %>
 		<%= label_tag :tags, "Tags, separated by commas" %>
 		<%= text_field_tag :tags , @tags%>
 

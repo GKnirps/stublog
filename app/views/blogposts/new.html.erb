@@ -10,6 +10,9 @@
 		<div class="field">
 			<%= f.text_area :content, placeholder: "Post content" %>
 		</div>
+		
+		<%= f.label :category_id, "Category" %>
+		<%= f.collection_select :category_id, @categories, :id,  :name, prompt: true%>
 
 		<%= label_tag :tags, "Tags, separated by commas" %>
 		<%= text_field_tag :tags %>

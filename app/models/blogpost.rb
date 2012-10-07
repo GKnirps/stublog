@@ -1,5 +1,5 @@
 class Blogpost < ActiveRecord::Base
-  attr_accessible :caption, :content
+  attr_accessible :caption, :content, :category_id
 
   #exactly one user created a one blogpost
   belongs_to :user

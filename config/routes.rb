@@ -1,4 +1,9 @@
 Stublog::Application.routes.draw do
+  resources :categories do
+	member do
+		get 'confirm_destroy'
+	end
+  end
   resources :tags, only: [:show, :index]
   resources :hosted_files do
 	member do
