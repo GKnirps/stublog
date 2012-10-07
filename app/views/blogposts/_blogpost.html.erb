@@ -5,6 +5,9 @@
 	<div class="entry">
 		<%= bbparse(blogpost.content) %>
 	</div>
+	<div class="tags">
+		<%= blogpost.tags.join(", ") %>
+	</div>
 	<div class="metainfo">
 		<span>by: <%= blogpost.user.name %></span>
 		

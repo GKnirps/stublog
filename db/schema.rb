@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121003142723) do
+ActiveRecord::Schema.define(:version => 20121007095805) do
 
   create_table "blogposts", :force => true do |t|
     t.string   "caption"
@@ -35,6 +35,25 @@ ActiveRecord::Schema.define(:version => 20121003142723) do
 
   add_index "hosted_files", ["name"], :name => "index_hosted_files_on_name", :unique => true
   add_index "hosted_files", ["user_id"], :name => "index_hosted_files_on_user_id"
+
+  create_table "post_tag_relationships", :force => true do |t|
+    t.integer  "blogpost_id"
+    t.integer  "tag_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "post_tag_relationships", ["blogpost_id", "tag_id"], :name => "index_post_tag_relationships_on_blogpost_id_and_tag_id", :unique => true
+  add_index "post_tag_relationships", ["blogpost_id"], :name => "index_post_tag_relationships_on_blogpost_id"
+  add_index "post_tag_relationships", ["tag_id"], :name => "index_post_tag_relationships_on_tag_id"
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "name"
