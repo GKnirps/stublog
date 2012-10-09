@@ -1,2 +1,13 @@
-<h1>Categories#index,</h1>
-<p>Find me in app/views/categories/index,.html.erb</p>
+<% provide :title, "categories" %>
+<h2 class="section-heading">Categories</h2>
+
+<div class="paginate"><%= will_paginate %></div>
+
+<ul>
+	<% @categories.each do |category| %>
+	<li><%= link_to category.name, category_path(category) %> (<%= pluralize(category.blogposts.count, "post") %>)</li>
+
+	<% end %>
+</ul>
+
+<div class="paginate"><%= will_paginate %></div>

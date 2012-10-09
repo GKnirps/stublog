@@ -1,5 +1,5 @@
 class BlogpostsController < ApplicationController
-  before_filter :signed_in_user, only: [:new, :create, :destroy, :confirm_destroy]
+  before_filter :signed_in_user, only: [:new, :create, :destroy, :confirm_destroy, :edit, :update]
   before_filter :author_user, only: [:new, :create]
   before_filter :can_modify, only: [:destroy, :confirm_destroy, :edit, :update]
 

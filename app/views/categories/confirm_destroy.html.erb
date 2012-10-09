@@ -1,2 +1,11 @@
-<h1>Categories#confirm_destroy</h1>
-<p>Find me in app/views/categories/confirm_destroy.html.erb</p>
+<% provide :title, "delete category #{@category.name}" %>
+<h2 class="section-heading">Delete category <%= @category.name %>?</h2>
+<div>
+<%= form_tag(category_path(@category), method: 'delete') do %>
+	<div class="alert alert-message">
+	   <div class="message-text">Do you really want to delete the user <%= @category.name %>?</div><br /><br />
+		<%= submit_tag "Delete this category" %>
+		or <span class="cancel-delete"><%= link_to "cancel", users_path %></span>
+	</div>
+<% end %>
+</div

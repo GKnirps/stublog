@@ -1,2 +1,13 @@
-<h1>Categories#edit,</h1>
-<p>Find me in app/views/categories/edit,.html.erb</p>
+<% provide :title, "edit category #{@category.name}" %>
+<h2 class="section-heading">Edit <%= @category.name %></h2>
+<div class="edit-category-form">
+	<%= form_for(@category) do |f| %>
+		<%= render 'shared/error_messages', object: f.object %>
+
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+		
+		<%= f.submit "submit changes", class: "submit_button" %>
+	<% end %>
+	<span class="delete"><%= link_to "Delete this category", confirm_destroy_category_path(@category) %></span>
+</div>
