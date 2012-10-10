@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_filter :signed_in_user, only: [:new, :create, :destroy, :confirm_destroy]
+  before_filter :signed_in_user, only: [:new, :create, :destroy, :confirm_destroy, :edit, :update]
   before_filter :admin_user, only: [:new, :create, :destroy, :confirm_destroy, :edit, :update]
   def show
   	@category = Category.find(params[:id])

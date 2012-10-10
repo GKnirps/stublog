@@ -1,10 +1,12 @@
 class Category < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :description
 
   #each category can has multiple posts
   has_many :blogposts
 
   validates :name, presence: true, length: {maximum: 42}, uniqueness: {case_sensitive: true}
+
+  validates :description, length: {maximum: 32000}
 
   #delete category references in all posts with this category
   before_destroy :delete_category_references

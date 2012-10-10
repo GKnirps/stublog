@@ -37,7 +37,7 @@ puts "Sample users created"
 
 #add sample categories
 6.times do |n|
-	Category.create!( name: "Cat #{n}" )
+	Category.create!( name: "Cat #{n}", description: Faker::Lorem.sentence(8) )
 end
 
 categories = Category.all

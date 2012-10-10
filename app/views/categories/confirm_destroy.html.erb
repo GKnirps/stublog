@@ -3,7 +3,7 @@
 <div>
 <%= form_tag(category_path(@category), method: 'delete') do %>
 	<div class="alert alert-message">
-	   <div class="message-text">Do you really want to delete the user <%= @category.name %>?</div><br /><br />
+	   <p class="message-text">Do you really want to delete the category? All Blogposts in this category will be marked "Uncategorized".</p>
 		<%= submit_tag "Delete this category" %>
 		or <span class="cancel-delete"><%= link_to "cancel", users_path %></span>
 	</div>

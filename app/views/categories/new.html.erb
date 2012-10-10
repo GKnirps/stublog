@@ -5,6 +5,11 @@
 
 		<%= f.label :name %>
 		<%= f.text_field :name %>
+
+		<p>
+		<%= f.label :description %>
+		<%= f.text_area :description %>
+		</p>
 		
 		<%= f.submit "Create category", class: "submit_button" %>
 	<% end %>

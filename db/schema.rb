@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121007173041) do
+ActiveRecord::Schema.define(:version => 20121009131007) do
 
   create_table "blogposts", :force => true do |t|
     t.string   "caption"
@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(:version => 20121007173041) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "description"
   end
 
   add_index "categories", ["name"], :name => "index_categories_on_name", :unique => true

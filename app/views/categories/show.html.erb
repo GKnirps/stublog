@@ -1,5 +1,7 @@
 <% provide :title, "category: #{@category.name}" %>
 <h2 class="section-heading">Category: <%= @category.name %></h2>
+<h3>Description</h3>
+<p><%= @category.description %></p>
 <h3>This Category has <%= pluralize(@category.blogposts.count, "entry") %></h3>
 
 <div class="paginate"><%= will_paginate(@blogposts) %></div>
