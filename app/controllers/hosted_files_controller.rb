@@ -54,7 +54,7 @@ class HostedFilesController < ApplicationController
   end
 
   def download
-	send_file Rails.root.join(file_directory, @hosted_file.name), type: @hosted_file.mime_type, x_sendfile: true
+	send_file Rails.root.join(file_directory, @hosted_file.name), type: @hosted_file.mime_type, x_sendfile: true, filename: @hosted_file.name
   end
 
   def confirm_destroy
