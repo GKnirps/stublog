@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 	#Each user can have any number of blogposts
 	#TODO: as of now, the blogposts are removed if the user is deleted (might want to change that)
 	has_many :blogposts, dependent: :destroy
+	#same for comments
+	has_many :comments, as: :author, dependent: :destroy
 	has_many :hosted_files
 
 	#User name has to be present, should be unique (though it is not fatal if it is not
