@@ -1,0 +1,17 @@
+<li>
+	<% if comment.caption? then %>
+		<h4><%= comment.caption %></h4>
+	<% end %>
+	<div class="entry">
+		<%= bbparse comment.content %>
+	</div>
+	<div class="metainfo">
+		<span>by: <%= comment.author.name %></span>
+		|<span> posted: <%= format_date comment.created_at %> </span>
+	</div>
+	<% if comment.comments.any? then %>
+		<ul>
+			<%= render comment.comments.all %>
+		</ul>
+	<% end %>
+</li>

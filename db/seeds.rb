@@ -41,6 +41,7 @@ puts "Sample users created"
 end
 
 categories = Category.all
+puts "Sample categories created"
 
 #add sample posts with tags
 #sample tags
@@ -57,5 +58,22 @@ users = User.where(author: true)
 	end
 end
 puts "Sample posts created"
+
+#add sample comments
+users = User.all
+Blogpost.all.each do |blogpost|
+	#comment without caption
+	p = blogpost.comments.new(content: Faker::Lorem.paragraph(3))
+	p.author = users.sample
+	p.save
+	p.reload
+	pc = p.comments.new(content: Faker::Lorem.paragraph(2))
+	pc.author = users.sample
+	pc.save
+	#Comment with caption
+	p = blogpost.comments.new(caption: Faker::Lorem.sentence(3), content: Faker::Lorem.paragraph(4))
+	p.author = users.sample
+	p.save
+end
 
 

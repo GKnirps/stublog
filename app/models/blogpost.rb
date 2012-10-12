@@ -9,6 +9,9 @@ class Blogpost < ActiveRecord::Base
   has_many :post_tag_relationships, dependent: :destroy
   has_many :tags, through: :post_tag_relationships
 
+  #a blogpost may have multiple comments
+  has_many :comments, as: :predecessor
+
   #content and database length maximum due to database format
   validates :content, presence: true, length: {maximum: 65000}
   validates :caption, presence: true, length: {maximum: 250}

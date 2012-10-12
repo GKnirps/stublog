@@ -1,2 +1,10 @@
 <% provide :title, @blogpost.caption %>
 <%= render @blogpost %>
+
+<% if @comments then %>
+	<diff class="comments">
+		<ul>
+		<%= render @comments %>
+		</ul>
+	</diff>
+<% end %>
