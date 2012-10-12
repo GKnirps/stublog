@@ -1,24 +1,37 @@
 Stublog::Application.routes.draw do
+  #Comments are shown and edited in the Blogpost view
+  resources :comments, only: [:create, :update, :destroy] do
+	member do
+  		#Add a rout for confirm destroy (I don't want to use JS)
+		get 'confirm_destroy'	
+	end
+  end
   resources :categories do
 	member do
+  		#Add a rout for confirm destroy (I don't want to use JS)
 		get 'confirm_destroy'
 	end
   end
+  #tags are implicitely created and edited
   resources :tags, only: [:show, :index]
+
   resources :hosted_files do
 	member do
+  		#Add a rout for confirm destroy (I don't want to use JS)
 		get 'confirm_destroy'
+		#download invokes sending of the file
 		get 'download'
 	end
   end
   resources :blogposts do
 	member do
+  		#Add a rout for confirm destroy (I don't want to use JS)
 		get 'confirm_destroy'
 	end
   end
   resources :users do
-  	#Add a rout for confirm destroy (I don't want to use JS)
   	member do
+  		#Add a rout for confirm destroy (I don't want to use JS)
 		get 'confirm_destroy'
 	end
   end
