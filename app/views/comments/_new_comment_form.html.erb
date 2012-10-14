@@ -1,0 +1,25 @@
+<div class="editcomment">
+	<%= form_for([blogpost, comment]) do |f| %>
+		<%= render "shared/error_messages", object: f.object %>
+
+		<% #hidden parent id if parent is not a blogpost but a comment %>
+		<% if blogpost != predecessor then %>
+			<%= hidden_field_tag :pred_id, predecessor.id %>
+		<% end %>
+
+		<% #if no users is logged in, a name must be provided %>
+		<% if not signed_in? then %>
+			<%= label_tag :name, "name" %>
+			<%= text_field_tag :name, author.name %>
+		<% end %>
+
+		<%= f.label :caption, "Comment title" %>
+		<%= f.text_field :caption %>
+		
+		<div class="field">
+			<%= f.text_area :content, placeholder: "Comment content" %>
+		</div>
+		
+		<%= f.submit "Create", class: "submit_button" %>
+	<% end %>
+</div>

@@ -1,11 +1,4 @@
 Stublog::Application.routes.draw do
-  #Comments are shown and edited in the Blogpost view
-  resources :comments, only: [:create, :update, :destroy] do
-	member do
-  		#Add a rout for confirm destroy (I don't want to use JS)
-		get 'confirm_destroy'	
-	end
-  end
   resources :categories do
 	member do
   		#Add a rout for confirm destroy (I don't want to use JS)
@@ -24,8 +17,17 @@ Stublog::Application.routes.draw do
 	end
   end
   resources :blogposts do
+  	#Comments are shown and edited in the Blogpost view
+  	resources :comments, only: [:create, :update, :destroy, :edit] do
+		member do
+	  		#Add a rout for confirm destroy (I don't want to use JS)
+			get 'confirm_destroy'
+			#add route for answering this comment
+			get 'answer'
+		end
+	end
+  	#Add a rout for confirm destroy (I don't want to use JS)
 	member do
-  		#Add a rout for confirm destroy (I don't want to use JS)
 		get 'confirm_destroy'
 	end
   end

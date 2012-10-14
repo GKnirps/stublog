@@ -15,6 +15,14 @@ class BlogpostsController < ApplicationController
   def show
   	@blogpost = Blogpost.find(params[:id])
 	@comments = @blogpost.comments.all
+	@comment = @blogpost.comments.new
+	#when called from here: author of a new comment is unregistered if not logged in
+	if not signed_in? then
+		@author = UnregUser.new
+	else
+		@author = current_user
+	end
+	@predecessor = @blogpost
   end
 
   def index

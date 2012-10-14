@@ -9,9 +9,12 @@
 		<span>by: <%= comment.author.name %></span>
 		|<span> posted: <%= format_date comment.created_at %> </span>
 	</div>
+	<div>
+		<%= link_to "reply", answer_blogpost_comment_url(blogpost, comment) %>
+	</div>
 	<% if comment.comments.any? then %>
 		<ul>
-			<%= render comment.comments.all %>
+			<%= render comment.comments.all, blogpost: blogpost %>
 		</ul>
 	<% end %>
 </li>

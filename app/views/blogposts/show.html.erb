@@ -4,7 +4,8 @@
 <% if @comments then %>
 	<diff class="comments">
 		<ul>
-		<%= render @comments %>
+		<%= render @comments, blogpost: @blogpost %>
 		</ul>
 	</diff>
 <% end %>
+<%= render 'comments/new_comment_form', comment: @comment, blogpost: @blogpost, author: @author, predecessor: @predecessor %>

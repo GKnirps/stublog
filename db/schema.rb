@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121012171014) do
+ActiveRecord::Schema.define(:version => 20121014104131) do
 
   create_table "blogposts", :force => true do |t|
     t.string   "caption"
@@ -79,6 +79,12 @@ ActiveRecord::Schema.define(:version => 20121012171014) do
   end
 
   add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
+
+  create_table "unreg_users", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"
