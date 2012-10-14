@@ -2,10 +2,10 @@
 <%= render @blogpost %>
 
 <% if @comments then %>
-	<diff class="comments">
+	<div class="comments">
 		<ul>
 		<%= render @comments, blogpost: @blogpost %>
 		</ul>
-	</diff>
+	</div>
 <% end %>
 <%= render 'comments/new_comment_form', comment: @comment, blogpost: @blogpost, author: @author, predecessor: @predecessor %>

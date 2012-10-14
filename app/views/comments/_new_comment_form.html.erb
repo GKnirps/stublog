@@ -9,17 +9,23 @@
 
 		<% #if no users is logged in, a name must be provided %>
 		<% if not signed_in? then %>
-			<%= label_tag :name, "name" %>
-			<%= text_field_tag :name, author.name %>
+		  <div class="comment-author-name">
+			<%= label_tag :name, "Name" %>
+			<%= text_field_tag :name, author.name, placeholder: "Name" %>
+		  </div>
 		<% end %>
 
-		<%= f.label :caption, "Comment title" %>
-		<%= f.text_field :caption %>
-		
-		<div class="field">
-			<%= f.text_area :content, placeholder: "Comment content" %>
+		<div class="comment-caption">
+    		<%= f.label :caption, "Comment title" %>
+    		<%= f.text_field :caption, placeholder: "Caption" %>
 		</div>
 		
-		<%= f.submit "Create", class: "submit_button" %>
+		<div class="comment-content">
+		  <%= f.text_area :content, placeholder: "Comment content" %>
+		</div>
+		
+		<div class="comment-buttons">
+    		<%= f.submit "Create", class: "submit_button" %>
+		</div>
 	<% end %>
 </div>

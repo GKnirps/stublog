@@ -5,19 +5,21 @@
 	<div class="entry">
 		<%= bbparse(blogpost.content) %>
 	</div>
-	<div class="category">
-		<% if blogpost.category then %>
-			Posted in: <%= link_to blogpost.category.name, category_path(blogpost.category) %>
-		<% else %>
-			Uncategorized
-		<% end %>
-	</div>
-	<div class="tags">Tags:
-		<%= (blogpost.tags.map {|t| link_to t.name, tag_path(t)}).join(", ").html_safe %>
-	</div>
+	
+
 	<div class="metainfo">
-		<span>by: <%= link_to blogpost.user.name, user_path(blogpost.user) %></span>
-		
+	    <span>
+	       1337 Comments
+	    </span><br />
+		<span>
+		  Posted by <%= link_to blogpost.user.name, user_path(blogpost.user) %> in
+            <% if blogpost.category then %>
+                <%= link_to blogpost.category.name, category_path(blogpost.category) %>
+            <% else %>
+                <!-- Uncategorized -->
+            <% end %>
+        </span>
+        
     	<% if current_user?(blogpost.user) or (current_user and current_user.admin?) then %>
     		<span class="modify">
         		//
@@ -29,7 +31,11 @@
     				<%= link_to "delete post", confirm_destroy_blogpost_path(blogpost) %>
     			</span>
     		</span>
-    	<% end %>
+    	<% end %><br />
+    	
+        <span>
+            Tagged with: <%= (blogpost.tags.map {|t| link_to t.name, tag_path(t)}).join(", ").html_safe %>
+        </span>
 	</div>
 
 </div>

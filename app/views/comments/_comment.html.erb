@@ -1,20 +1,22 @@
 <li>
-	<% if comment.caption? then %>
-		<h4><%= comment.caption %></h4>
-	<% end %>
-	<div class="entry">
-		<%= bbparse comment.content %>
-	</div>
-	<div class="metainfo">
-		<span>by: <%= comment.author.name %></span>
-		|<span> posted: <%= format_date comment.created_at %> </span>
-	</div>
-	<div>
-		<%= link_to "reply", answer_blogpost_comment_url(blogpost, comment) %>
-	</div>
-	<% if comment.comments.any? then %>
-		<ul>
-			<%= render comment.comments.all, blogpost: blogpost %>
-		</ul>
-	<% end %>
+    <div class="single-comment">
+    	<% if comment.caption? then %>
+    		<h4 class="comment-title"><%= comment.caption %></h4>
+    	<% end %>
+    	<div class="comment-entry">
+    		<%= bbparse comment.content %>
+    	</div>
+    	<div class="comment-metainfo">
+    		<span>by: <%= comment.author.name %></span>
+    		|<span> posted: <%= format_date comment.created_at %> </span>
+    	</div>
+    	<div class="comment-reply-link">
+    		<%= link_to "reply", answer_blogpost_comment_url(blogpost, comment) %>
+    	</div>
+    </div>
+    	<% if comment.comments.any? then %>
+    		<ul>
+    			<%= render comment.comments.all, blogpost: blogpost %>
+    		</ul>
+    	<% end %>
 </li>
