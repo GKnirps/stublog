@@ -6,7 +6,13 @@ Stublog::Application.routes.draw do
 	end
   end
   #tags are implicitely created and edited
-  resources :tags, only: [:show, :index]
+  resources :tags, only: [:show, :index] do
+  	collection do
+		#search for tags
+		get 'search'
+		post 'search', action: :find
+	end
+  end
 
   resources :hosted_files do
 	member do

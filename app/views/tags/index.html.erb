@@ -1,5 +1,6 @@
 <% provide :title, "Tags" %>
 <h2 class="section-heading">All tags</h2>
+<p><%= link_to "Search entries with tags", search_tags_path %></p>
 <ul>
 	<%= render @tags %>
 </ul>

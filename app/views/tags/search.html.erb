@@ -1,0 +1,22 @@
+<% provide :title, "search by tags" %>
+<h3>Search by tags</h3>
+<div class="search">
+	<%= form_tag search_tags_path, method: 'post' do %>
+		<%= label_tag :tags, "Search for entries with all of those tags (separated by commas)" %>
+		<%= text_field_tag :tags %>
+		
+		<%= submit_tag "search", class: "search_button" %>
+	<% end %>
+</div>
+
+<% unless @results.empty? %>
+<div class="results">
+	<ul>
+		<% @results.each do |blogpost| %>
+			<li>
+				<%= link_to blogpost.caption, blogpost_path(blogpost) %>
+			</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>

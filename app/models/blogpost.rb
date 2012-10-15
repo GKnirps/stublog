@@ -40,4 +40,12 @@ class Blogpost < ActiveRecord::Base
 		rel.destroy
 	end
   end
+  #return all tags of one post as array of strings
+  def taglist
+	self.tags.map {|t| t.name}
+  end
+  #return all tags of one post as comma separated list
+  def tagstring
+	self.taglist.join ', '
+  end
 end
