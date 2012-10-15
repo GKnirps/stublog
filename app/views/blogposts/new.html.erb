@@ -1,5 +1,13 @@
 <% provide :title, "New Post" %>
 <h2 class="section-heading">New Post</h2>
+
+<% if @preview_desired %>
+    	<h3 class="posttitle"><%= @blogpost.caption %></h3>    
+	<div class="entry">
+		<%= bbparse(@blogpost.content) %>
+	</div>
+<% end %>
+
 <div class="editpost">
 	<%= form_for(@blogpost) do |f| %>
 		<%= render "shared/error_messages", object: f.object %>
@@ -15,8 +23,9 @@
 		<%= f.collection_select :category_id, @categories, :id,  :name, prompt: true%>
 
 		<%= label_tag :tags, "Tags, separated by commas" %>
-		<%= text_field_tag :tags %>
+		<%= text_field_tag :tags, @tags %>
 
-		<%= f.submit "Create", class: "submit_button" %>
+		<%= f.submit "Create", class: "submit_button", name: "save" %>
+		<%= f.submit "Preview", class: "submit_button", name: "preview" %>
 	<% end %>
 </div>

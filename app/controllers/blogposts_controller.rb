@@ -10,6 +10,8 @@ class BlogpostsController < ApplicationController
   def new
   	@blogpost = current_user.blogposts.new
 	@categories = Category.all
+	#no preview needed, since there was no editing before
+	@preview_desired = false
   end
 
   def show
@@ -30,9 +32,14 @@ class BlogpostsController < ApplicationController
   end
 
   def create
+  	#does the user want a preview before posting?
+  	@preview_desired = params[:submit] != "save"
+	@categories = Category.all
+	@tags = params[:tags]
+
   	@blogpost = current_user.blogposts.new(params[:blogpost])
-	if @blogpost.save then
-		@blogpost.add_taglist!(params[:tags])
+	if !@preview_desired && @blogpost.save then
+		@blogpost.add_taglist!(@tags)
 		flash[:success] = "New Blogpost published"
 		redirect_to @blogpost
 	else
