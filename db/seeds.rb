@@ -83,7 +83,7 @@ puts "Sample comments created"
 	q.created_at = n.days.ago
 	q.save!
 end
-q = QuoteOfTheDay.new(content: "The best quote ever", published: true)
+q = QuoteOfTheDay.new(content: "The best quote ever", published: true, sourcedesc: "tvtropes", sourceurl: "http://tvtropes.org/pmwiki/pmwiki.php/Main/ItsTheBestWhateverEver")
 q.created_at = 42.days.ago
 q.save
 

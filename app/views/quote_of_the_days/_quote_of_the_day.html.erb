@@ -1,0 +1,17 @@
+<div class="qotd">
+	<% if not quote_of_the_day.sourceurl then %>
+		<blockquote>
+	<% else %>
+		<blockquote cite="<%= quote_of_the_day.sourceurl %>">
+	<% end %>
+		<%= bbparse quote_of_the_day.content %>
+	</blockquote>
+	
+	<% if quote_of_the_day.sourcedesc and quote_of_the_day.sourceurl then %>
+		source: <a href="<%= quote_of_the_day.sourceurl %>"><%= quote_of_the_day.sourcedesc %></a>
+	<% elsif quote_of_the_day.sourcedesc and not quote_of_the_day.sourceurl %>
+		source: <%= quote_of_the_day.sourcedesc %>
+	<% elsif quote_of_the_day.sourceurl and not quote_of_the_day.sourcedesc %>
+		<a href="<%= quote_of_the_day.sourceurl %>">source</a>
+	<% end %>
+</div>

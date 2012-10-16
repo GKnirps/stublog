@@ -1,4 +1,11 @@
 Stublog::Application.routes.draw do
+  resource :quote_of_the_days do
+	member do
+  		#Add a rout for confirm destroy (I don't want to use JS)
+		get 'confirm_destroy'
+	end
+  end
+  
   resources :categories do
 	member do
   		#Add a rout for confirm destroy (I don't want to use JS)
