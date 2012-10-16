@@ -52,3 +52,6 @@ gem 'will_paginate'
 
 #bb-code parser
 gem 'rbbcode'
+
+#scheduler (kind of like cron)
+gem 'rufus-scheduler'
