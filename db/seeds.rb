@@ -65,15 +65,26 @@ Blogpost.all.each do |blogpost|
 	#comment without caption
 	p = blogpost.comments.new(content: Faker::Lorem.paragraph(3))
 	p.author = users.sample
-	p.save
+	p.save!
 	p.reload
 	pc = p.comments.new(content: Faker::Lorem.paragraph(2))
 	pc.author = users.sample
-	pc.save
+	pc.save!
 	#Comment with caption
 	p = blogpost.comments.new(caption: Faker::Lorem.sentence(3), content: Faker::Lorem.paragraph(4))
 	p.author = users.sample
-	p.save
+	p.save!
 end
+puts "Sample comments created"
 
+#add sample quotes
+41.times do | n| 
+	q = QuoteOfTheDay.new(content: Faker::Lorem.sentence(5), published: false)
+	q.created_at = n.days.ago
+	q.save!
+end
+q = QuoteOfTheDay.new(content: "The best quote ever", published: true)
+q.created_at = 42.days.ago
+q.save
 
+puts "Sample quotes created"

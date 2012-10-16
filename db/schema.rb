@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121014104131) do
+ActiveRecord::Schema.define(:version => 20121016183039) do
 
   create_table "blogposts", :force => true do |t|
     t.string   "caption"
@@ -71,6 +71,17 @@ ActiveRecord::Schema.define(:version => 20121014104131) do
   add_index "post_tag_relationships", ["blogpost_id", "tag_id"], :name => "index_post_tag_relationships_on_blogpost_id_and_tag_id", :unique => true
   add_index "post_tag_relationships", ["blogpost_id"], :name => "index_post_tag_relationships_on_blogpost_id"
   add_index "post_tag_relationships", ["tag_id"], :name => "index_post_tag_relationships_on_tag_id"
+
+  create_table "quote_of_the_days", :force => true do |t|
+    t.text     "content"
+    t.string   "sourcedesc"
+    t.string   "sourceurl"
+    t.boolean  "published"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "quote_of_the_days", ["published"], :name => "index_quote_of_the_days_on_published"
 
   create_table "tags", :force => true do |t|
     t.string   "name"
