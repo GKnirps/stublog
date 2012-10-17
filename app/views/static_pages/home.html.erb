@@ -1,7 +1,7 @@
 <%#provide a part of the title%>
 <% provide :title, "home" %>
 <h2 class="section-heading">Stranger than usual</h2>
-<%= render @quote_of_the_day %>
+<%= render @quote_of_the_day, show_edit_links: false %>
 <div class="blogposts">
 	<%= render @blogposts %>
 </div>

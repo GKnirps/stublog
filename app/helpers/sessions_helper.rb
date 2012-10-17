@@ -45,6 +45,11 @@ module SessionsHelper
 	def admin_user
 		redirect_to root_path, notice: "Only administrators can do that." unless current_user.admin?
 	end
+	
+	#author OR admin
+	def author_admin_user
+		redirect_to root_path, notice: "You are trespassing." unless current_user.admin? or current_user.author?
+	end
 
 	#redirect to the stored location (if there is one)
 	def redirect_back_or(default)

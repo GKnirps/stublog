@@ -80,6 +80,12 @@ puts "Sample comments created"
 #add sample quotes
 41.times do | n| 
 	q = QuoteOfTheDay.new(content: Faker::Lorem.sentence(5), published: false)
+	if Random.rand(0..1) == 0 then
+		q.sourceurl = Faker::Internet.url
+	end
+	if Random.rand(0..1) == 0 then
+		q.sourcedesc = Faker::Lorem.word
+	end
 	q.created_at = n.days.ago
 	q.save!
 end

@@ -1,2 +1,23 @@
-<h1>QuoteOfTheDays#new</h1>
-<p>Find me in app/views/quote_of_the_days/new.html.erb</p>
+<% provide :title, "new quote" %>
+<h3 class="section_heading">New Quote</h3>
+<div class="quoteform">
+	<%= form_for @quote_of_the_day do |f|%>
+		<%= render 'shared/error_messages', object: f.object %>
+
+		<%= f.text_area :content %>
+
+		<%= f.label :sourcedesc, "Name of the source" %>
+		<%= f.text_field :sourcedesc %>
+
+		<%= f.label :sourceurl, "URL to the source" %>
+		<%= f.text_field :sourceurl %>
+
+		<div>
+			<%= f.label :published, "publish now?" %>
+			<%= f.check_box :published %>
+			If you do not publish this quote now, it will be put in the buffer for auto-publishing.
+		</div>
+	
+		<%= f.submit "create quote", class: "submit_button" %>
+	<% end %>
+</div>

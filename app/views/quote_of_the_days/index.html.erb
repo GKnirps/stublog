@@ -1,2 +1,13 @@
-<h1>QuoteOfTheDays#index</h1>
-<p>Find me in app/views/quote_of_the_days/index.html.erb</p>
+<% provide :title, "stuff" %>
+<h2 class="section_heading">Not everything here is a quote</h3>
+<div class="quotes">
+	<p class="bufferinfo">
+		There are <%= @buffersize %> quotes in the buffer, this means there is a probability of <%= @prob*100 %>% that a quote will be released tomorrow.
+	</p>
+	<% if @author_user then %>
+		<p class="authorlinks">
+			<%= link_to "new quote", new_quote_of_the_day_path %>
+		</p>
+	<% end %>
+	<%= render @quote_of_the_days, show_edit_links: @author_user || @admin_user %>
+</div>

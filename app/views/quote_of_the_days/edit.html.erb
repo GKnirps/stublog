@@ -1,2 +1,26 @@
-<h1>QuoteOfTheDays#edit</h1>
-<p>Find me in app/views/quote_of_the_days/edit.html.erb</p>
+<% provide :title, "edit quote" %>
+<h3 class="section_heading">Edit quote</h3>
+<div>Edit this Quote:</div
+<%= render @quote_of_the_day, show_edit_links: false%>
+
+<div class="quoteform">
+	<%= form_for @quote_of_the_day do |f|%>
+		<%= render 'shared/error_messages', object: f.object %>
+
+		<%= f.text_area :content %>
+
+		<%= f.label :sourcedesc, "Name of the source" %>
+		<%= f.text_field :sourcedesc %>
+
+		<%= f.label :sourceurl, "URL to the source" %>
+		<%= f.text_field :sourceurl %>
+
+		<div>
+			<%= f.label :published, "publish now?" %>
+			<%= f.check_box :published %>
+			If you depublish this quote now, it will be put in the buffer for auto-publishing.
+		</div>
+	
+		<%= f.submit "save changes", class: "submit_button" %>
+	<% end %>
+</div>

@@ -1,3 +1,8 @@
+<%#section marked as unpublished if quote is unpublished %>
+<% unless quote_of_the_day.published? %>
+<div class="unpublished">
+<% end %>
+
 <div class="qotd">
 	<% if not quote_of_the_day.sourceurl then %>
 		<blockquote>
@@ -7,11 +12,22 @@
 		<%= bbparse quote_of_the_day.content %>
 	</blockquote>
 	
-	<% if quote_of_the_day.sourcedesc and quote_of_the_day.sourceurl then %>
+	<% if !( quote_of_the_day.sourcedesc.blank? or quote_of_the_day.sourceurl.blank? ) then %>
 		source: <a href="<%= quote_of_the_day.sourceurl %>"><%= quote_of_the_day.sourcedesc %></a>
-	<% elsif quote_of_the_day.sourcedesc and not quote_of_the_day.sourceurl %>
+	<% elsif !quote_of_the_day.sourcedesc.blank? and quote_of_the_day.sourceurl.blank? %>
 		source: <%= quote_of_the_day.sourcedesc %>
-	<% elsif quote_of_the_day.sourceurl and not quote_of_the_day.sourcedesc %>
+	<% elsif !quote_of_the_day.sourceurl.blank? and quote_of_the_day.sourcedesc.blank? %>
 		<a href="<%= quote_of_the_day.sourceurl %>">source</a>
 	<% end %>
+	
+	<% if show_edit_links then %>
+		<div class="authorlinks">
+			<%= link_to "delete this quote", confirm_destroy_quote_of_the_day_path(quote_of_the_day) %>
+			<%= link_to "edit this quote", edit_quote_of_the_day_path(quote_of_the_day) %>
+		</div>
+	<% end %>
 </div>
+
+<% unless quote_of_the_day.published? %>
+</div>
+<% end %>
