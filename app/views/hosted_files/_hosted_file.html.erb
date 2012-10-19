@@ -1,6 +1,6 @@
 <h2 class="section-heading">File: <%= hosted_file.name %></h2>
 <p class="file_description">
-	<%= hosted_file.description %>
+	<%= bbparse(hosted_file.description) %>
 	<p class="public">
 		<%= "Public file" if hosted_file.public? %>
 	</p>
