@@ -7,7 +7,7 @@ class QuoteOfTheDay < ActiveRecord::Base
   URL_FORMAT = /^$|^https?:\/\/.*/
   validates :sourceurl, length: {maximum: 250}, format: {with: URL_FORMAT}
 
-  default_scope order: "quote_of_the_days.created_at DESC"
+  default_scope order: "quote_of_the_days.updated_at DESC"
   
   #Scope for all published quotes
   scope :published, where( published: true )
