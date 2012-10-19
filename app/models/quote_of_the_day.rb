@@ -18,7 +18,7 @@ class QuoteOfTheDay < ActiveRecord::Base
   end
 
   def self.publish_next!
-	self.where(published: false).first.update_attribute(:published, true)
+	self.unpublished.last.update_attribute(:published, true)
   end
 
   #randomly decides if a non-published quote is published (depending on the number of non-published quotes)
