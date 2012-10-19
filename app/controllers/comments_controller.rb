@@ -7,7 +7,7 @@ def create
 	@comment = @author.comments.new(params[:comment])
 	
 	@comment.predecessor = @predecessor
-	if @comment.save then
+	if @author.valid? and @comment.save then
 		flash[:success] = "You posted a new comment"
 		redirect_to @blogpost
 	else
@@ -19,8 +19,8 @@ end
 #answer to another comment
 def answer
 	@blogpost = Blogpost.find(params[:blogpost_id])
-	@comment = @blogpost.comments.new
 	@predecessor = Comment.find(params[:id])
+	@comment = @predecessor.comments.new
 
 	@comments = @blogpost.comments.all
 	render 'blogposts/show'
@@ -39,12 +39,6 @@ def find_author_and_predecessor
 		@author = current_user
 	else
 		@author = UnregUser.new(name: params[:name])
-		if not @author.save then
-			@comments = @blogpost.comments.all
-			#currently if the users is not logged in, find_author is only invoked for create() or answer().
-			#thus, we can render the blogpost with entries
-			render 'blogposts/show'
-		end
 	end
 end
 

@@ -1,6 +1,7 @@
 <div class="editcomment">
 	<%= form_for([blogpost, comment]) do |f| %>
 		<%= render "shared/error_messages", object: f.object %>
+		<%= render "shared/error_messages", object: author %>
 
 		<% #hidden parent id if parent is not a blogpost but a comment %>
 		<% if blogpost != predecessor then %>
