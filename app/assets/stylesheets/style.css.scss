@@ -236,6 +236,17 @@
 
     /*** HIER KOMMEN DIE TEXTFORMATIERUNGEN HIN ***/
     /*** BLOCKQUOTE, CODE, IMG, UL, OL ETC. ***/
+    
+    /* Zitatboxen */
+    blockquote {
+        font-style: italic;
+        
+        margin: 20px 30px 20px 30px;
+        padding: 0px 25px 0px 30px;
+        background-image: url(quote-left-georgia.png);
+        background-position: left top;
+        background-repeat: no-repeat;
+    }
 
 /************************************   K O M M E N T A R E   ************************************/
 
@@ -320,7 +331,42 @@
         width: 400px;
         text-align: right;
     }
+
     
+/******************************   Q U O T E   O F   T H E   D A Y   ******************************/
+
+    .bufferinfo {
+        margin-bottom: 50px;
+    }
+
+    /* Ein Quote mit allem drum und dran */
+    .qotd {
+        margin: 1em 0 4em 2em;
+    }
+    
+    /* Source */
+    .quote-source {
+        margin: 0 0 0 1.5em;
+    }
+    
+    /* Edit/Delete-Links */
+    .quote-author-links {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: .5em;
+    
+        margin: .33em 0 .5em 2.8em;
+    }
+    .quote-author-links a:link, .quote-author-links a:active, .quote-author-linksn a:visited {
+        color: #000000;
+        text-decoration: none;
+    }
+    .quote-author-links .edit a:hover {
+        text-decoration: underline;
+    }
+    .quote-author-links .delete a:hover {
+        text-decoration: underline;
+        color: #bb1129;
+    }
 
 /*************************************   W I D G E T B A R   *************************************/
 
