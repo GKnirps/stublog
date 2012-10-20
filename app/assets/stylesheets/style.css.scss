@@ -1,6 +1,8 @@
 /******************************************   B O D Y   ******************************************/
 
     body {
+        font-size: 100%;
+        
         margin: 0;
         vertical-align: top;
         background-color: #fffff6;
@@ -15,6 +17,48 @@
     a:hover {
         text-decoration: underline;
         color: #44bb11;
+    }
+    
+/**********************************   M I T T E I L U N G E N   **********************************/
+
+    /* Alerts generell */
+    .alert {
+        text-align: center;
+        
+        border-style: dashed;
+        border-width: 1px;
+        width: 400px;
+        padding: 20px 15px;
+    }
+    
+    /* Fehlermeldung mit Rot gestricheltem Rahmen */
+    .alert-error {
+        color: #bb1129;
+        
+        border-color: #bb1129; /* rot */
+        margin: 50px auto 30px auto;
+    }
+
+    /* Nachricht mit orange gestricheltem Rahmen */
+    .alert-message, .alert-notice {        
+        color: #bb5811;
+        
+        border-color: #bb5811; /* orange */
+        margin: 40px auto 60px auto;
+    }
+    .alert-message .message-text {
+        color: #bb5811;
+    }
+    
+    .alert-message span.cancel-delete, .alert-message span.cancel-delete a:link, .alert-message span.cancel-delete a:visited, .alert-message span.cancel-delete a:active {
+        color: #000000;
+        text-decoration: underline;
+    }
+    
+    /* Nachricht mit grün gestricheltem Rahmen */
+    .alert-success {
+        border-color: #80bb66; /* grün */
+        margin: 60px auto 40px auto;
     }
   
 /******************************   G L O B A L E R   W R A P P E R   ******************************/
@@ -171,9 +215,12 @@
     }
     
     /* „Bearbeiten“ & „Löschen“ */
-    .blogpost .modify span, .blogpost .modify span a:link, .blogpost .modify span a:active, .blogpost .modify span a:visited {
+    .blogpost .modify span {
         font-family: Verdana, Arial, sans-serif;
         font-size: .5em;
+    }
+    .blogpost .modify span a:link, .blogpost .modify span a:active, .blogpost .modify span a:visited {
+        font-size: 2em; /* Bugfix für den Firefox, Schrift wird sonst zu klein dargestellt */
         color: #000000;
         text-decoration: none;
     }
@@ -189,6 +236,17 @@
 
     /*** HIER KOMMEN DIE TEXTFORMATIERUNGEN HIN ***/
     /*** BLOCKQUOTE, CODE, IMG, UL, OL ETC. ***/
+    
+    /* Zitatboxen */
+    blockquote {
+        font-style: italic;
+        
+        margin: 20px 30px 20px 30px;
+        padding: 0px 25px 0px 30px;
+        background-image: url(quote-left-georgia.png);
+        background-position: left top;
+        background-repeat: no-repeat;
+    }
 
 /************************************   K O M M E N T A R E   ************************************/
 
@@ -273,7 +331,42 @@
         width: 400px;
         text-align: right;
     }
+
     
+/******************************   Q U O T E   O F   T H E   D A Y   ******************************/
+
+    .bufferinfo {
+        margin-bottom: 50px;
+    }
+
+    /* Ein Quote mit allem drum und dran */
+    .qotd {
+        margin: 1em 0 4em 2em;
+    }
+    
+    /* Source */
+    .quote-source {
+        margin: 0 0 0 1.5em;
+    }
+    
+    /* Edit/Delete-Links */
+    .quote-author-links {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: .5em;
+    
+        margin: .33em 0 .5em 2.8em;
+    }
+    .quote-author-links a:link, .quote-author-links a:active, .quote-author-linksn a:visited {
+        color: #000000;
+        text-decoration: none;
+    }
+    .quote-author-links .edit a:hover {
+        text-decoration: underline;
+    }
+    .quote-author-links .delete a:hover {
+        text-decoration: underline;
+        color: #bb1129;
+    }
 
 /*************************************   W I D G E T B A R   *************************************/
 
@@ -290,7 +383,7 @@
 /**********************************   L O G I N / L O G O U T   **********************************/
 
     /* Login-Formular */
-    .wrapper .content .sign-in-form {
+    .sign-in-form {
         width: 170px;
         margin: 0 auto 70px auto;
         padding: 15px 20px;
@@ -310,6 +403,7 @@
         width: 165px;
     }
     .sign-in-form .permanent {
+        text-align: right;
         padding-bottom: 20px;
     }
     .sign-in-form .sign-in {
@@ -317,17 +411,64 @@
         padding-bottom: 30px;
     }
     .sign-in-form .new-user {
+        text-align: right;
         clear: both;
     }
     
     /* Formular um neuen Benutzer anzulegen */
-    .wrapper .content .new-user-form {
+    .new-user-form {
         width: 280px;
         margin: 0 auto 60px auto;
         text-align: right;
-        padding: 15px 20px;
+        padding: 20px 20px;
 
         border: #80bb66 1px dashed;
+    }
+    .user-name {
+        padding-bottom: 5px;
+    }
+    #user_name {
+        width: 180px;
+    }
+    .user-email {
+        padding-bottom: 15px;
+    }
+    #user_email {
+        width: 180px;
+    }
+    .user-password {
+        padding-bottom: 5px;
+    }
+    #user_password {
+        width: 180px;
+    }
+    .user-password-confirm {
+        padding-bottom: 15px;
+    }
+    #user_password_confirmation {
+        width: 180px;
+    }
+    .create-user-button {
+        
+    }
+    
+    /* Bei Fehlerhafter Eingabe hervorgehobene Formularfelder */
+    .field_with_errors {
+        color: #bb1129;
+        display: inline-block;
+    }
+    .field_with_errors input {
+        border: #bb1129 1px solid;
+    }
+    /* Erläuterungen, was wo falsch eingegeben wurde */
+    .error_explanation .alert-error {
+        width: 200px;
+        margin: 0px auto 30px auto;
+    }
+    .error_explanation ul {
+        text-align: left;
+        color: #bb1129;
+        list-style-type: circle;
     }
     
 /*****************************   B E I T R A G   V E R F A S S E N   *****************************/
@@ -354,44 +495,4 @@
     .edit-user span.delete a:hover {
         color: #bb1129;
         text-decoration: underline;
-    }
-
-/**********************************   M I T T E I L U N G E N   **********************************/
-
-    /* Alerts generell */
-    .alert {
-        text-align: center;
-        
-        border-style: dashed;
-        border-width: 1px;
-        width: 400px;
-        padding: 20px 15px;
-    }
-    
-    /* Fehlermeldung mit Rot gestricheltem Rahmen */
-    .alert-error, .alert-notice {
-        color: #bb1129;
-        
-        border-color: #bb1129; /* rot */
-        margin: 50px auto 30px auto;
-    }
-
-    /* Nachricht mit orange gestricheltem Rahmen */
-    .alert-message {        
-        border-color: #bb5811; /* orange */
-        margin: 0 auto 60px auto;
-    }
-    .alert-message .message-text {
-        color: #bb5811;
-    }
-    
-    .alert-message span.cancel-delete, .alert-message span.cancel-delete a:link, .alert-message span.cancel-delete a:visited, .alert-message span.cancel-delete a:active {
-        color: #000000;
-        text-decoration: underline;
-    }
-    
-    /* Nachricht mit grün gestricheltem Rahmen */
-    .alert-success {
-        border-color: #80bb66; /* grün */
-        margin: 60px auto 40px auto;
     }

@@ -13,17 +13,17 @@
 	</blockquote>
 	
 	<% if !( quote_of_the_day.sourcedesc.blank? or quote_of_the_day.sourceurl.blank? ) then %>
-		source: <a href="<%= quote_of_the_day.sourceurl %>"><%= quote_of_the_day.sourcedesc %></a>
+		<span class="quote-source">&mdash; <a href="<%= quote_of_the_day.sourceurl %>"><%= quote_of_the_day.sourcedesc %></a></span>
 	<% elsif !quote_of_the_day.sourcedesc.blank? and quote_of_the_day.sourceurl.blank? %>
-		source: <%= quote_of_the_day.sourcedesc %>
+		<span class="quote-source">&mdash; <%= quote_of_the_day.sourcedesc %></span>
 	<% elsif !quote_of_the_day.sourceurl.blank? and quote_of_the_day.sourcedesc.blank? %>
-		<a href="<%= quote_of_the_day.sourceurl %>">source</a>
+		<span class="quote-source"><a href="<%= quote_of_the_day.sourceurl %>">Source</a></span>
 	<% end %>
 	
 	<% if show_edit_links then %>
-		<div class="authorlinks">
-			<%= link_to "delete this quote", confirm_destroy_quote_of_the_day_path(quote_of_the_day) %>
-			<%= link_to "edit this quote", edit_quote_of_the_day_path(quote_of_the_day) %>
+		<div class="quote-author-links">
+			<span class="edit"><%= link_to "edit this quote", edit_quote_of_the_day_path(quote_of_the_day) %></span> | 
+			<span class="delete"><%= link_to "delete this quote", confirm_destroy_quote_of_the_day_path(quote_of_the_day) %></span>
 		</div>
 	<% end %>
 </div>
