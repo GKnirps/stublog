@@ -4,10 +4,16 @@ before_filter :find_author_and_predecessor, only: [:create, :answer]
 
 def create
 	@blogpost = Blogpost.find(params[:blogpost_id])
+	#if the author isn't in the db yet, save him (ugly, TODO: find better solution)
+	#TODO: this can lead to multiple unregistered users
+	@author.save unless @author.id
+	
 	@comment = @author.comments.new(params[:comment])
+
 	
 	@comment.predecessor = @predecessor
 	if @author.valid? and @comment.save then
+		#success
 		flash[:success] = "You posted a new comment"
 		redirect_to @blogpost
 	else
