@@ -25,7 +25,7 @@
 		<%= label_tag :tags, "Tags, separated by commas" %>
 		<%= text_field_tag :tags, @tags %>
 
-		<%= f.submit "Create", class: "submit_button", name: "save" %>
-		<%= f.submit "Preview", class: "submit_button", name: "preview" %>
+		<%= f.submit "Create", class: "submit_button", name: :commit, value: "save" %>
+		<%= f.submit "Preview", class: "submit_button", name: :commit, value: "preview" %>
 	<% end %>
 </div>

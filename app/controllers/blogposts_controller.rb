@@ -33,7 +33,7 @@ class BlogpostsController < ApplicationController
 
   def create
   	#does the user want a preview before posting?
-  	@preview_desired = params[:submit] != "save"
+  	@preview_desired = params[:commit] != "save"
 	@categories = Category.all
 	@tags = params[:tags]
 
