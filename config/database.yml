@@ -19,7 +19,11 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: mysql2
+  database: stublog
+  encoding: utf8
+  username: stranger 
+  password: Thohxoh7
+  host: localhost
+  reconnect: false
   pool: 5
-  timeout: 5000

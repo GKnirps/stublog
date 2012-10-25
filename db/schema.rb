@@ -36,13 +36,13 @@ ActiveRecord::Schema.define(:version => 20121016183039) do
 
   create_table "comments", :force => true do |t|
     t.string   "caption"
-    t.text     "content",          :limit => 255
+    t.text     "content"
     t.integer  "predecessor_id"
     t.string   "predecessor_type"
     t.integer  "author_id"
     t.string   "author_type"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   add_index "comments", ["author_id"], :name => "index_comments_on_author_id"
