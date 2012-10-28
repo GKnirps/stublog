@@ -8,7 +8,6 @@
     	<ul class="main-nav">
     		<li><%= link_to "Home", home_path %> </li>
     		<li><%= link_to "Archive", blogposts_path %></li>
-    		<li><%= link_to "Contact", contact_path %> </li>
     		<% if signed_in? then %>
     			<% if current_user.author? then %>
     				<li><%= link_to "New Post", new_blogpost_path %></li>

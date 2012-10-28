@@ -57,7 +57,7 @@ Stublog::Application.routes.draw do
 
   match '/home', to: "static_pages#home"
 
-  match '/contact', to: "static_pages#contact"
+#  match '/contact', to: "static_pages#contact"
 
   match '/signup', to: "users#new"
 
