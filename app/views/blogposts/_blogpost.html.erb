@@ -9,7 +9,7 @@
 
 	<div class="metainfo">
 	    <span class="number-of-comments">
-	       <%= blogpost.n_responses %> Comments
+	       <%= pluralize blogpost.n_responses, "comment" %>
 	    </span><br />
 		<span class="posted-by">
 		  Posted by <%= link_to blogpost.user.name, user_path(blogpost.user) %> in
