@@ -9,7 +9,7 @@
 
 	<div class="metainfo">
 	    <span class="number-of-comments">
-	       1337 Comments
+	       <%= blogpost.n_responses %> Comments
 	    </span><br />
 		<span class="posted-by">
 		  Posted by <%= link_to blogpost.user.name, user_path(blogpost.user) %> in

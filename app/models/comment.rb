@@ -12,4 +12,16 @@ class Comment < ActiveRecord::Base
 
   #order the comments by date, oldest first
   default_scope order: 'comments.created_at ASC'
+
+  #returns the number of comments this comment has (directly or indirectly)
+  #due to the database structure, this may require a lot of db requests
+  def n_responses
+	sum = self.comments.count
+	self.comments.each do |c|
+		puts sum.class
+		puts c.n_responses.class
+		sum = sum + c.n_responses
+	end
+	sum
+  end
 end
