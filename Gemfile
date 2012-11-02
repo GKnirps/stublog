@@ -56,6 +56,8 @@ gem 'will_paginate'
 
 #bb-code parser
 gem 'rbbcode'
+#new versions of the bb-code parser need the sanitize Gem
+gem 'sanitize'
 
 #scheduler (kind of like cron)
 gem 'rufus-scheduler'
