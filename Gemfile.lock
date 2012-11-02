@@ -88,6 +88,9 @@ GEM
       json (~> 1.4)
     rufus-scheduler (2.0.17)
       tzinfo (>= 0.3.23)
+    sanitize (2.0.3)
+      nokogiri (>= 1.4.4, < 1.6)
+    sanitize-url (0.1.4)
     sass (3.2.1)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -124,6 +127,7 @@ DEPENDENCIES
   rails (= 3.2.8)
   rbbcode
   rufus-scheduler
+  sanitize
   sass-rails (~> 3.2.3)
   sqlite3
   therubyracer
