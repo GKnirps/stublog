@@ -17,8 +17,10 @@ module ApplicationHelper
 
 
 	#default bbcode parser (I plan to extend this one)
-	def bbparse(text)
-		bbparser = RbbCode::Parser.new
-		bbparser.parse(text).html_safe
+	def bbparse(text, safe=:safe)
+		bbparser = RbbCode.new
+		htmlcode = bbparser.convert(text)
+		return htmlcode.html_safe if safe == :safe
+		return htmlcode
 	end
 end
