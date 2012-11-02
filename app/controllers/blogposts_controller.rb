@@ -31,6 +31,20 @@ class BlogpostsController < ApplicationController
   	@blogposts = Blogpost.paginate(:page => params[:page])
   end
 
+  #RSS/atom feed
+  def feed
+	@title = "Stranger than usual"
+
+	@blogposts = Blogpost.all
+	@updated = @blogposts.first.created_at unless @blogposts.empty?
+
+	respond_to do |format|
+		format.atom { render layout: false }
+
+		format.rss { redirect_to feed_path(format: :atom), status: moved_permanently }
+	end
+  end
+
   def create
   	#does the user want a preview before posting?
   	@preview_desired = params[:commit] != "save"

@@ -51,6 +51,7 @@ Stublog::Application.routes.draw do
 	end
   end
 
+
   resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'static_pages#home'
@@ -60,6 +61,9 @@ Stublog::Application.routes.draw do
 #  match '/contact', to: "static_pages#contact"
 
   match '/signup', to: "users#new"
+
+  #the atom feed
+  match '/feed', to: 'blogposts#feed'
 
   match '/signin', to: "sessions#new"
 
