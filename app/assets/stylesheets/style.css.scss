@@ -170,17 +170,24 @@
     }
     
     /* Artikel Vor/Zurück */
-    .wrapper .content .pagination {
+    .pagination {
         text-align: right;
     }
     
     /* Ein einzelner Blogpost */
-    .wrapper .content .blogpost {
+    .blogpost {
         width: inherit;
         
         padding-bottom: 40px;
     }
-
+    
+    /* Ein noch nicht veröffentlichter Blogpost */
+    .unpublished .blogpost {
+        border-left-style: solid;
+        border-left-width: .4em;
+        border-left-color: #66a4bb;
+    }
+    
     /* Titel des Postings */
     h3.posttitle {
         font-family: Georgia, serif;
@@ -342,6 +349,14 @@
     /* Ein Quote mit allem drum und dran */
     .qotd {
         margin: 1em 0 4em 2em;
+    }
+    
+    /* Ein noch nicht veröffentlichtes Quote */
+    .unpublished .qotd {
+        margin: 1em 0 4em 1.6em; /* angepasst, damit der Abstand zum linken Rand der Website wieder passt (border ist dazugekommen) */
+        border-left-style: solid;
+        border-left-width: .4em;
+        border-left-color: #66a4bb;
     }
     
     /* Source */
