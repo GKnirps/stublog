@@ -12,7 +12,7 @@ module ApplicationHelper
 
 	#return nicely formatted date
 	def format_date(date)
-		return "#{date.mday}.#{date.mon}.#{date.year}  #{date.hour}:#{date.min}"
+		return date.strftime "%d.%m.%Y %H:%M"
 	end
 
 
