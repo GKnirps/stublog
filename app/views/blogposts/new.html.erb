@@ -9,23 +9,31 @@
 <% end %>
 
 <div class="editpost">
-	<%= form_for(@blogpost) do |f| %>
-		<%= render "shared/error_messages", object: f.object %>
+    <%= form_for(@blogpost) do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
 
-		<%= f.label :caption, "Post title" %>
-		<%= f.text_field :caption %>
-		
-		<div class="field">
-			<%= f.text_area :content, placeholder: "Post content" %>
+		<div class="blogpost-caption">
+		  <!--<%= f.label :caption, "Post Title" %>-->
+		  <%= f.text_field :caption, placeholder: "Enter a good title here." %>
 		</div>
 		
-		<%= f.label :category_id, "Category" %>
-		<%= f.collection_select :category_id, @categories, :id,  :name, prompt: true%>
+		<div class="blogpost-content">
+			<%= f.text_area :content, placeholder: "Put your content (either great or boring) here." %>
+		</div>
+		
+		<div class="blogpost-category">
+    		<%= f.label :category_id, "Category" %>
+    		<%= f.collection_select :category_id, @categories, :id,  :name, prompt: true%>
+		</div>
 
-		<%= label_tag :tags, "Tags, separated by commas" %>
-		<%= text_field_tag :tags, @tags %>
-
-		<%= f.submit "Create", class: "submit_button", name: :commit, value: "save" %>
-		<%= f.submit "Preview", class: "submit_button", name: :commit, value: "preview" %>
+		<div class="blogpost-tags">
+    		<!--<%= label_tag :tags, "Tags, separated by commas" %>-->
+    		<%= text_field_tag :tags, @tags, placeholder: "Your tags belong here. Please, separate, by, commas." %>
+        </div>
+    
+        <div class="blogpost-action-buttons">
+    		<%= f.submit "Create", class: "submit_button", name: :commit, value: "Publish post" %>
+    		<%= f.submit "Preview", class: "submit_button", name: :commit, value: "Preview post" %>
+		</div>
 	<% end %>
 </div>

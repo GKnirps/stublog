@@ -393,6 +393,11 @@
 
     .wrapper .footer {
         width: inherit;
+        border-top: solid 1px #80bb66;
+    }
+    
+    .footer-feed-links {
+        
     }
 
 /**********************************   L O G I N / L O G O U T   **********************************/
@@ -429,6 +434,7 @@
         text-align: right;
         clear: both;
     }
+    
     
     /* Formular um neuen Benutzer anzulegen */
     .new-user-form {
@@ -467,6 +473,7 @@
         
     }
     
+    
     /* Bei Fehlerhafter Eingabe hervorgehobene Formularfelder */
     .field_with_errors {
         color: #bb1129;
@@ -488,20 +495,112 @@
     
 /*****************************   B E I T R A G   V E R F A S S E N   *****************************/
 
-    .wrapper .content .editpost {
+    .editpost {
         
     }
     
-    .editpost form input#blogpost_caption {
-        width: 400px;
+    /* Bereich Posttitel */
+    .blogpost-caption {
+        
     }
     
-    .editpost form .field textarea#blogpost_content {
-        width: 600px;
+    /* Eingabefeld Posttitel */
+    .blogpost-caption input#blogpost_caption {
+        width: 814px;
+        font-size: 18px;
     }
     
-/*************************************   E D I T   U S E R   *************************************/
+    /* Bereich Post-Content */
+    .blogpost-content {
+        
+    }
+    
+    /* Eingabefeld Post-Content */
+    .blogpost-content textarea#blogpost_content {
+        width: 814px;
+    }
+    
+    /* Bereich Blogpost-Kategorie */
+    .blogpost-category {
+        margin-top: 40px;
+    }
+    
+    /* Bereich Blogpost-Tags */
+    .blogpost-tags {
+        margin-top: 5px;
+    }
+    
+    /* Eingabefeld Blogpost-Tags */
+    .blogpost-tags input#tags {
+        width: 300px;
+    }
+    
+    /* Bereich Absenden-/Vorschau-Buttons */
+    .blogpost-action-buttons {
+        margin-top: 40px;
+        margin-bottom: 60px;
+    }
+    
+    /* Absenden-Button */
+    .blogpost-action-buttons input.submit_button {
+        
+    }
+    
+    /* Vorschau-Button */
+    .blogpost-action-buttons input.preview_button {
+        
+    }
 
+/*********************************   E D I T   C A T E G O R Y   *********************************/
+
+    /* Kategorietitel */
+    .category-name {
+        
+    }
+    
+    /* Kategoriebeschreibung */
+    .category-description {
+        
+    }
+
+/*************************************   E D I T   U S E R   *************************************/
+    
+    /* Bereich Benutzername */
+    .edit-user-name {
+        
+    }
+    /* Eingabefeld benutzername */
+    .edit-user-name input#user_name {
+        margin-left: 52px;
+    }
+    
+    /* Bereich E-Mail */
+    .edit-user-email {
+        margin-bottom: 20px;
+    }
+    /* Eingabefeld E-Mail */
+    .edit-user-email input#user_email {
+        margin-left: 53px;
+    }
+    
+    /* Bereich Passwort */
+    .edit-user-password {
+        margin-bottom: 30px;
+    }
+    /* Eingabefeld Passwort */
+    .edit-user-password input#user_password {
+        margin-left: 29px;
+    }
+    /* Eingabefeld Passwort bestätigen */
+    .edit-user-password input#user_password_confirmation {
+        margin-left: 6px;
+    }
+    
+    /* Bereich Änderungen-speichern-Button etc. */
+    .edit-user-action-buttons {
+        margin-bottom: 50px;
+    }
+    
     /* User-Löschen-Link */
     .edit-user span.delete a:link, .edit-user span.delete a:active, .edit-user span.delete a:visited {
         color: #bb1129;

@@ -4,18 +4,27 @@
 	<%= form_for(@blogpost) do |f| %>
 		<%= render "shared/error_messages", object: f.object %>
 
-		<%= f.label :caption, "Post title" %>
-		<%= f.text_field :caption %>
+		<div class="blogpost-caption">
+    		<!--<%= f.label :caption, "Post title" %>-->
+    		<%= f.text_field :caption %>
+        </div>
 		
-		<div class="field">
+		<div class="blogpost-content">
 			<%= f.text_area :content %>
 		</div>
 
-		<%= f.label :category_id, "Category" %>
-		<%= f.collection_select :category_id, @categories, :id,  :name, @category_selection_params %>
-		<%= label_tag :tags, "Tags, separated by commas" %>
-		<%= text_field_tag :tags , @tags%>
-
-		<%= f.submit "Update", class: "submit_button" %>
+		<div class="blogpost-category">
+    		<%= f.label :category_id, "Category" %>
+    		<%= f.collection_select :category_id, @categories, :id,  :name, @category_selection_params %>
+        </div>
+        
+        <div class="blogpost-tags">
+    		<!--<%= label_tag :tags, "Tags" %>-->
+    		<%= text_field_tag :tags , @tags%>
+        </div>
+        
+        <div class="blogpost-action-buttons">
+    		<%= f.submit "Update Post", class: "submit_button" %>
+        </div>
 	<% end %>
 </div>

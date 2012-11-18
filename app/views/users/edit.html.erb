@@ -4,19 +4,28 @@
 	<%= form_for(@user) do |f| %>
 		<%= render 'shared/error_messages', object: f.object %>
 
-		<%= f.label :name %>
-		<%= f.text_field :name %><br />
+		<div class="edit-user-name">
+    		<%= f.label :name %>
+    		<%= f.text_field :name %>
+		</div>
+		
+		<div class="edit-user-email">
+    		<%= f.label :email %>
+    		<%= f.text_field :email %>
+        </div>
 
-		<%= f.label :email %>
-		<%= f.text_field :email %><br /><br />
+        <div class="edit-user-password">
+    		<%= f.label :password %>
+    		<%= f.password_field :password %><br />
+    
+    		<%= f.label :password_confirmation, "Confirmation" %>
+    		<%=f.password_field :password_confirmation %>
+		</div>
 
-		<%= f.label :password %>
-		<%= f.password_field :password %><br />
-
-		<%= f.label :password_confirmation, "Confirmation" %>
-		<%=f.password_field :password_confirmation %><br /><br />
-
-		<%= f.submit "Save changes", class: "submit_button" %><br /><br />
+		<div class="edit-user-action-buttons">
+		    <%= f.submit "Save changes", class: "submit_button" %>
+		    <span class="delete"><%= link_to "Delete this user", confirm_destroy_user_path(@user) %></span>
+		</div>
+		
 	<% end %>
-	<span class="delete"><%= link_to "Delete this user", confirm_destroy_user_path(@user) %></span>
 </div>

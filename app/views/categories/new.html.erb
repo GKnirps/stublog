@@ -1,17 +1,20 @@
 <% provide :title, "new category" %>
 <h2 class="section-heading">New Category</h2>
+
+<div class="edit-category-form">
 	<%= form_for(@category) do |f| %>
 		<%= render 'shared/error_messages', object: f.object %>
 
-		<%= f.label :name %>
-		<%= f.text_field :name %>
+		<div class="category-name">
+    		<%= f.label :name %>
+    		<%= f.text_field :name %>
+        </div>
 
-		<p>
-		<%= f.label :description %>
-		<%= f.text_area :description %>
-		</p>
+		<div class="category-description">
+		    <%= f.label :description %>
+		    <%= f.text_area :description %>
+		</div>
 		
 		<%= f.submit "Create category", class: "submit_button" %>
 	<% end %>
-<div class="new-category-form">
 </div>
