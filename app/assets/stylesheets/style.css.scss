@@ -1,13 +1,26 @@
 /******************************************   B O D Y   ******************************************/
 
     body {
-        font-size: 100%;
-        
         margin: 0;
         vertical-align: top;
         background-color: #fffff6;
         height: 100%;
     }
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-width: 481px) {
+            body {
+                font-size: 16px;
+            }
+        }
+        
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            body {
+                font-size: 18px;
+            }
+        }
+    
+    
     
     /* Grundformatierung sämtlicher Links */
     a:link, a:active, a:visited {
@@ -27,16 +40,32 @@
         
         border-style: dashed;
         border-width: 1px;
-        width: 400px;
-        padding: 20px 15px;
     }
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            /* Alerts generell */
+            .alert {
+                width: 25em;
+                padding: 1.25em .9375em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Alerts generell */
+            .alert {
+                font-size: 2.4em;
+
+                width: 16em;
+                padding: .7em .5em;
+            }
+        }
     
     /* Fehlermeldung mit Rot gestricheltem Rahmen */
     .alert-error {
         color: #bb1129;
         
         border-color: #bb1129; /* rot */
-        margin: 50px auto 30px auto;
+        margin: 3.125em auto 1.875em auto;
     }
 
     /* Nachricht mit orange gestricheltem Rahmen */
@@ -44,7 +73,7 @@
         color: #bb5811;
         
         border-color: #bb5811; /* orange */
-        margin: 40px auto 60px auto;
+        margin: 2.5em auto 3.75em auto;
     }
     .alert-message .message-text {
         color: #bb5811;
@@ -58,7 +87,7 @@
     /* Nachricht mit grün gestricheltem Rahmen */
     .alert-success {
         border-color: #80bb66; /* grün */
-        margin: 60px auto 40px auto;
+        margin: 3.75em auto 2.5em auto;
     }
   
 /******************************   G L O B A L E R   W R A P P E R   ******************************/
@@ -72,20 +101,32 @@
 /****************************************   W R A P P E R   **************************************/
 
     .wrapper {
-        margin: 0 auto 0 auto;  /* Zentriert die Website */
-        padding: 0 10px 0 10px; /* Abstand der Rahmen zum Content (Wird zur width hinzugerechnet) */
-        width: 820px;    /* Breite der Website */
         height: 100%;
         text-align: left;
+        margin: 0 auto 0 auto;  /* Zentriert die Website */
         
-        border-left-style: solid;
-        border-left-width: 1px;
-        border-left-color: #80bb66;
-        
-        border-right-style: solid;
-        border-right-width: 1px;
-        border-right-color: #80bb66;
+        width: 51.25em;    /* Breite der Website */
     }
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            .wrapper {
+                padding: 0 .625em 0 .625em; /* Abstand der Rahmen zum Content (Wird zur width hinzugerechnet) */
+                
+                border-left-style: solid;
+                border-left-width: 1px;
+                border-left-color: #80bb66;
+                
+                border-right-style: solid;
+                border-right-width: 1px;
+                border-right-color: #80bb66;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            .wrapper {
+                padding: 0; 
+            }
+        }
     
 /*****************************************   H E A D E R   ***************************************/
 
@@ -93,33 +134,49 @@
         width: inherit;
     }
     
-    /* Blog-Überschrift */
-    h1 {
-        font-family: Georgia, serif;
-        font-size: 3em;
-        color: #80bb66;
-        text-align: center;
-        
-        margin: 0;
-        padding: 30px 0 40px 0;
-    }
-    h1 a:hover {
-        text-decoration: none;
-    }
-    
 /****************************************   B A N N E R   ****************************************/
 
     .wrapper .header .banner {
         width: inherit;
     }
+    
+    /* Blog-Überschrift */
+    h1 {
+        font-family: Georgia, serif;
+        color: #80bb66;
+        text-align: center;
+        
+        margin: 0;
+        padding: 1em 0 1.2em 0;
+    }
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            /* Blog-Überschrift */
+            h1 {
+                font-size: 3em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Blog-Überschrift */
+            h1 {
+                font-size: 4em;
+            }
+        }
+        
+    h1 a:hover {
+        text-decoration: none;
+    }
 
 /************************************   N A V I G A T I O N    ***********************************/
 
+
     .wrapper .header .navigation {
-        padding: 1px 5px 1px 5px; /* Raum um das Set der Navigations-Buttons */
+        padding: .0625em .3125em .0625em .3125em; /* Raum um das Set der Navigations-Buttons */
         border-top: solid 1px #80bb66;
         border-bottom: solid 1px #80bb66;
     }
+    
     
     .header .navigation ul.main-nav {
         width: inherit;
@@ -130,56 +187,113 @@
         padding-left: 0px;  /* Für den IE 8 & Opera */
     }
     
+    
     .header .navigation ul.main-nav li {
         display: inline-block;  /* Ordnet die Buttons der Haupt-Navigation nebeneinander an */
     }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            .header .navigation ul.main-nav li {
+                margin: .8em 0 .8em 0;
+            }
+        }
+    
     
     /* Element-Beschriftungen Inaktiv (Unbesucht & Besucht) */
     ul.main-nav li a:link, ul.main-nav li a:visited {
         font-family: Georgia, serif;
-        font-size: 1.5em;
         
-        margin: 0 5px 0 5px;  /* Abstand zwischen den Elementen */
+        margin: 0 .3125em 0 .3125em;  /* Abstand zwischen den Elementen */
     }
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            ul.main-nav li a:link, ul.main-nav li a:visited {
+                font-size: 1.5em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            ul.main-nav li a:link, ul.main-nav li a:visited {
+                font-size: 2.5em;
+            }
+        }
+    
     
     /* Hover über aktivem Element */
     ul.main-nav li a:hover {
         text-decoration: none;
     }
     
+    
     /* Login/Logout-Button */
     ul.main-nav li.signinout {
         float: right;   /* Platziert Login/out am rechten Rand der Navigation */
     }
     
+    
 /*******************************   C O N T E N T - W R A P P E R   *******************************/
 
     .wrapper .content {
         width: inherit;
-
-        padding-top: 30px;
     }
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            .wrapper .content {        
+                padding-top: 1.875em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            .wrapper .content {        
+                padding-top: 3em;
+            }
+        }
     
     /* Überschriften über bestimmten Bereichen der Website */
     h2.section-heading {
         font-family: Georgia, serif;
-        font-size: 2em;
         color: #80bb66;
         
-        margin: 0 0 60px 10px;
+        margin: 0 0 2em .625em;
     }
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            /* Überschriften über bestimmten Bereichen der Website */
+            h2.section-heading {
+                font-size: 2em; 
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Überschriften über bestimmten Bereichen der Website */
+            h2.section-heading {
+                font-size: 3.2em;
+            }
+        }
+    
     
     /* Artikel Vor/Zurück */
     .pagination {
         text-align: right;
     }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Artikel Vor/Zurück */
+            .pagination {
+                font-size: 2em;
+                
+                padding-bottom: 2em;
+            }
+        }
+    
     
     /* Ein einzelner Blogpost */
     .blogpost {
         width: inherit;
         
-        padding-bottom: 40px;
+        padding-bottom: 2.5em;
     }
+    
     
     /* Ein noch nicht veröffentlichter Blogpost */
     .unpublished .blogpost {
@@ -188,22 +302,52 @@
         border-left-color: #66a4bb;
     }
     
+    
     /* Titel des Postings */
     h3.posttitle {
         font-family: Georgia, serif;
-        font-size: 1.4em;
-        
-        margin: 0 0 0 10px;
     }
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            /* Titel des Postings */
+            h3.posttitle {
+                font-size: 1.4em;
+                
+                margin: 0 0 0 .625em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Titel des Postings */
+            h3.posttitle {
+                font-size: 3.4em;
+                
+                margin: 1.65em 0 0 .3em;
+            }
+        }
+
 
     /* Datum des Postings */
     h3.postdate {
         font-family: Georgia, serif;
-        font-size: .9em;
         font-weight: normal;
         
-        margin: 0 0 0 10px;
+        margin: 0 0 0 .625em;
     } 
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            /* Datum des Postings */
+            h3.postdate {
+                font-size: .9em;
+            } 
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Datum des Postings */
+            h3.postdate {
+                font-size: 1.6em;
+            } 
+        }
     
     /* Fließtext des Postings */
     .blogpost .entry {
@@ -212,14 +356,45 @@
         margin-top: .8em;
         margin-bottom: 1.4em;
     }
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            /* Fließtext des Postings */
+            .blogpost .entry {        
+                margin-top: .8em;
+                margin-bottom: 1.4em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Fließtext des Postings */
+            .blogpost .entry {
+                font-size: 2.4em;
+                        
+                margin-top: .8em;
+                margin-bottom: 1.4em;
+            }
+        }
     
     /* Metadaten unter dem Posting */
     .blogpost .metainfo span {
         font-family: Verdana, Arial, sans-serif;
-        font-size: .5em;
-        margin: 0 0 0 0;
-        padding: 0 0 0 0;
+        margin: 0;
+        padding: 0;
     }
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            /* Metadaten unter dem Posting */
+            .blogpost .metainfo span {
+                font-size: .5em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Metadaten unter dem Posting */
+            .blogpost .metainfo span {
+                font-size: .7em;
+            }
+        }
     
     /* „Bearbeiten“ & „Löschen“ */
     .blogpost .modify span {
@@ -248,12 +423,26 @@
     blockquote {
         font-style: italic;
         
-        margin: 20px 30px 20px 30px;
-        padding: 0px 25px 0px 30px;
-        background-image: url(quote-left-georgia.png);
+        padding: 0 1.5625em 0 1.875em;
         background-position: left top;
         background-repeat: no-repeat;
     }
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            /* Zitatboxen */
+            blockquote {
+                margin: 1.25em 1.875em 1.25em 1.875em;
+                background-image: url(quote-left-georgia.png);
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Zitatboxen */
+            blockquote {
+                margin: 1.25em 1.875em 1.25em .7em;
+                background-image: url(quote-left-georgia@2x.png);
+            }
+        }
 
 /************************************   K O M M E N T A R E   ************************************/
 
@@ -269,13 +458,21 @@
         margin-bottom: 1.5em;
     }
 
+
     /* Titel eines Kommentars */
     h4.comment-title {
         font-family: Georgia, serif;
-        font-size: 1em;
         
         margin-bottom: 0;
     }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Titel eines Kommentars */
+            h4.comment-title {
+                font-size: 2em;
+            }
+        }
+   
     
     /* Kommentartext */
     .comment-entry p {
@@ -284,73 +481,174 @@
         margin-top: .4em;
         margin-bottom: .6em;
     }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Kommentartext */
+            .comment-entry p {
+                font-size: 2.4em;
+            }
+        }
+    
     
     /* Kommentar Meta-Infos */
-    .comment-metainfo {
+    .comment-metainfo, .comment-reply-link {
         font-family: Verdana, Arial, sans-serif;
-        font-size: .5em;
     }
-    
-    /* Reply-Link */
-    .comment-reply-link {
-        font-family: Verdana, Arial, sans-serif;
-        font-size: .5em;
-    }
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            /* Kommentar Meta-Infos */
+            .comment-metainfo, .comment-reply-link {
+                font-size: .5em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Kommentar Meta-Infos */
+            .comment-metainfo, .comment-reply-link {
+                font-size: .8em;
+            }
+        }
+
     
 /*********************************   E D I T   C O M M E N T S   *********************************/
 
 
     /* New Comment Form Wrapper */
     .editcomment {
-        width: 400px;
-        
-        margin: 3em auto 3em auto;
+        margin: .1875em auto 3em auto;
     }
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            /* New Comment Form Wrapper */
+            .editcomment {
+                width: 25em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* New Comment Form Wrapper */
+            .editcomment {
+                width: 12.3em;
+            }
+        }
+    
     
     .editcomment form div {
         margin-bottom: 1px;
     }
     
+    
     /* Comment Author Name */
     .comment-author-name label {
         display: none;
     }
-    .comment-author-name input {
-        width: 400px;
-    }
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            .comment-author-name input {
+                width: 35.9em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            .comment-author-name input {
+                width: 19em;
+                height: 2em;
+                margin-bottom: 1em;
+            }
+        }
+    
     
     /* Comment Caption */
     .comment-caption label {
         display: none;
     }
-    .comment-caption input {
-        width: 400px;
-    }
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            .comment-caption input {
+                width: 35.9em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            .comment-caption input {
+                width: 19em;
+                height: 2em;
+                margin-bottom: 1em;
+            }
+        }
+    
     
     /* Comment Content */
-    .comment-content textarea {
-        width: 400px;
-        height: 150px;
-    }
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            /* Comment Content */
+            .comment-content textarea {
+                width: 35.9em;
+                height: 9.375em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Comment Content */
+            .comment-content textarea {
+                width: 19.56em;
+                height: 11.8em;
+            }
+        }
+    
     
     /* Submit-Button */
     .comment-buttons {
-        width: 400px;
         text-align: right;
     }
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            /* Submit-Button */
+            .comment-buttons {
+                width: 25em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Submit-Button */
+            .comment-buttons {
+                width: 12.4em;
+            }
+        }
 
     
 /******************************   Q U O T E   O F   T H E   D A Y   ******************************/
 
     .bufferinfo {
-        margin-bottom: 50px;
+        margin-bottom: 3.125em;
     }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            .bufferinfo {
+                font-size: 2.4em;
+            }
+        }
+
 
     /* Ein Quote mit allem drum und dran */
-    .qotd {
-        margin: 1em 0 4em 2em;
-    }
-    
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            /* Ein Quote mit allem drum und dran */
+            .qotd {
+                margin: 1em 0 4em 2em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Ein Quote mit allem drum und dran */
+            .qotd {
+                font-size: 2.4em;
+                
+                margin: .5em 0 2em 1em;
+            }
+        }
+         
+            
     /* Ein noch nicht veröffentlichtes Quote */
     .unpublished .qotd {
         margin: 1em 0 4em 1.6em; /* angepasst, damit der Abstand zum linken Rand der Website wieder passt (border ist dazugekommen) */
@@ -359,10 +657,23 @@
         border-left-color: #66a4bb;
     }
     
+    
     /* Source */
-    .quote-source {
-        margin: 0 0 0 1.5em;
-    }
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            /* Source */
+            .quote-source {
+                margin: 0 0 0 1.5em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Source */
+            .quote-source {
+                margin: 0 0 0 .7em;
+            }
+        }
+    
     
     /* Edit/Delete-Links */
     .quote-author-links {
@@ -404,74 +715,224 @@
 
     /* Login-Formular */
     .sign-in-form {
-        width: 170px;
-        margin: 0 auto 70px auto;
-        padding: 15px 20px;
+        margin: 0 auto 4.375em auto;
+        padding: .9375em 1.25em;
                 
         border: #80bb66 1px dashed;
     }
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            .sign-in-form {
+                width: 10.625em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            .sign-in-form {
+                width: 12.3em;
+            }
+        }
+        
     .sign-in-form .email {
-        padding-bottom: 10px;
+        padding-bottom: .625em;
     }
-    .sign-in-form .email input {
-        width: 165px;
-    }
+    
+    /* E-Mail-Input-Feld */
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            .sign-in-form .email input {
+                width: 14.99em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            .sign-in-form .email input {
+                width: 18.9em;
+                height: 2em;
+            }
+        }
+        
     .sign-in-form .password {
-        padding-bottom: 20px;
+        padding-bottom: 1.25em;
     }
-    .sign-in-form .password input {
-        width: 165px;
-    }
+    
+    /* Passwort-Input-Feld */
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            .sign-in-form .password input {
+                width: 14.99em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            .sign-in-form .password input {
+                width: 18.9em;
+                height: 2em;
+            }
+        }
+    
+    /* Eingelogged-bleiben-Checkbox */
     .sign-in-form .permanent {
         text-align: right;
-        padding-bottom: 20px;
+        padding-bottom: 1.25em;
     }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Eingelogged-bleiben-Checkbox */
+            .sign-in-form .permanent {
+                padding-right: 1em;
+            }
+        }
+    
+    /* Sign-In-Button */
     .sign-in-form .sign-in {
         float: right;
-        padding-bottom: 30px;
+        padding-bottom: 1.875em;
     }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Sign-In-Button */
+            .sign-in-form .sign-in {
+                padding-right: 1em;
+            }
+        }
+    
+    /* New-User-Link */
     .sign-in-form .new-user {
         text-align: right;
         clear: both;
     }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* New-User-Link */
+            .sign-in-form .new-user {
+                padding-right: 1em;
+            }
+        }
+    
+    
+    
+    
+    
     
     
     /* Formular um neuen Benutzer anzulegen */
     .new-user-form {
-        width: 280px;
-        margin: 0 auto 60px auto;
+        margin: 0 auto 3.75em auto;
         text-align: right;
-        padding: 20px 20px;
+        padding: 1.25em 1.25em;
 
         border: #80bb66 1px dashed;
     }
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            /* Formular um neuen Benutzer anzulegen */
+            .new-user-form {
+                width: 17.5em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Formular um neuen Benutzer anzulegen */
+            .new-user-form {
+                width: 18em;
+            }
+        }
+    
+    /* Wrapper Username */
     .user-name {
-        padding-bottom: 5px;
+        padding-bottom: .3125em;
     }
-    #user_name {
-        width: 180px;
-    }
+    
+    /* Input-Feld Username */
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            /* Input-Feld Username */
+            #user_name {
+                width: 11.25em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Input-Feld Username */
+            #user_name {
+                width: 18.9em;
+                height: 2em;
+            }
+        }
+    
+    /* Wrapper E-Mail  */
     .user-email {
-        padding-bottom: 15px;
+        padding-bottom: .9375em;
     }
-    #user_email {
-        width: 180px;
-    }
+    
+    /* Input-Feld E-Mail */
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            /* Input-Feld E-Mail */
+            #user_email {
+                width: 11.25em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Input-Feld E-Mail */
+            #user_email {
+                width: 18.9em;
+                height: 2em;
+            }
+        }
+    
+    /* Wrapper Passwort */
     .user-password {
-        padding-bottom: 5px;
+        padding-bottom: .3125em;
     }
-    #user_password {
-        width: 180px;
-    }
+    
+    /* Input-Feld Passwort */
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            /* Input-Feld Passwort */
+            #user_password {
+                width: 11.25em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Input-Feld Passwort */
+            #user_password {
+                width: 18.9em;
+                height: 2em;
+            }
+        }
+    
+    /* Wrapper Passwort-Confirm */
     .user-password-confirm {
-        padding-bottom: 15px;
+        padding-bottom: .9375em;
     }
-    #user_password_confirmation {
-        width: 180px;
-    }
+    
+    /* Input-Feld Passwort-Confirm */
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            /* Input-Feld Passwort-Confirm */
+            #user_password_confirmation {
+                width: 11.25em;
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Input-Feld Passwort-Confirm */
+            #user_password_confirmation {
+                width: 18.9em;
+                height: 2em;
+            }
+        }
+    
+    /* Button Create-User */
     .create-user-button {
         
     }
+    
+    
     
     
     /* Bei Fehlerhafter Eingabe hervorgehobene Formularfelder */
@@ -479,19 +940,24 @@
         color: #bb1129;
         display: inline-block;
     }
+    
     .field_with_errors input {
         border: #bb1129 1px solid;
     }
+    
     /* Erläuterungen, was wo falsch eingegeben wurde */
     .error_explanation .alert-error {
-        width: 200px;
-        margin: 0px auto 30px auto;
+        width: 12.5em;
+        margin: 0 auto 1.875em auto;
     }
+    
     .error_explanation ul {
         text-align: left;
         color: #bb1129;
         list-style-type: circle;
     }
+    
+    
     
 /*****************************   B E I T R A G   V E R F A S S E N   *****************************/
 
@@ -506,8 +972,8 @@
     
     /* Eingabefeld Posttitel */
     .blogpost-caption input#blogpost_caption {
-        width: 814px;
-        font-size: 18px;
+        width: 50.875em;
+        font-size: 1.125em;
     }
     
     /* Bereich Post-Content */
@@ -517,28 +983,28 @@
     
     /* Eingabefeld Post-Content */
     .blogpost-content textarea#blogpost_content {
-        width: 814px;
+        width: 50.875em;
     }
     
     /* Bereich Blogpost-Kategorie */
     .blogpost-category {
-        margin-top: 40px;
+        margin-top: 2.5em;
     }
     
     /* Bereich Blogpost-Tags */
     .blogpost-tags {
-        margin-top: 5px;
+        margin-top: .3125em;
     }
     
     /* Eingabefeld Blogpost-Tags */
     .blogpost-tags input#tags {
-        width: 300px;
+        width: 18.75em;
     }
     
     /* Bereich Absenden-/Vorschau-Buttons */
     .blogpost-action-buttons {
-        margin-top: 40px;
-        margin-bottom: 60px;
+        margin-top: 2.5em;
+        margin-bottom: 3.75em;
     }
     
     /* Absenden-Button */
@@ -571,34 +1037,34 @@
     }
     /* Eingabefeld benutzername */
     .edit-user-name input#user_name {
-        margin-left: 52px;
+        margin-left: 3.25em;
     }
     
     /* Bereich E-Mail */
     .edit-user-email {
-        margin-bottom: 20px;
+        margin-bottom: 1.25em;
     }
     /* Eingabefeld E-Mail */
     .edit-user-email input#user_email {
-        margin-left: 53px;
+        margin-left: 3.3125em;
     }
     
     /* Bereich Passwort */
     .edit-user-password {
-        margin-bottom: 30px;
+        margin-bottom: 1.875em;
     }
     /* Eingabefeld Passwort */
     .edit-user-password input#user_password {
-        margin-left: 29px;
+        margin-left: 1.8125em;
     }
     /* Eingabefeld Passwort bestätigen */
     .edit-user-password input#user_password_confirmation {
-        margin-left: 6px;
+        margin-left: .375em;
     }
     
     /* Bereich Änderungen-speichern-Button etc. */
     .edit-user-action-buttons {
-        margin-bottom: 50px;
+        margin-bottom: 3.125em;
     }
     
     /* User-Löschen-Link */
