@@ -6,7 +6,7 @@ class QuoteOfTheDaysController < ApplicationController
 
   def index
   	if signed_in? && (current_user.admin? || current_user.author?) then
-		@quote_of_the_days = QuoteOfTheDay.all
+		@quote_of_the_days = QuoteOfTheDay.unpublished + QuoteOfTheDay.published
 	else
   		@quote_of_the_days = QuoteOfTheDay.published
 	end
