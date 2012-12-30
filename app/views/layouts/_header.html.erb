@@ -1,23 +1,23 @@
 <div class="header">
     
     <div class="banner">
-        <h1><%= link_to "Stranger than usual", home_path %></h1>
+        <h1><%= link_to t(:blogname), home_path %></h1>
     </div>
     
     <div class="navigation">
     	<ul class="main-nav">
-    		<li><%= link_to "Home", home_path %> </li>
-    		<li><%= link_to "Archive", blogposts_path %></li>
-		<li><%= link_to "Categories", categories_path %></li>
+    		<li><%= link_to t(:menu_home), home_path %> </li>
+    		<li><%= link_to t(:menu_archive), blogposts_path %></li>
+		<li><%= link_to t(:menu_categories), categories_path %></li>
     		<% if signed_in? then %>
     			<% if current_user.author? then %>
-    				<li><%= link_to "New Post", new_blogpost_path %></li>
+    				<li><%= link_to t(:menu_new_post), new_blogpost_path %></li>
     			<% end %>
-    			<li><%= link_to "Users", users_path %></li>
-    			<li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
-    			<li class="signinout"><%= link_to "Sign out", signout_path %></li>
+    			<li><%= link_to t(:menu_users), users_path %></li>
+    			<li><%= link_to t(:menu_edit_profile), edit_user_path(current_user) %></li>
+    			<li class="signinout"><%= link_to t(:menu_signout), signout_path %></li>
     		<% else %>
-    			<li class="signinout"><%= link_to "Sign in", signin_path %></li>
+    			<li class="signinout"><%= link_to t(:menu_signin), signin_path %></li>
     		<% end %>
     	</ul>
     </div>

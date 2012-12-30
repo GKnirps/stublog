@@ -2,4 +2,12 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  blogname: Stranger Than Usual
+  menu_home: Home
+  menu_archive: Archive
+  menu_categories: Categories
+  menu_new_post: New Post
+  menu_users: Users
+  menu_edit_profile: Edit Profile
+  menu_signin: Sign in
+  menu_signout: Sign out
