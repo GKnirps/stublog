@@ -74,7 +74,7 @@ class BlogpostsController < ApplicationController
   	@blogpost = Blogpost.find(params[:id])
 	@categories = Category.all
 	@category_selection_params = {prompt: true}
-	@category_selection_params = {selected: @blogpost.category} if @blogpost.category
+	@category_selection_params = {selected: @blogpost.category.id.to_s} if @blogpost.category
 	tags = []
 	@blogpost.tags.each do |tag|
 		tags.push tag.name
