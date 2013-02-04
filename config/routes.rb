@@ -1,5 +1,8 @@
 Stublog::Application.routes.draw do
   resources :quote_of_the_days, except: :show do
+	collection do
+		get 'fortune'
+	end
 	member do
   		#Add a rout for confirm destroy (I don't want to use JS)
 		get 'confirm_destroy'

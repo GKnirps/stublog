@@ -53,6 +53,15 @@ class QuoteOfTheDaysController < ApplicationController
 	redirect_to quote_of_the_days_path
   end
 
+  def fortune
+	@quote_of_the_days = QuoteOfTheDay.published
+	render	content_type: Mime::TEXT, 
+		text: @quote_of_the_days.map { 
+			|q| [q.sourcedesc, q.sourceurl, q.content].compact.select{|a| a != ""}.join("\n") }.join("\n%\n")
+
+
+  end
+
   private
   #filter if a quote with a give id exists
   def quote_exists
