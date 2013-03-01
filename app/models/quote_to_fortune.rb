@@ -2,8 +2,10 @@
 class QuoteToFortune
 	#make a fortune db file string out of the published quotes
 	def quotelist()
-		@quotelist ||= QuoteOfTheDay.published.map { 
-			|q| [q.sourcedesc, q.sourceurl, q.content].compact.select{|a| a != ""}.join("\n") }.join("\n%\n")
+		#old variant: put url and description into the fortune databank. This is ugly for fortune.
+		#@quotelist ||= QuoteOfTheDay.published.map { 
+		#	|q| [q.sourcedesc, q.sourceurl, q.content].compact.select{|a| a != ""}.join("\n") }.join("\n%\n")
+		@quotelist ||=QuoteOfTheDay.published.map{|q| q.content}.join "\n%\n"
 		
 	end
 	
@@ -22,6 +24,7 @@ class QuoteToFortune
 			end
 		elsif not Dir.exists? "/tmp/stublog" then
 			Dir.mkdir "/tmp/stublog"
+			Dir.mkdir path
 		else
 			Dir.mkdir path
 		end
