@@ -54,12 +54,8 @@ class QuoteOfTheDaysController < ApplicationController
   end
 
   def fortune
-	@quote_of_the_days = QuoteOfTheDay.published
-	render	content_type: Mime::TEXT, 
-		text: @quote_of_the_days.map { 
-			|q| [q.sourcedesc, q.sourceurl, q.content].compact.select{|a| a != ""}.join("\n") }.join("\n%\n")
-
-
+  	q = QuoteToFortune.new
+	send_file q.fortune_archive_path, type: "application/x-gzip", x_sendfile: true, filename: "stublog.tar.gz"
   end
 
   private

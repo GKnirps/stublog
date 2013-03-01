@@ -9,9 +9,10 @@
 
 		There are <%= @buffersize %> quotes in the buffer, this means there is a probability of <%= @prob*100 %>% that a quote will be released tomorrow.
 
+		<br><br><%= link_to "download quotes as fortune files", fortune_quote_of_the_days_path %>
 		<% if @author_user then %>
-    		<br><br><%= link_to "new quote", new_quote_of_the_day_path %>
-    	<% end %>
+    			<br><%= link_to "new quote", new_quote_of_the_day_path %>
+    		<% end %>
 
 	</p>
 
