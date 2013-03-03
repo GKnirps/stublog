@@ -1,2 +1,5 @@
 <% provide :title, "file: #{@hosted_file.name}" %>
+<p>
+	<%= link_to "hosted files index", hosted_files_path %>
+</p>
 <%= render @hosted_file %>

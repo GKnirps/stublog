@@ -1,6 +1,10 @@
 <h3 class="section-heading">File: <%= hosted_file.name %></h2>
 <p class="file_description">
-	<%= bbparse(hosted_file.description) %>
+	<% if ["image/gif", "image/png", "image/jpeg"].include? hosted_file.mime_type then %>
+		<img src="<%=download_hosted_file_path(hosted_file)%>" alt="<%=hosted_file.name%>" title="<%=hosted_file.description%>" width="100" />
+	<% else %>
+		<%= hosted_file.description %>
+	<% end %>
 	<p class="public">
 		<%= "Public file" if hosted_file.public? %>
 	</p>
