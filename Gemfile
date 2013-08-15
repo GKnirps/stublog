@@ -27,7 +27,7 @@ end
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
@@ -44,9 +44,6 @@ gem 'jquery-rails'
 #Don't know what that is for (since I don't use JS), but rails won't start without it
 gem 'execjs'
 gem 'therubyracer'
-
-#among others for creating password hashes
-gem 'bcrypt-ruby'
 
 #for creating sample data
 gem 'faker'
