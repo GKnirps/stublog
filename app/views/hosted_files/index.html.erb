@@ -2,9 +2,11 @@
 <h2 class="section-heading">Hosted files</h2>
 <%= link_to "Upload new file", new_hosted_file_path %>
 <div class="hosted_file_list">
+<%= will_paginate %>
 <% @hosted_files.each do |hosted_file| %>
 	<% if hosted_file.public or signed_in? %>
 		<%= render hosted_file %>
 	<% end %>
 <% end %>
+<%= will_paginate %>
 </div>
