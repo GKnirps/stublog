@@ -6,18 +6,28 @@ class QuoteOfTheDaysController < ApplicationController
 
   def index
   	if signed_in? && (current_user.admin? || current_user.author?) then
-		@quote_of_the_days = QuoteOfTheDay.unpublished + QuoteOfTheDay.published
-	else
+			@quote_of_the_days = QuoteOfTheDay.unpublished + QuoteOfTheDay.published
+		else
   		@quote_of_the_days = QuoteOfTheDay.published
-	end
-	@buffersize = QuoteOfTheDay.unpublished.count
-	@prob = QuoteOfTheDay.publish_probability
-	@author_user = signed_in? && current_user.author?
-	@admin_user = signed_in? && current_user.admin?
+		end
+		@buffersize = QuoteOfTheDay.unpublished.count
+		@prob = QuoteOfTheDay.publish_probability
+		@author_user = signed_in? && current_user.author?
+		@admin_user = signed_in? && current_user.admin?
   end
 
+	def show
+    if signed_in? && (current_user.admin? || current_user.author?) then
+		  @quote_of_the_day = QuoteOfTheDay.find(params[:id])
+    else
+      @quote_of_the_day = QuoteOfTheDay.published.find(params[:id])
+    end
+		@author_user = signed_in? && current_user.author?
+		@admin_user = signed_in? && current_user.admin?
+	end
+
   def new
-	@quote_of_the_day = QuoteOfTheDay.new 	
+		@quote_of_the_day = QuoteOfTheDay.new 	
   end
 
   def create

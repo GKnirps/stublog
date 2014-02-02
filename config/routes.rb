@@ -1,5 +1,5 @@
 Stublog::Application.routes.draw do
-  resources :quote_of_the_days, except: :show do
+  resources :quote_of_the_days do
 	collection do
 		get 'fortune'
 	end

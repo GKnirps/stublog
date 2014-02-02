@@ -1,0 +1,5 @@
+<%provide :title, "stuff ##{@quote_of_the_day.id}" %>
+
+<div class="quotes">
+  <%= render @quote_of_the_day, show_edit_links: @author_user || @admin_user %>
+</div>
