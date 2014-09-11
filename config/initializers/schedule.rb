@@ -1,6 +1,6 @@
 require 'rufus/scheduler'
 
-scheduler = Rufus::Scheduler.start_new
+scheduler = Rufus::Scheduler.new
 
 if Rails.env.development? then
 	schedule = '* * * * *'
