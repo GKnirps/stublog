@@ -9,7 +9,7 @@ require 'rufus/scheduler'
 if defined?(PhusionPassenger) then
 	PhusionPassenger.on_event :starting_worker_process do |forked|
 		if forked then
-			scheduler = Rufus::Scheduler.start_new
+			scheduler = Rufus::Scheduler.new
 	
 			if Rails.env.development? then
 			        schedule = '* * * * *'
