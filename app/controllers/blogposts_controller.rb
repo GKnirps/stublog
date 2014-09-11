@@ -15,7 +15,7 @@ class BlogpostsController < ApplicationController
   end
 
   def show
-  	@blogpost = Blogpost.find(params[:id])
+  	@blogpost = Blogpost.includes(:tags).find(params[:id])
 	@comments = @blogpost.comments.all
 	@comment = @blogpost.comments.new
 	#when called from here: author of a new comment is unregistered if not logged in
@@ -28,7 +28,7 @@ class BlogpostsController < ApplicationController
   end
 
   def index
-  	@blogposts = Blogpost.paginate(:page => params[:page])
+  	@blogposts = Blogpost.includes(:tags, :category, :user).paginate(:page => params[:page])
   end
 
   #RSS/atom feed
