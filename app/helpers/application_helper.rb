@@ -1,4 +1,3 @@
-require 'rbbcode'
 module ApplicationHelper
 	#return full title based on page title and basic title
 	def full_title(page_title)
@@ -14,19 +13,20 @@ module ApplicationHelper
 	def format_date(date)
 		return date.strftime "%d.%m.%Y %H:%M"
 	end
-
-
-	#default bbcode parser (I plan to extend this one)
-	def bbparse(text, safe=:safe)
-		#workaround: since the new version, everything is passed through the sanitizer gem
-		#as result, '<' and '>' are not escaped anymore, if they appear to be part of a tag
-		#so escape them right here:
-		text = text.gsub(/</, "&lt;").gsub(/>/, "&gt;")
-
-		#parse the bbcode
-		bbparser = RbbCode.new
-		htmlcode = bbparser.convert(text)
-		return htmlcode.html_safe if safe == :safe
-		return htmlcode
-	end
+  
+  def html_whitelist(html)
+    html = Sanitize.fragment(html,
+      elements: ['a', 'ol', 'ul', 'li', 'br', 'p', 'div', 'strong', 'em', 'table', 'th', 'tr', 'h3', 'h4', 'h5', 'img', 'quote'],
+      attributes: {
+        'img' => ['src'],
+        'a' => ['href'],
+        'table' => ['border']
+      },
+      protocols: {
+        'a' => {'href' => ['http', 'https', 'mailto']},
+        'img' => {'img' => ['http', 'https']}
+      }
+    )
+    html.html_safe
+  end
 end

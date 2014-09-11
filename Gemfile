@@ -51,9 +51,10 @@ gem 'faker'
 #for pagination
 gem 'will_paginate'
 
-#bb-code parser
+#bb-code parser (only needed for conversion of old databases now)
 gem 'rbbcode'
-#new versions of the bb-code parser need the sanitize Gem
+
+#only allow certain tags in blogposts
 gem 'sanitize'
 
 #scheduler (kind of like cron)

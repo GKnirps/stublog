@@ -4,7 +4,7 @@
 <% if @preview_desired %>
     	<h3 class="posttitle"><%= @blogpost.caption %></h3>    
 	<div class="entry">
-		<%= bbparse(@blogpost.content) %>
+		<%= html_whitelist(@blogpost.content) %>
 	</div>
 <% end %>
 

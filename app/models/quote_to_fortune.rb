@@ -5,7 +5,7 @@ class QuoteToFortune
 		#old variant: put url and description into the fortune databank. This is ugly for fortune.
 		#@quotelist ||= QuoteOfTheDay.published.map { 
 		#	|q| [q.sourcedesc, q.sourceurl, q.content].compact.select{|a| a != ""}.join("\n") }.join("\n%\n")
-		@quotelist ||=QuoteOfTheDay.published.map{|q| q.content}.join "\n%\n"
+		@quotelist ||=QuoteOfTheDay.published.map{|q| Sanitize.fragment(q.content)}.join "\n%\n"
 		
 	end
 	

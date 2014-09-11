@@ -9,7 +9,7 @@
 	<% else %>
 		<blockquote cite="<%= quote_of_the_day.sourceurl %>">
 	<% end %>
-		<%= bbparse quote_of_the_day.content %>
+		<%= html_whitelist quote_of_the_day.content %>
 	</blockquote>
 	
 	<% if !( quote_of_the_day.sourcedesc.blank? or quote_of_the_day.sourceurl.blank? ) then %>

@@ -7,7 +7,7 @@ atom_feed language: 'de_DE' do |feed|
 			entry.url blogpost_url(blogpost)
 			entry.title blogpost.caption
 
-			entry.content bbparse(blogpost.content, :not_safe), type: 'html'
+			entry.content Sanitize.fragment blogpost.content
 			entry.updated blogpost.updated_at.strftime("%Y-%m-%dT%H:%M:%SZ")
 
 			entry.author do |author|

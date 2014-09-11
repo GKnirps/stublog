@@ -8,7 +8,7 @@ xml.rss :version => "2.0" do
     for blogpost in @blogposts
       xml.item do
         xml.title blogpost.caption
-        xml.description bbparse(blogpost.content, :not_safe)
+        xml.description Sanitize.fragment blogpost.content
         xml.pubDate blogpost.created_at.to_s(:rfc822)
         xml.link blogpost_url(blogpost)
         xml.guid blogpost_url(blogpost)
