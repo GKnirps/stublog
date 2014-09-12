@@ -16,11 +16,12 @@ module ApplicationHelper
   
   def html_whitelist(html)
     html = Sanitize.fragment(html,
-      elements: ['a', 'ol', 'ul', 'li', 'br', 'p', 'div', 'strong', 'em', 'table', 'th', 'tr', 'h3', 'h4', 'h5', 'img', 'quote'],
+      elements: ['a', 'ol', 'ul', 'li', 'br', 'p', 'div', 'strong', 'em', 'table', 'th', 'tr', 'h3', 'h4', 'h5', 'img', 'blockquote'],
       attributes: {
         'img' => ['src'],
         'a' => ['href'],
-        'table' => ['border']
+        'table' => ['border'],
+        'blockquote' => ['cite']
       },
       protocols: {
         'a' => {'href' => ['http', 'https', 'mailto']},
