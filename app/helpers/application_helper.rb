@@ -18,7 +18,7 @@ module ApplicationHelper
     html = Sanitize.fragment(html,
       elements: ['a', 'ol', 'ul', 'li', 'br', 'p', 'div', 'strong', 'em', 'table', 'th', 'tr', 'h3', 'h4', 'h5', 'img', 'blockquote'],
       attributes: {
-        'img' => ['src'],
+        'img' => ['src', 'alt', 'title'],
         'a' => ['href'],
         'table' => ['border'],
         'blockquote' => ['cite']
