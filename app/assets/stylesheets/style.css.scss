@@ -426,6 +426,9 @@
         padding: 0 1.5625em 0 1.875em;
         background-position: left top;
         background-repeat: no-repeat;
+        em {
+          font-style: normal;
+        }
     }
         /* Desktop, iPad, etc. */
         @media only screen and (min-device-width: 481px) {
