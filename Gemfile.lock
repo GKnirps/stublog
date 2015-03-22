@@ -93,6 +93,7 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
+    rschmutz (0.0.1)
     rufus-scheduler (3.0.9)
       tzinfo
     sanitize (3.0.2)
@@ -135,6 +136,7 @@ DEPENDENCIES
   mysql2
   rails (= 3.2.8)
   rbbcode
+  rschmutz
   rufus-scheduler
   sanitize
   sass-rails (~> 3.2.3)

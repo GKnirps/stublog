@@ -59,3 +59,6 @@ gem 'sanitize'
 
 #scheduler (kind of like cron)
 gem 'rufus-scheduler'
+
+#for april fool
+gem 'rschmutz'
