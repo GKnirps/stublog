@@ -2,8 +2,10 @@
 <h2 class="section-heading">Delete File: <%= @hosted_file.name %></h2>
 <%= form_tag(hosted_file_path(@hosted_file), method: 'delete') do %>
 	<p>
-		<%= submit_tag "Delete this file from server" %>
-		or <%= link_to "cancel", root_path %>
+    <%= button_tag do %>
+      Delete this file from the server
+    <% end %>
+		or <%= link_to "cancel", hosted_files_path, class: 'cancel-delete'%>
 	</p>
 <% end %>
 <%= render @hosted_file %>

@@ -31,6 +31,23 @@
         text-decoration: underline;
         color: #44bb11;
     }
+
+    /* Grundformatierung von buttons */
+    button, .cancel-delete:link, .cancel-delete:active, .cancel-delete:visited {
+        font-family: Georgia, serif;
+        font-size: 18px;
+
+        border-style: none;
+        background-color: #e8ffd8;
+        color: DarkSlateGray;
+
+        padding: 0.25em;
+    }
+    button:hover, .cancel-delete:hover { 
+        background-color: #d8ffc8;
+        text-decoration: none;
+        color: DarkSlateGray;
+    }
     
 /**********************************   M I T T E I L U N G E N   **********************************/
 
@@ -77,11 +94,6 @@
     }
     .alert-message .message-text {
         color: #bb5811;
-    }
-    
-    .alert-message span.cancel-delete, .alert-message span.cancel-delete a:link, .alert-message span.cancel-delete a:visited, .alert-message span.cancel-delete a:active {
-        color: #000000;
-        text-decoration: underline;
     }
     
     /* Nachricht mit grün gestricheltem Rahmen */
@@ -1009,16 +1021,7 @@
         margin-top: 2.5em;
         margin-bottom: 3.75em;
     }
-    
-    /* Absenden-Button */
-    .blogpost-action-buttons input.submit_button {
-        
-    }
-    
-    /* Vorschau-Button */
-    .blogpost-action-buttons input.preview_button {
-        
-    }
+     
 
 /*********************************   E D I T   C A T E G O R Y   *********************************/
 

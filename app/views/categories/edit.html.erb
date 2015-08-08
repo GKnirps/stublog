@@ -14,7 +14,9 @@
 		    <%= f.text_area :description %>
 		</div>
 
-		<%= f.submit "submit changes", class: "submit_button" %>
+    <%= button_tag do %>
+      submit changes
+    <% end %>
 	<% end %>
 	<span class="delete"><%= link_to "Delete this category", confirm_destroy_category_path(@category) %></span>
 </div>

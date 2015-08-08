@@ -5,7 +5,9 @@
 		<%= label_tag :tags, "Search for entries with all of those tags (separated by commas)" %>
 		<%= text_field_tag :tags %>
 		
-		<%= submit_tag "search", class: "search_button" %>
+    <%= button_tag do %>
+      search
+    <% end %>
 	<% end %>
 </div>
 

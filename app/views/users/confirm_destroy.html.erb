@@ -6,7 +6,9 @@
 <%= form_tag(user_path(@user), method: 'delete') do %>
 	<div class="alert alert-message">
 	   <div class="message-text">Do you really want to delete the user <%= @user.name %>?</div><br /><br />
-		<%= submit_tag "Delete this user" %>
-		or <span class="cancel-delete"><%= link_to "cancel", users_path %></span>
+        <%= button_tag do %>
+          Delete this user
+        <% end %>
+		or <%= link_to "cancel", users_path, class: 'cancel-delete'%>
 	</div>
 <% end %>

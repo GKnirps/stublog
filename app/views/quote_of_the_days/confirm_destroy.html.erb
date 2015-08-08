@@ -4,8 +4,10 @@
 <%= form_tag(quote_of_the_day_path(@quote_of_the_day), method: 'delete') do %>
 	<div class="alert alert-message">
 	   <p class="message-text">Do you really want to delete this quote?</p>
-		<%= submit_tag "Delete this quote" %>
-		or <span class="cancel-delete"><%= link_to "cancel", quote_of_the_days_path %></span>
+        <%= button_tag do %>
+          Delete this quote
+        <% end %>
+		or <%= link_to "cancel", quote_of_the_days_path, class: 'cancel-delete'%>
 	</div>
 <% end %>
 </div

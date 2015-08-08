@@ -19,11 +19,13 @@
     		<%= f.password_field :password %><br />
     
     		<%= f.label :password_confirmation, "Confirmation" %>
-    		<%=f.password_field :password_confirmation %>
+    		<%= f.password_field :password_confirmation %>
 		</div>
 
 		<div class="edit-user-action-buttons">
-		    <%= f.submit "Save changes", class: "submit_button" %>
+        <%= button_tag do %>
+          save changes
+        <% end %>
 		    <span class="delete"><%= link_to "Delete this user", confirm_destroy_user_path(@user) %></span>
 		</div>
 		

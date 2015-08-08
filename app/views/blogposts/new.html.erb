@@ -32,8 +32,12 @@
         </div>
     
         <div class="blogpost-action-buttons">
-    		<%= f.submit "Create", class: "submit_button", name: :save, value: "Publish post" %>
-    		<%= f.submit "Preview", class: "submit_button", name: :preview, value: "Preview post" %>
+        <%= button_tag name: :save do %>
+          Publish post
+        <% end %>
+        <%= button_tag name: :preview do %>
+          Preview post
+        <% end %>
 		</div>
 	<% end %>
 </div>
