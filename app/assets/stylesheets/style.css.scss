@@ -32,6 +32,8 @@
         color: #44bb11;
     }
 
+/**********************************   Grundformatierungen Eingabeelemente ************************/
+
     /* Grundformatierung von buttons */
     button, .cancel-delete:link, .cancel-delete:active, .cancel-delete:visited {
         font-family: Georgia, serif;
@@ -47,6 +49,18 @@
         background-color: #d8ffc8;
         text-decoration: none;
         color: DarkSlateGray;
+    }
+
+    /*Textfelder*/
+    input[type="text"], input[type="password"] {
+      width: 100%;
+    }
+
+    /*Checkboxen*/
+    input[type="checkbox"] {
+    }
+
+    input[type="checkbox"]:checked {
     }
     
 /**********************************   M I T T E I L U N G E N   **********************************/
@@ -753,38 +767,24 @@
     }
     
     /* E-Mail-Input-Feld */
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            .sign-in-form .email input {
-                width: 14.99em;
-            }
+    /* Kleinere Geräte */
+    @media only screen and (max-device-width: 480px) {
+        .sign-in-form .email input {
+            height: 2em;
         }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            .sign-in-form .email input {
-                width: 18.9em;
-                height: 2em;
-            }
-        }
+    }
         
     .sign-in-form .password {
         padding-bottom: 1.25em;
     }
     
     /* Passwort-Input-Feld */
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            .sign-in-form .password input {
-                width: 14.99em;
-            }
+    /* Kleinere Geräte */
+    @media only screen and (max-device-width: 480px) {
+        .sign-in-form .password input {
+            height: 2em;
         }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            .sign-in-form .password input {
-                width: 18.9em;
-                height: 2em;
-            }
-        }
+    }
     
     /* Eingelogged-bleiben-Checkbox */
     .sign-in-form .permanent {
@@ -1082,3 +1082,4 @@
         color: #bb1129;
         text-decoration: underline;
     }
+
