@@ -1,4 +1,4 @@
-<div class="blogpost">
+<article class="blogpost">
 
     <h3 class="posttitle"><%= link_to blogpost.caption, blogpost_path(blogpost) %></h3>    
     <h3 class="postdate"><%= format_date(blogpost.created_at) %></h3>
@@ -7,7 +7,7 @@
 	</div>
 	
 
-	<div class="metainfo">
+	<footer>
 	    <span class="number-of-comments">
 	       <%= pluralize blogpost.n_responses, "comment" %>
 	    </span><br />
@@ -36,6 +36,6 @@
         <span>
             Tagged with: <%= (blogpost.tags.map {|t| link_to t.name, tag_path(t)}).join(", ").html_safe %>
         </span>
-	</div>
+	</footer>
 
-</div>
+</article>

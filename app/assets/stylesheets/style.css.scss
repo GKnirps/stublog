@@ -156,13 +156,13 @@
     
 /*****************************************   H E A D E R   ***************************************/
 
-    .wrapper .header {
+    .wrapper header {
         width: inherit;
     }
     
 /****************************************   B A N N E R   ****************************************/
 
-    .wrapper .header .banner {
+    .wrapper header .banner {
         width: inherit;
     }
     
@@ -197,14 +197,14 @@
 /************************************   N A V I G A T I O N    ***********************************/
 
 
-    .wrapper .header .navigation {
+    .wrapper header .navigation {
         padding: .0625em .3125em .0625em .3125em; /* Raum um das Set der Navigations-Buttons */
         border-top: solid 1px #80bb66;
         border-bottom: solid 1px #80bb66;
     }
     
     
-    .header .navigation ul.main-nav {
+    header .navigation ul.main-nav {
         width: inherit;
         
         /* Aus mir unerklärlichen Gründen werden diese Werte immer mit 40px vorbelegt. */
@@ -214,12 +214,12 @@
     }
     
     
-    .header .navigation ul.main-nav li {
+    header .navigation ul.main-nav li {
         display: inline-block;  /* Ordnet die Buttons der Haupt-Navigation nebeneinander an */
     }
         /* Kleinere Geräte */
         @media only screen and (max-device-width: 480px) {
-            .header .navigation ul.main-nav li {
+            header .navigation ul.main-nav li {
                 margin: .8em 0 .8em 0;
             }
         }
@@ -314,7 +314,7 @@
     
     
     /* Ein einzelner Blogpost */
-    .blogpost {
+    article.blogpost {
         width: inherit;
         
         padding-bottom: 2.5em;
@@ -322,7 +322,7 @@
     
     
     /* Ein noch nicht veröffentlichter Blogpost */
-    .unpublished .blogpost {
+    .unpublished article.blogpost {
         border-left-style: solid;
         border-left-width: .4em;
         border-left-color: #66a4bb;
@@ -376,7 +376,7 @@
         }
     
     /* Fließtext des Postings */
-    .blogpost .entry {
+    article.blogpost .entry {
         font-family: serif;
 
         margin-top: .8em;
@@ -385,7 +385,7 @@
         /* Desktop, iPad, etc. */
         @media only screen and (min-device-width: 481px) {
             /* Fließtext des Postings */
-            .blogpost .entry {        
+            article.blogpost .entry { 
                 margin-top: .8em;
                 margin-bottom: 1.4em;
             }
@@ -393,7 +393,7 @@
         /* Kleinere Geräte */
         @media only screen and (max-device-width: 480px) {
             /* Fließtext des Postings */
-            .blogpost .entry {
+            article.blogpost .entry {
                 font-size: 2.4em;
                         
                 margin-top: .8em;
@@ -402,7 +402,7 @@
         }
     
     /* Metadaten unter dem Posting */
-    .blogpost .metainfo span {
+    article.blogpost footer span {
         font-family: Verdana, Arial, sans-serif;
         margin: 0;
         padding: 0;
@@ -410,32 +410,32 @@
         /* Desktop, iPad, etc. */
         @media only screen and (min-device-width: 481px) {
             /* Metadaten unter dem Posting */
-            .blogpost .metainfo span {
+            article.blogpost footer span {
                 font-size: .5em;
             }
         }
         /* Kleinere Geräte */
         @media only screen and (max-device-width: 480px) {
             /* Metadaten unter dem Posting */
-            .blogpost .metainfo span {
+            article.blogpost footer span {
                 font-size: .7em;
             }
         }
     
     /* „Bearbeiten“ & „Löschen“ */
-    .blogpost .modify span {
+    article.blogpost .modify span {
         font-family: Verdana, Arial, sans-serif;
         font-size: .5em;
     }
-    .blogpost .modify span a:link, .blogpost .modify span a:active, .blogpost .modify span a:visited {
+    article.blogpost .modify span a:link, article.blogpost .modify span a:active, article.blogpost .modify span a:visited {
         font-size: 2em; /* Bugfix für den Firefox, Schrift wird sonst zu klein dargestellt */
         color: #000000;
         text-decoration: none;
     }
-    .blogpost .modify span.edit a:hover {
+    article.blogpost .modify span.edit a:hover {
         text-decoration: underline;
     }
-    .blogpost .modify span.delete a:hover {
+    article.blogpost .modify span.delete a:hover {
         text-decoration: underline;
         color: #bb1129;
     }
