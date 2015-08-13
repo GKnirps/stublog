@@ -1,9 +1,20 @@
+/*********** SCSS color variables ***************/
+$main-background-color: #fffff6;
+/* color for borders, captions, links */
+$main-foreground-color: #80bb66;
+
+$link-hover-color: #44bb11;
+
+$button-background-color: #e8ffd8;
+$button-background-color-hover: #d8ffc8;
+$button-text-color: DarkSlateGray;
+
 /******************************************   B O D Y   ******************************************/
 
     body {
         margin: 0;
         vertical-align: top;
-        background-color: #fffff6;
+        background-color: $main-background-color;
         height: 100%;
     }
         /* Desktop, iPad, etc. */
@@ -25,11 +36,11 @@
     /* Grundformatierung sämtlicher Links */
     a:link, a:active, a:visited {
         text-decoration: none;
-        color: #80bb66;
+        color: $main-foreground-color;
     }
     a:hover {
         text-decoration: underline;
-        color: #44bb11;
+        color: $link-hover-color;
     }
 
 /**********************************   Grundformatierungen Eingabeelemente ************************/
@@ -40,15 +51,15 @@
         font-size: 18px;
 
         border-style: none;
-        background-color: #e8ffd8;
-        color: DarkSlateGray;
+        background-color: $button-background-color;
+        color: $button-text-color;
 
         padding: 0.25em;
     }
     button:hover, .cancel-delete:hover { 
-        background-color: #d8ffc8;
+        background-color: $button-background-color-hover;
         text-decoration: none;
-        color: DarkSlateGray;
+        color: $button-text-color;
     }
 
     /*Textfelder*/
@@ -112,7 +123,7 @@
     
     /* Nachricht mit grün gestricheltem Rahmen */
     .alert-success {
-        border-color: #80bb66; /* grün */
+        border-color: $main-foreground-color; /* grün */
         margin: 3.75em auto 2.5em auto;
     }
   
@@ -140,11 +151,11 @@
                 
                 border-left-style: solid;
                 border-left-width: 1px;
-                border-left-color: #80bb66;
+                border-left-color: $main-foreground-color;
                 
                 border-right-style: solid;
                 border-right-width: 1px;
-                border-right-color: #80bb66;
+                border-right-color: $main-foreground-color;
             }
         }
         /* Kleinere Geräte */
@@ -169,7 +180,7 @@
     /* Blog-Überschrift */
     h1 {
         font-family: Georgia, serif;
-        color: #80bb66;
+        color: $main-foreground-color;
         text-align: center;
         
         margin: 0;
@@ -199,8 +210,8 @@
 
     .wrapper header .navigation {
         padding: .0625em .3125em .0625em .3125em; /* Raum um das Set der Navigations-Buttons */
-        border-top: solid 1px #80bb66;
-        border-bottom: solid 1px #80bb66;
+        border-top: solid 1px $main-foreground-color;
+        border-bottom: solid 1px $main-foreground-color;
     }
     
     
@@ -278,7 +289,7 @@
     /* Überschriften über bestimmten Bereichen der Website */
     h2.section-heading {
         font-family: Georgia, serif;
-        color: #80bb66;
+        color: $main-foreground-color;
         
         margin: 0 0 2em .625em;
     }
@@ -481,7 +492,7 @@
 
     /* Wrapper um einen einzelnen Kommentar */
     .single-comment {
-        border-left: 1px dotted #80bb66;
+        border-left: 1px dotted $main-foreground-color;
         
         padding-left: .7em;
         margin-bottom: 1.5em;
@@ -727,7 +738,7 @@
 
     .wrapper .footer {
         width: inherit;
-        border-top: solid 1px #80bb66;
+        border-top: solid 1px $main-foreground-color;
     }
     
     .footer-feed-links {
@@ -741,7 +752,7 @@
         margin: 0 auto 4.375em auto;
         padding: .9375em 1.25em;
                 
-        border: #80bb66 1px dashed;
+        border: $main-foreground-color 1px dashed;
     }
         /* Desktop, iPad, etc. */
         @media only screen and (min-device-width: 481px) {
@@ -831,7 +842,7 @@
         text-align: right;
         padding: 1.25em 1.25em;
 
-        border: #80bb66 1px dashed;
+        border: $main-foreground-color 1px dashed;
     }
         /* Desktop, iPad, etc. */
         @media only screen and (min-device-width: 481px) {

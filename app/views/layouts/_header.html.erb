@@ -5,21 +5,21 @@
     </div>
     
     <div class="navigation">
-    	<ul class="main-nav">
-    		<li><%= link_to t(:menu_home), home_path %> </li>
-    		<li><%= link_to t(:menu_archive), blogposts_path %></li>
-		<li><%= link_to t(:menu_categories), categories_path %></li>
-    		<% if signed_in? then %>
-    			<% if current_user.author? then %>
-    				<li><%= link_to t(:menu_new_post), new_blogpost_path %></li>
-    			<% end %>
-    			<li><%= link_to t(:menu_users), users_path %></li>
-    			<li><%= link_to t(:menu_edit_profile), edit_user_path(current_user) %></li>
-    			<li class="signinout"><%= link_to t(:menu_signout), signout_path %></li>
-    		<% else %>
-    			<li class="signinout"><%= link_to t(:menu_signin), signin_path %></li>
-    		<% end %>
-    	</ul>
+      <ul class="main-nav">
+        <li><%= link_to t(:menu_home), home_path %> </li>
+        <li><%= link_to t(:menu_archive), blogposts_path %></li>
+        <li><%= link_to t(:menu_categories), categories_path %></li>
+        <% if signed_in? then %>
+          <% if current_user.author? then %>
+            <li><%= link_to t(:menu_new_post), new_blogpost_path %></li>
+          <% end %>
+          <li><%= link_to t(:menu_users), users_path %></li>
+          <li><%= link_to t(:menu_edit_profile), edit_user_path(current_user) %></li>
+          <li class="signinout"><%= link_to t(:menu_signout), signout_path %></li>
+        <% else %>
+          <li class="signinout"><%= link_to t(:menu_signin), signin_path %></li>
+        <% end %>
+      </ul>
     </div>
     
 </header>
