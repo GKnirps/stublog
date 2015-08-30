@@ -74,6 +74,39 @@ $button-text-color: DarkSlateGray;
     input[type="checkbox"]:checked {
     }
     
+/****************************   T E X T F O R M A T I E R U N G E N   ****************************/
+
+    /*** Grundelegende Textformatierungen ***/
+    /*** BLOCKQUOTE, CODE, IMG, UL, OL ETC. ***/
+    
+    /* Zitatboxen */
+    blockquote {
+        font-style: italic;
+        
+        padding: 0 1.5625em 0 1.875em;
+        background-position: left top;
+        background-repeat: no-repeat;
+        em {
+          font-style: normal;
+        }
+    }
+        /* Desktop, iPad, etc. */
+        @media only screen and (min-device-width: 481px) {
+            /* Zitatboxen */
+            blockquote {
+                margin: 1.25em 1.875em 1.25em 1.875em;
+                background-image: url(quote-left-georgia.png);
+            }
+        }
+        /* Kleinere Geräte */
+        @media only screen and (max-device-width: 480px) {
+            /* Zitatboxen */
+            blockquote {
+                margin: 1.25em 1.875em 1.25em .7em;
+                background-image: url(quote-left-georgia@2x.png);
+            }
+        }
+
 /**********************************   M I T T E I L U N G E N   **********************************/
 
     /* Alerts generell */
@@ -167,107 +200,8 @@ $button-text-color: DarkSlateGray;
     
 /*****************************************   H E A D E R   ***************************************/
 
-    .wrapper header {
-        width: inherit;
-    }
-    
-/****************************************   B A N N E R   ****************************************/
+@import 'header';
 
-    .wrapper header .banner {
-        width: inherit;
-    }
-    
-    /* Blog-Überschrift */
-    h1 {
-        font-family: Georgia, serif;
-        color: $main-foreground-color;
-        text-align: center;
-        
-        margin: 0;
-        padding: 1em 0 1.2em 0;
-    }
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            /* Blog-Überschrift */
-            h1 {
-                font-size: 3em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Blog-Überschrift */
-            h1 {
-                font-size: 4em;
-            }
-        }
-        
-    h1 a:hover {
-        text-decoration: none;
-    }
-
-/************************************   N A V I G A T I O N    ***********************************/
-
-
-    .wrapper header .navigation {
-        padding: .0625em .3125em .0625em .3125em; /* Raum um das Set der Navigations-Buttons */
-        border-top: solid 1px $main-foreground-color;
-        border-bottom: solid 1px $main-foreground-color;
-    }
-    
-    
-    header .navigation ul.main-nav {
-        width: inherit;
-        
-        /* Aus mir unerklärlichen Gründen werden diese Werte immer mit 40px vorbelegt. */
-        -webkit-padding-start: 0px;
-        -moz-padding-start: 0px;
-        padding-left: 0px;  /* Für den IE 8 & Opera */
-    }
-    
-    
-    header .navigation ul.main-nav li {
-        display: inline-block;  /* Ordnet die Buttons der Haupt-Navigation nebeneinander an */
-    }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            header .navigation ul.main-nav li {
-                margin: .8em 0 .8em 0;
-            }
-        }
-    
-    
-    /* Element-Beschriftungen Inaktiv (Unbesucht & Besucht) */
-    ul.main-nav li a:link, ul.main-nav li a:visited {
-        font-family: Georgia, serif;
-        
-        margin: 0 .3125em 0 .3125em;  /* Abstand zwischen den Elementen */
-    }
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            ul.main-nav li a:link, ul.main-nav li a:visited {
-                font-size: 1.5em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            ul.main-nav li a:link, ul.main-nav li a:visited {
-                font-size: 2.5em;
-            }
-        }
-    
-    
-    /* Hover über aktivem Element */
-    ul.main-nav li a:hover {
-        text-decoration: none;
-    }
-    
-    
-    /* Login/Logout-Button */
-    ul.main-nav li.signinout {
-        float: right;   /* Platziert Login/out am rechten Rand der Navigation */
-    }
-    
-    
 /*******************************   C O N T E N T - W R A P P E R   *******************************/
 
     .wrapper .content {
@@ -450,39 +384,6 @@ $button-text-color: DarkSlateGray;
         text-decoration: underline;
         color: #bb1129;
     }
-
-/****************************   T E X T F O R M A T I E R U N G E N   ****************************/
-
-    /*** HIER KOMMEN DIE TEXTFORMATIERUNGEN HIN ***/
-    /*** BLOCKQUOTE, CODE, IMG, UL, OL ETC. ***/
-    
-    /* Zitatboxen */
-    blockquote {
-        font-style: italic;
-        
-        padding: 0 1.5625em 0 1.875em;
-        background-position: left top;
-        background-repeat: no-repeat;
-        em {
-          font-style: normal;
-        }
-    }
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            /* Zitatboxen */
-            blockquote {
-                margin: 1.25em 1.875em 1.25em 1.875em;
-                background-image: url(quote-left-georgia.png);
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Zitatboxen */
-            blockquote {
-                margin: 1.25em 1.875em 1.25em .7em;
-                background-image: url(quote-left-georgia@2x.png);
-            }
-        }
 
 /************************************   K O M M E N T A R E   ************************************/
 
