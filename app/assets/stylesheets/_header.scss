@@ -47,17 +47,25 @@
     
     
     header .navigation ul.main-nav {
-        width: inherit;
-        
+        display: flex;    //Show menu elements in a line
+        flex-wrap: wrap;  //wrape menu elements if horizontal space is insufficient.
+
+        list-style-type: none;
+
         /* Aus mir unerklärlichen Gründen werden diese Werte immer mit 40px vorbelegt. */
         -webkit-padding-start: 0px;
         -moz-padding-start: 0px;
         padding-left: 0px;  /* Für den IE 8 & Opera */
-    }
     
     
-    header .navigation ul.main-nav li {
-        display: inline-block;  /* Ordnet die Buttons der Haupt-Navigation nebeneinander an */
+      li.signinout {
+        /*Show the login/logout-link on the right of the menu.*/
+        /*For that, the element must be the last in the menu list.*/
+        /*here is how it works: make the last element as big as possible (flex-grow), and align the text right*/
+        flex-grow: 1;
+        text-align: right;
+      }
+    
     }
         /* Kleinere Geräte */
         @media only screen and (max-device-width: 480px) {
@@ -91,11 +99,3 @@
     ul.main-nav li a:hover {
         text-decoration: none;
     }
-    
-    
-    /* Login/Logout-Button */
-    ul.main-nav li.signinout {
-        float: right;   /* Platziert Login/out am rechten Rand der Navigation */
-    }
-    
-    
