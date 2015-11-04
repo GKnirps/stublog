@@ -79,8 +79,19 @@ $button-text-color: DarkSlateGray;
     /*** Grundelegende Textformatierungen ***/
     /*** BLOCKQUOTE, CODE, IMG, UL, OL ETC. ***/
     
+    blockquote::before {
+      content: "”";
+      position: absolute;
+      left: -0.11em;
+      top: -0.15em;
+
+      font-family: georgia, serif;
+      font-size: 3.5em;
+      font-style: bold;
+    }
     /* Zitatboxen */
     blockquote {
+        position: relative; //needed for positioning of "”"
         font-style: italic;
         
         padding: 0 1.5625em 0 1.875em;
@@ -95,7 +106,6 @@ $button-text-color: DarkSlateGray;
             /* Zitatboxen */
             blockquote {
                 margin: 1.25em 1.875em 1.25em 1.875em;
-                background-image: url(quote-left-georgia.png);
             }
         }
         /* Kleinere Geräte */
@@ -103,7 +113,6 @@ $button-text-color: DarkSlateGray;
             /* Zitatboxen */
             blockquote {
                 margin: 1.25em 1.875em 1.25em .7em;
-                background-image: url(quote-left-georgia@2x.png);
             }
         }
 
