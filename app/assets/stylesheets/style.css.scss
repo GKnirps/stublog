@@ -184,7 +184,7 @@ $button-text-color: DarkSlateGray;
         text-align: left;
         margin: 0 auto 0 auto;  /* Zentriert die Website */
         
-        width: 51.25em;    /* Breite der Website */
+        max-width: 51.25em;    /* Breite der Website */
     }
         /* Desktop, iPad, etc. */
         @media only screen and (min-device-width: 481px) {
