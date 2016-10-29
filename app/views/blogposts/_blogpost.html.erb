@@ -1,7 +1,11 @@
 <article class="blogpost">
 
     <h3 class="posttitle"><%= link_to blogpost.caption, blogpost_path(blogpost) %></h3>    
-    <h3 class="postdate"><%= format_date(blogpost.created_at) %></h3>
+    <h3 class="postdate">
+      <time datetime="<%= blogpost.created_at.iso8601 %>">
+        <%= format_date(blogpost.created_at) %>
+      </time>
+    </h3>
 	<div class="entry">
 		<%= html_whitelist(blogpost.content) %>
 	</div>

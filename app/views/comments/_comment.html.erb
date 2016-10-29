@@ -8,7 +8,11 @@
     	</div>
     	<div class="comment-metainfo">
     		<span>by: <%= comment.author.name %></span>
-    		|<span> posted: <%= format_date comment.created_at %> </span>
+    		|<span> posted:
+          <time datetime="<%= blogpost.created_at.iso8601 %>">
+            <%= format_date(blogpost.created_at) %>
+          </time>
+        </span>
     	</div>
     	<div class="comment-reply-link">
     		<%= link_to "reply", answer_blogpost_comment_url(blogpost, comment) %>
