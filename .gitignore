@@ -22,3 +22,6 @@ hosted_files/*
 
 #ignore OS X's .DS_Store
 .DS_Store
+
+#ignore where the gems may be installed
+vendor/bundle
