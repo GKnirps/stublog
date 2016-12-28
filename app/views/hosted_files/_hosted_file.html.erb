@@ -12,7 +12,7 @@
 		<%= hosted_file.mime_type %>
 	</p>
 	<p class="download">
-		<%= link_to "Download", download_hosted_file_path(hosted_file) %>
+		<%= link_to "Download", download_hosted_file_path(hosted_file), {download: hosted_file.name} %>
 	</p>
 	<% if signed_in? and (current_user.admin? or current_user.id == hosted_file.user_id) then %>
 		<p class="modify">

@@ -17,6 +17,11 @@ class HostedFilesController < ApplicationController
 		return
 	end
 	@hosted_file.name = params[:file].original_filename
+	if not /^(\.?[a-zA-Z0-9_-]+)\.?$/.match @hosted_file.name then
+		flash[:error] = "The filename contains illegal characters, allowed are only a-z, A-Z, 0-9, _, - and single dots."
+		render 'new'
+		return
+	end
 	@hosted_file.mime_type = params[:file].content_type
 	if @hosted_file.save then
 		if save_upload(params[:file]) then
@@ -54,7 +59,8 @@ class HostedFilesController < ApplicationController
   end
 
   def download
-	send_file Rails.root.join(file_directory, @hosted_file.name), type: @hosted_file.mime_type, x_sendfile: true, filename: @hosted_file.name
+	# if we do not use disposition: inline, the default is disposition: attachment, which will make the browser show the download dialog. When we want to show the download dialog, we should set this at the a tag for the download. Problem: Firefox preferes the Content-Disposition header to the a tag (that is bad for us), Chrome does not... We need a solution for that (preferably by not setting the header at all, which does not seem to be supported...
+	send_file Rails.root.join(file_directory, @hosted_file.name), type: @hosted_file.mime_type, x_sendfile: true, disposition: 'inline'
   end
 
   def confirm_destroy
