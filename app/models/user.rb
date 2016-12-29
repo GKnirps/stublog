@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 	has_many :comments, as: :author, dependent: :destroy
 	has_many :hosted_files
 
-	#User name has to be present, should be unique (though it is not fatal if it is not
+	#User name has to be present, should be unique (though it is not fatal if it is not)
 	validates :name, presence: true, length: {maximum: 42}, uniqueness: {case_sensitive: false}
 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -24,6 +24,10 @@ class User < ActiveRecord::Base
 
 	validates :password, presence: true, length: {minimum: 6}
 	validates :password_confirmation, presence: true
+
+  def reset_remember_token
+    self.create_remember_token
+  end
 
 	private
 	def create_remember_token
