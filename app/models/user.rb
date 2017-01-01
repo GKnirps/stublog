@@ -25,8 +25,8 @@ class User < ActiveRecord::Base
 	validates :password, presence: true, length: {minimum: 6}
 	validates :password_confirmation, presence: true
 
-  def reset_remember_token
-    self.create_remember_token
+  def reset_remember_token!
+		self.update_column(:remember_token, SecureRandom.urlsafe_base64)
   end
 
 	private

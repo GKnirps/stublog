@@ -1,16 +1,18 @@
 module SessionsHelper
 	def sign_in(user, permanent)
+    user.reset_remember_token!
 		if permanent then
-			cookies.permanent[:remember_token] = user.remember_token
+			cookies.permanent[:remember_token] = {value: user.remember_token, httponly: true}
 		else
 			expire_time = 1.hour.from_now
 			expire_time = 1.minute.from_now if Rails.env.development?
-			cookies[:remember_token] = {value: user.remember_token, expires: expire_time}
+			cookies[:remember_token] = {value: user.remember_token, expires: expire_time, httponly: true}
 		end
 		self.current_user = user
 	end
 	
 	def sign_out
+    self.current_user.reset_remember_token!
 		self.current_user = nil
 		cookies.delete(:remember_token)
 	end
