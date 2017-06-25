@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
   def recursiveSpillDirt(node)
     children = node.children
     children.each do |child|
-      if child.text? and child.content and not child.content.match /^\s*$/ then
+      if child.text? and child.content and not child.content.match(/^\s*$/) then
         child.content = mangle(child.content.lstrip, $DIRT[1], 0.3)
       else
         recursiveSpillDirt(child)

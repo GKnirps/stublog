@@ -14,7 +14,6 @@ module HostedFilesHelper
 		rescue
 			FileUtils.rm(path) if File.exists?(path)
 			return false
-			raise if Rails.env.development?
 		end
 		return true
 			

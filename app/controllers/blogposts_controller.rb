@@ -67,9 +67,6 @@ class BlogpostsController < ApplicationController
 	redirect_to root_path
   end
 
-  def confirm_destroy
-  end
-
   def edit
   	@blogpost = Blogpost.find(params[:id])
 	@categories = Category.all

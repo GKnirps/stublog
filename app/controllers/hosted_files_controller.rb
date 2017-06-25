@@ -17,7 +17,7 @@ class HostedFilesController < ApplicationController
 		return
 	end
 	@hosted_file.name = params[:file].original_filename
-	if not /^(\.?[a-zA-Z0-9_-]+)\.?$/.match @hosted_file.name then
+	if not (/^(\.?[a-zA-Z0-9_-]+)\.?$/).match @hosted_file.name then
 		flash[:error] = "The filename contains illegal characters, allowed are only a-z, A-Z, 0-9, _, - and single dots."
 		render 'new'
 		return

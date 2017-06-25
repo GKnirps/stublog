@@ -5,11 +5,11 @@ class QuoteOfTheDaysController < ApplicationController
   before_filter :quote_exists, only: [:edit, :update, :confirm_destroy, :destroy]
 
   def index
-  	if signed_in? && (current_user.admin? || current_user.author?) then
+    if signed_in? && (current_user.admin? || current_user.author?) then
 			@quote_of_the_days = QuoteOfTheDay.unpublished + QuoteOfTheDay.published
-		else
+    else
   		@quote_of_the_days = QuoteOfTheDay.published
-		end
+    end
 		@buffersize = QuoteOfTheDay.unpublished.count
 		@prob = QuoteOfTheDay.publish_probability
 		@author_user = signed_in? && current_user.author?
