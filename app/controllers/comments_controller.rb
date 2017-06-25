@@ -4,6 +4,15 @@ before_filter :find_author_and_predecessor, only: [:create, :answer]
 
 def create
 	@blogpost = Blogpost.find(params[:blogpost_id])
+
+  if (not params[:precontent].nil? and not params[:precontent].empty?) or
+     (not params[:postcontent].nil? and not params[:postcontent].empty?) then
+    flash[:error] = "You are not allowed to post comments this way."
+    redirect_to @blogpost
+    return
+  end
+
+
 	#if the author isn't in the db yet, save him (ugly, TODO: find better solution)
 	#TODO: this can lead to multiple unregistered users
 	@author.save unless @author.id?

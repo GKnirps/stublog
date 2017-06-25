@@ -487,6 +487,10 @@ $button-text-color: DarkSlateGray;
         margin-bottom: 1px;
     }
     
+    /* honeypot field for comments to filter out spambots. Let's see if it works. */
+    .editcomment .topyenoh {
+      display: none;
+    }
     
     /* Comment Author Name */
     .comment-author-name label {
