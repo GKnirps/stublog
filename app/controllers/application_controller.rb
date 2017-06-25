@@ -7,6 +7,14 @@ class ApplicationController < ActionController::Base
   #HostedFilesHelper: functions to save files etc.
   include HostedFilesHelper
 
+  after_filter :set_headers
+
+  def set_headers
+    response.headers["x-clacks-overhead"] = "GNU Terry Pratchett";
+    #TODO: Log if content security has been violated
+    response.header["content-security-policy"] = "content-security-policy", "default-src 'none'; style-src 'self'; img-src *; frame-ancestors: 'none'; plugin-types: 'none'"
+  end
+
   after_filter :schmutz
 
   def schmutz
