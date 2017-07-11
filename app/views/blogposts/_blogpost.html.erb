@@ -12,9 +12,11 @@
 	
 
 	<footer>
+    <% if Rails.configuration.comments_active %>
 	    <span class="number-of-comments">
 	       <%= pluralize blogpost.n_responses, "comment" %>
 	    </span><br />
+    <% end %>
 		<span class="posted-by">
 		  Posted by <%= link_to blogpost.user.name, user_path(blogpost.user) %> in
             <% if blogpost.category then %>

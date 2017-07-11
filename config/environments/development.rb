@@ -34,4 +34,7 @@ Stublog::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # activate the comment functions
+  config.comments_active = true
 end

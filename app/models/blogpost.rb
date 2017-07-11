@@ -52,10 +52,14 @@ class Blogpost < ActiveRecord::Base
   #returns the number of comments this blogpost has (directly or indirectly)
   #due to the database structure, this may require a lot of db requests
   def n_responses
-	sum = self.comments.count
-	self.comments.each do |c|
-		sum = sum + c.n_responses
-	end
-	sum
+    if Rails.configuration.comments_active then
+	    sum = self.comments.count
+	    self.comments.each do |c|
+		    sum = sum + c.n_responses
+	    end
+	    sum
+    else
+      0
+    end
   end
 end

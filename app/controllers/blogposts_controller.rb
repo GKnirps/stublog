@@ -16,7 +16,11 @@ class BlogpostsController < ApplicationController
 
   def show
   	@blogpost = Blogpost.includes(:tags).find(params[:id])
-	@comments = @blogpost.comments.all
+  if Rails.configuration.comments_active then
+	  @comments = @blogpost.comments.all
+  else
+    @comments = []
+  end
 	@comment = @blogpost.comments.new
 	#when called from here: author of a new comment is unregistered if not logged in
 	if not signed_in? then

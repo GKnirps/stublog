@@ -34,4 +34,7 @@ Stublog::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  # activate the comment functions
+  config.comments_active = true
 end

@@ -34,13 +34,15 @@ Stublog::Application.routes.draw do
   end
   resources :blogposts do
   	#Comments are shown and edited in the Blogpost view
-  	resources :comments, only: [:create, :update, :destroy, :edit] do
-		member do
-	  		#Add a rout for confirm destroy (I don't want to use JS)
-			get 'confirm_destroy'
-			#add route for answering this comment
-			get 'answer'
-		end
+    if Rails.configuration.comments_active then
+  	  resources :comments, only: [:create, :update, :destroy, :edit] do
+		  member do
+	    		#Add a route for confirm destroy (I don't want to use JS)
+		  	get 'confirm_destroy'
+		  	#add route for answering this comment
+		  	get 'answer'
+		  end
+    end
 	end
   	#Add a rout for confirm destroy (I don't want to use JS)
 	member do

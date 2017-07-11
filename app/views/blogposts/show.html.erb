@@ -1,11 +1,13 @@
 <% provide :title, @blogpost.caption %>
 <%= render @blogpost %>
 
-<% if @comments then %>
-	<div class="comments">
-		<ul>
-		<%= render @comments, blogpost: @blogpost %>
-		</ul>
-	</div>
+<% if Rails.configuration.comments_active then %>
+  <% if @comments then %>
+	  <div class="comments">
+		  <ul>
+		  <%= render @comments, blogpost: @blogpost %>
+		  </ul>
+	  </div>
+  <% end %>
+  <%= render 'comments/new_comment_form', comment: @comment, blogpost: @blogpost, author: @author, predecessor: @predecessor %>
 <% end %>
-<%= render 'comments/new_comment_form', comment: @comment, blogpost: @blogpost, author: @author, predecessor: @predecessor %>
