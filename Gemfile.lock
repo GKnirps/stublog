@@ -38,7 +38,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    crass (1.0.2)
+    crass (1.0.3)
     erubis (2.7.0)
     execjs (2.7.0)
     faker (1.7.1)
@@ -55,12 +55,12 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
-    mini_portile2 (2.1.0)
+    mini_portile2 (2.3.0)
     multi_json (1.12.1)
     mysql2 (0.3.18)
-    nokogiri (1.7.0)
-      mini_portile2 (~> 2.1.0)
-    nokogumbo (1.4.10)
+    nokogiri (1.8.2)
+      mini_portile2 (~> 2.3.0)
+    nokogumbo (1.5.0)
       nokogiri
     polyglot (0.3.5)
     rack (1.4.7)
@@ -95,10 +95,10 @@ GEM
     rschmutz (0.0.1)
     rufus-scheduler (3.3.1)
       tzinfo
-    sanitize (4.4.0)
+    sanitize (4.6.4)
       crass (~> 1.0.2)
       nokogiri (>= 1.4.4)
-      nokogumbo (~> 1.4.1)
+      nokogumbo (~> 1.4)
     sass (3.4.23)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -137,7 +137,7 @@ DEPENDENCIES
   rbbcode
   rschmutz
   rufus-scheduler
-  sanitize
+  sanitize (>= 4.6)
   sass-rails (~> 3.2.3)
   sqlite3
   therubyracer
@@ -145,4 +145,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.13.7
+   1.16.1

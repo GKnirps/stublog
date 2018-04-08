@@ -55,7 +55,7 @@ gem 'will_paginate'
 gem 'rbbcode'
 
 #only allow certain tags in blogposts
-gem 'sanitize'
+gem 'sanitize', '>= 4.6'
 
 #scheduler (kind of like cron)
 gem 'rufus-scheduler'
