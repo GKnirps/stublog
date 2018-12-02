@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   def set_headers
     response.headers["x-clacks-overhead"] = "GNU Terry Pratchett";
     #TODO: Log if content security has been violated
-    response.header["content-security-policy"] = "default-src 'none'; style-src 'self'; img-src *; frame-ancestors 'none'; plugin-types 'none'"
+    response.header["content-security-policy"] = "default-src 'none'; style-src 'self'; img-src *; frame-ancestors 'none';"
   end
 
   after_filter :schmutz
