@@ -135,7 +135,7 @@ DEPENDENCIES
   faker
   jquery-rails
   mysql2 (= 0.3.18)
-  rails (>= 3.2)
+  rails (~> 3.2)
   rbbcode
   rschmutz
   rufus-scheduler
