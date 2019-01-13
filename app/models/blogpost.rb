@@ -10,7 +10,7 @@ class Blogpost < ActiveRecord::Base
   has_many :tags, through: :post_tag_relationships
 
   #a blogpost may have multiple comments
-  has_many :comments, as: :predecessor
+  has_many :comments
 
   #content and database length maximum due to database format
   validates :content, presence: true, length: {maximum: 65000}
@@ -50,16 +50,37 @@ class Blogpost < ActiveRecord::Base
   end
   
   #returns the number of comments this blogpost has (directly or indirectly)
-  #due to the database structure, this may require a lot of db requests
   def n_responses
     if Rails.configuration.comments_active then
-	    sum = self.comments.count
-	    self.comments.each do |c|
-		    sum = sum + c.n_responses
-	    end
-	    sum
+	    self.comments.count
     else
       0
     end
   end
+
+  def comment_tree
+      if Rails.configuration.comments_active then
+        self.comments
+          .select {|c| c.predecessor_id == nil}
+          .map{ |c| CommentNode.new(c, self.comments) }
+      else
+        []
+      end
+  end
+end
+
+class CommentNode
+    attr_reader :caption, :content, :author, :created_at, :to_partial_path, :comments, :id
+
+    def initialize(comment, all_comments)
+        @caption = comment.caption
+        @content = comment.content
+        @author = comment.author
+        @created_at = comment.created_at
+        @partial_path = comment.to_partial_path
+        @id = comment.id
+        @comments = all_comments
+          .select{ |c| c.predecessor_id == comment.id }
+          .map{ |c| CommentNode.new(c, all_comments) }
+    end
 end

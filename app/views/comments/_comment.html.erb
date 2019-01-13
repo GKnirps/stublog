@@ -1,8 +1,8 @@
 <li>
     <div class="single-comment">
-    	<% if comment.caption? then %>
-    		<h4 class="comment-title"><%= comment.caption %></h4>
-    	<% end %>
+      <% if comment.caption.empty? then %>
+        <h4 class="comment-title"><%= comment.caption %></h4>
+      <% end %>
     	<div class="comment-entry">
     		<%= html_whitelist comment.content %>
     	</div>
@@ -15,12 +15,14 @@
         </span>
     	</div>
     	<div class="comment-reply-link">
-    		<%= link_to "reply", answer_blogpost_comment_url(blogpost, comment) %>
+        <%= link_to "reply", answer_blogpost_comment_url(blogpost.id, comment.id) + "#new_comment" %>
     	</div>
     </div>
-    	<% if comment.comments.any? then %>
+      <% if comment.comments.any? then %>
     		<ul>
-    			<%= render comment.comments.all, blogpost: blogpost %>
+          <% comment.comments.each do |comment| %>
+		        <%= render 'comments/comment', comment: comment, blogpost: blogpost %>
+          <% end %>
     		</ul>
     	<% end %>
 </li>

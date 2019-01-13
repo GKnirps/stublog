@@ -17,7 +17,7 @@ class BlogpostsController < ApplicationController
   def show
   	@blogpost = Blogpost.includes(:tags).find(params[:id])
   if Rails.configuration.comments_active then
-	  @comments = @blogpost.comments.all
+	  @comments = @blogpost.comment_tree
   else
     @comments = []
   end

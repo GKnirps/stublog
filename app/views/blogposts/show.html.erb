@@ -2,10 +2,12 @@
 <%= render @blogpost %>
 
 <% if Rails.configuration.comments_active then %>
-  <% if @comments then %>
+  <% if @comments.any? then %>
 	  <div class="comments">
 		  <ul>
-		  <%= render @comments, blogpost: @blogpost %>
+        <% @comments.each do |comment| %>
+		      <%= render 'comments/comment', comment: comment, blogpost: @blogpost %>
+        <% end %>
 		  </ul>
 	  </div>
   <% end %>

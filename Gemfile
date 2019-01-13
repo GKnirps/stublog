@@ -7,9 +7,9 @@ gem 'rails', '~> 3.2'
 
 #Database gems
 #sqlite for development and testing
-gem 'sqlite3'
+gem 'sqlite3', '~> 1.3.5'
 #mysql for production
-gem 'mysql2', '0.3.18'
+gem 'mysql2', '~> 0.5.3'
 
 
 # Gems used only for assets and not required

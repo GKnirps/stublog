@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121016183039) do
+ActiveRecord::Schema.define(:version => 20170813175047) do
 
   create_table "blogposts", :force => true do |t|
     t.string   "caption"
@@ -36,13 +36,13 @@ ActiveRecord::Schema.define(:version => 20121016183039) do
 
   create_table "comments", :force => true do |t|
     t.string   "caption"
-    t.text     "content",          :limit => 255
+    t.text     "content",        :limit => 255
     t.integer  "predecessor_id"
-    t.string   "predecessor_type"
     t.integer  "author_id"
     t.string   "author_type"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "blogpost_id",                   :null => false
   end
 
   add_index "comments", ["author_id"], :name => "index_comments_on_author_id"

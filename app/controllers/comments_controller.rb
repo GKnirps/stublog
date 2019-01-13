@@ -19,15 +19,17 @@ def create
 	
 	@comment = @author.comments.new(params[:comment])
 
-	
-	@comment.predecessor = @predecessor
+  if @predecessor then
+	    @comment.predecessor_id = @predecessor.id
+  end
+  @comment.blogpost = @blogpost
 	if (@author.valid? or @author.id?) and @comment.save then
 		@author.errors.clear
 		#success
 		flash[:success] = "You posted a new comment"
 		redirect_to @blogpost
 	else
-		@comments = @blogpost.comments.all
+		@comments = @blogpost.comment_tree
 		render 'blogposts/show'
 	end
 end
@@ -36,19 +38,19 @@ end
 def answer
 	@blogpost = Blogpost.find(params[:blogpost_id])
 	@predecessor = Comment.find(params[:id])
-	@comment = @predecessor.comments.new
+	@comment = Comment.new
+  @comment.predecessor_id = @predecessor.id
+  @comment.blogpost_id = @blogpost.id
 
-	@comments = @blogpost.comments.all
+	@comments = @blogpost.comment_tree
 	render 'blogposts/show'
 end
 
 
 def find_author_and_predecessor
+  # we always need the author of the comment. When the comment has a predecessor, we also need the predecessor.
 	@blogpost = Blogpost.find(params[:blogpost_id])
-	#by default, the predecessor is the blogpost. If it is not, there is a param named :pred_id
-	if not params[:pred_id] then
-		@predecessor = @blogpost
-	else
+	if params[:pred_id] then
 		@predecessor = Comment.find(params[:pred_id])
 	end
 	if signed_in?
