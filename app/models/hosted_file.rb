@@ -1,6 +1,4 @@
 class HostedFile < ActiveRecord::Base
-	attr_accessible :description, :public
-
 	FILENAME_FORMAT = /[^\/]+/
 	#the file must have a unique name (case sensitive) with maximum lenght (because of the database)
 	#oh, in just in case: no slashes!

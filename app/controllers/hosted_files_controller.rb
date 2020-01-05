@@ -38,11 +38,11 @@ class HostedFilesController < ApplicationController
   end
 
   def edit
-  	@hosted_file = HostedFile.find(params[:id])
+  	@hosted_file = HostedFile.where(id: params[:id]).to_a[0]
   end
 
   def update
-	if @hosted_file.update_attributes(params[:hosted_file]) then
+	if @hosted_file.update_attributes(hosted_file_params) then
 		flash[:success] = "File attributes updated"
 		redirect_to @hosted_file
 	else
@@ -51,11 +51,11 @@ class HostedFilesController < ApplicationController
   end
 
   def index
-  	@hosted_files = HostedFile.paginate(page: params[:page])
+  	@hosted_files = HostedFile.paginate(page: params[:page]).to_a
   end
 
   def show
-  	@hosted_file = HostedFile.find(params[:id])
+  	@hosted_file = HostedFile.where(id: params[:id]).to_a[0]
   end
 
   def download
@@ -68,7 +68,7 @@ class HostedFilesController < ApplicationController
 
   def destroy
   	delete_file(@hosted_file.name)
-  	HostedFile.find(params[:id]).destroy
+  	HostedFile.where(id: params[:id]).to_a[0].destroy
 	flash[:success] = "File deleted"
 	redirect_to hosted_files_path
   end
@@ -76,7 +76,7 @@ class HostedFilesController < ApplicationController
   private
   #redirects to log in page if user needs to be signed in to see a file but is not
   def maybe_signed_in_user
-  	@hosted_file = HostedFile.find(params[:id])
+  	@hosted_file = HostedFile.where(id: params[:id]).to_a[0]
 	unless signed_in? or @hosted_file.public
 		store_location
 		redirect_to signin_url, notice: "You have to be logged in to do this"
@@ -85,10 +85,14 @@ class HostedFilesController < ApplicationController
 
   #is the user allowed to modify this file?
   def can_modify
-	@hosted_file = HostedFile.find(params[:id])
+	@hosted_file = HostedFile.where(id: params[:id]).to_a[0]
 	unless current_user.admin? or @hosted_file.user_id == current_user.id
 		redirect_to root_path, notice: 'You are not allowed to modify this file!'
 	end
+  end
+
+  def hosted_file_params
+      params.require(:hosted_file).permit(:description, :public)
   end
 
 end

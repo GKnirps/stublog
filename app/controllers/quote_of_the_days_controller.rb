@@ -18,9 +18,9 @@ class QuoteOfTheDaysController < ApplicationController
 
 	def show
     if signed_in? && (current_user.admin? || current_user.author?) then
-		  @quote_of_the_day = QuoteOfTheDay.find(params[:id])
+		  @quote_of_the_day = QuoteOfTheDay.where(id: params[:id]).to_a[0]
     else
-      @quote_of_the_day = QuoteOfTheDay.published.find(params[:id])
+      @quote_of_the_day = QuoteOfTheDay.published.where(id: params[:id]).to_a[0]
     end
 		@author_user = signed_in? && current_user.author?
 		@admin_user = signed_in? && current_user.admin?
@@ -31,7 +31,7 @@ class QuoteOfTheDaysController < ApplicationController
   end
 
   def create
-  	@quote_of_the_day = QuoteOfTheDay.new(params[:quote_of_the_day])
+  	@quote_of_the_day = QuoteOfTheDay.new(qotd_params)
 	if @quote_of_the_day.save then
 		flash[:success] = "New quote saved"
 		redirect_to quote_of_the_days_path
@@ -45,7 +45,7 @@ class QuoteOfTheDaysController < ApplicationController
   end
 
   def update
-  	if @quote_of_the_day.update_attributes(params[:quote_of_the_day]) then
+  	if @quote_of_the_day.update_attributes(qotd_params) then
 		flash[:success] = "change saved"
 		redirect_to quote_of_the_days_path
 	else
@@ -71,9 +71,13 @@ class QuoteOfTheDaysController < ApplicationController
   private
   #filter if a quote with a give id exists
   def quote_exists
-	@quote_of_the_day = QuoteOfTheDay.find(params[:id])
+	@quote_of_the_day = QuoteOfTheDay.where(id: params[:id]).to_a[0]
 	if not @quote_of_the_day then
 		redirect_to quote_of_the_days_path, notice: "There is no quote with id #{params[:id]}"
 	end
+  end
+
+  def qotd_params
+      params.require(:quote_of_the_day).permit(:content, :published, :sourcedesc, :sourceurl)
   end
 end

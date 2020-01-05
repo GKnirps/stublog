@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-	attr_accessible :email, :name, :password, :password_confirmation
 	#generate secure password hash automatically
 	has_secure_password
 

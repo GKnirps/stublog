@@ -1,6 +1,4 @@
 class Comment < ActiveRecord::Base
-  attr_accessible :caption, :content, :predecessor_id
-  
   validates :content, presence: true, length: {maximum: 65000}
   validates :caption, length: {maximum: 250}
 

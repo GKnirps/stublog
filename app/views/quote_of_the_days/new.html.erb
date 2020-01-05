@@ -4,7 +4,7 @@
 	<%= form_for @quote_of_the_day do |f|%>
 		<%= render 'shared/error_messages', object: f.object %>
 
-		<%= f.text_area :content %>
+		<%= f.text_area :content, rows: 10 %>
 
 		<%= f.label :sourcedesc, "Name of the source" %>
 		<%= f.text_field :sourcedesc %>

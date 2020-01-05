@@ -1,6 +1,4 @@
 class Tag < ActiveRecord::Base
-  attr_accessible :name
-
   has_many :post_tag_relationships, dependent: :destroy
   has_many :blogposts, through: :post_tag_relationships
 

@@ -1,6 +1,4 @@
 class Category < ActiveRecord::Base
-  attr_accessible :name, :description
-
   #each category can has multiple posts
   has_many :blogposts
 

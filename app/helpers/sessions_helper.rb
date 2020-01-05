@@ -23,7 +23,7 @@ module SessionsHelper
 		@current_user = u
 	end
 	def current_user
-		@current_user ||=User.find_by_remember_token(cookies[:remember_token])
+		@current_user ||=User.where(remember_token: cookies[:remember_token]).to_a[0]
 	end
 	def current_user?(user)
 		self.current_user == user

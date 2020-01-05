@@ -1,17 +1,15 @@
 class QuoteOfTheDay < ActiveRecord::Base
-  attr_accessible :content, :published, :sourcedesc, :sourceurl
- 
   validates :content, presence: true, length: {maximum: 65000}
   validates :sourcedesc, length: {maximum: 250}
 
-  URL_FORMAT = /^$|^https?:\/\/.*/
+  URL_FORMAT = /\A\z$|^https?:\/\/.*/
   validates :sourceurl, length: {maximum: 250}, format: {with: URL_FORMAT}
 
   default_scope order: "quote_of_the_days.updated_at DESC"
   
   #Scope for all published quotes
-  scope :published, where( published: true )
-  scope :unpublished, where( published: false )
+  scope :published, -> { where published: true  }
+  scope :unpublished, -> { where published: false }
 
   def self.current_quote
     quote = self.published.first 

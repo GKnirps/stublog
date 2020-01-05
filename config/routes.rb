@@ -61,18 +61,16 @@ Stublog::Application.routes.draw do
 
   root to: 'static_pages#home'
 
-  match '/home', to: "static_pages#home"
+  match '/home', to: "static_pages#home", via: [:get]
 
-#  match '/contact', to: "static_pages#contact"
-
-  match '/signup', to: "users#new"
+  match '/signup', to: "users#new", via: [:get]
 
   #the atom feed
-  match '/feed', to: 'blogposts#feed'
+  match '/feed', to: 'blogposts#feed', via: [:get]
 
-  match '/signin', to: "sessions#new"
+  match '/signin', to: "sessions#new", via: [:get]
 
-  match '/signout', to: "sessions#destroy"
+  match '/signout', to: "sessions#destroy", via: [:get]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

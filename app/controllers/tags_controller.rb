@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
 	def show
-		@tag = Tag.find(params[:id])
+		@tag = Tag.where(id: params[:id]).to_a[0]
   		@blogposts = @tag.blogposts.paginate(:page => params[:page])
 	end
 	def index

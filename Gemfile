@@ -1,45 +1,21 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2'
+gem 'sassc-rails', '~> 1.3'
+gem 'rails', '~> 4.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #Database gems
 #sqlite for development and testing
-gem 'sqlite3', '~> 1.3.5'
+gem 'sqlite3', '~> 1.3.0'
 #mysql for production
-gem 'mysql2', '~> 0.5.3'
-
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'mysql2'
 
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
+gem 'bcrypt-ruby', '~> 3.0'
 
 #Don't know what that is for (since I don't use JS), but rails won't start without it
 gem 'execjs'
@@ -49,16 +25,16 @@ gem 'therubyracer'
 gem 'faker'
 
 #for pagination
-gem 'will_paginate'
+gem 'will_paginate', '~> 3.1'
 
 #bb-code parser (only needed for conversion of old databases now)
-gem 'rbbcode'
+gem 'rbbcode', '~> 1.0'
 
 #only allow certain tags in blogposts
-gem 'sanitize', '>= 4.6'
+gem 'sanitize', '~> 5.1'
 
 #scheduler (kind of like cron)
-gem 'rufus-scheduler'
+gem 'rufus-scheduler', '~> 3.6'
 
 #for april fool
 gem 'rschmutz'

@@ -4,7 +4,7 @@ class BlogpostsController < ApplicationController
   before_filter :can_modify, only: [:destroy, :confirm_destroy, :edit, :update]
 
   def confirm_destroy
-  	@blogpost = Blogpost.find(params[:id])
+  	@blogpost = Blogpost.where(id: params[:id]).to_a[0]
   end
 
   def new
@@ -15,7 +15,7 @@ class BlogpostsController < ApplicationController
   end
 
   def show
-  	@blogpost = Blogpost.includes(:tags).find(params[:id])
+  	@blogpost = Blogpost.includes(:tags).where(id: params[:id]).to_a[0]
   if Rails.configuration.comments_active then
 	  @comments = @blogpost.comment_tree
   else
@@ -50,12 +50,12 @@ class BlogpostsController < ApplicationController
   end
 
   def create
-  	#does the user want a preview before posting?
-  	@preview_desired = ! params.key?(:save)
-	@categories = Category.all
-	@tags = params[:tags]
+    #does the user want a preview before posting?
+    @preview_desired = ! params.key?(:save)
+    @categories = Category.all
+    @tags = params[:tags]
 
-  	@blogpost = current_user.blogposts.new(params[:blogpost])
+  	@blogpost = current_user.blogposts.new(blogpost_params)
 	if !@preview_desired && @blogpost.save then
 		@blogpost.add_taglist!(@tags)
 		flash[:success] = "New Blogpost published"
@@ -66,13 +66,13 @@ class BlogpostsController < ApplicationController
   end
 
   def destroy
-  	Blogpost.find(params[:id]).destroy
+  	Blogpost.where(id: params[:id]).to_a[0].destroy
 	flash[:success] = "Blogpost deleted"
 	redirect_to root_path
   end
 
   def edit
-  	@blogpost = Blogpost.find(params[:id])
+  	@blogpost = Blogpost.where(id: params[:id]).to_a[0]
 	@categories = Category.all
 	@category_selection_params = {prompt: true}
 	@category_selection_params = {selected: @blogpost.category.id.to_s} if @blogpost.category
@@ -84,7 +84,7 @@ class BlogpostsController < ApplicationController
   end
 
   def update
-  	if @blogpost.update_attributes(params[:blogpost]) then
+  	if @blogpost.update_attributes(blogpost_params) then
 		newtags = params[:tags].split(/\s*,\s*/)
 		oldtags = @blogpost.tags.map {|t| t.name}
 		
@@ -106,9 +106,13 @@ class BlogpostsController < ApplicationController
 
   private
   def can_modify
-	@blogpost = Blogpost.find(params[:id])
-	unless current_user.admin? or @blogpost.user_id == current_user.id
-		redirect_to root_path, notice: 'You are not allowed to modify this post.'
-	end
+    @blogpost = Blogpost.where(id: params[:id]).to_a[0]
+    unless current_user.admin? or @blogpost.user_id == current_user.id
+      redirect_to root_path, notice: 'You are not allowed to modify this post.'
+    end
+  end
+
+  def blogpost_params
+      params.require(:blogpost).permit(:caption, :content, :category_id)
   end
 end

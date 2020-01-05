@@ -2,11 +2,7 @@
 class QuoteToFortune
 	#make a fortune db file string out of the published quotes
 	def quotelist()
-		#old variant: put url and description into the fortune databank. This is ugly for fortune.
-		#@quotelist ||= QuoteOfTheDay.published.map { 
-		#	|q| [q.sourcedesc, q.sourceurl, q.content].compact.select{|a| a != ""}.join("\n") }.join("\n%\n")
-		@quotelist ||=QuoteOfTheDay.published.map{|q| Sanitize.fragment(q.content).strip}.join "\n%\n"
-		
+		@quotelist ||=QuoteOfTheDay.published.map{|q| Sanitize.fragment(q.content).strip}.join "\n%\n"	
 	end
 	
 	#return file path to the .tar.gz fortune archive

@@ -1,6 +1,4 @@
 class Blogpost < ActiveRecord::Base
-  attr_accessible :caption, :content, :category_id
-
   #exactly one user created a one blogpost
   belongs_to :user
   #belongs to a category. If category is nil, the post should be marked as "uncategorized"
@@ -21,11 +19,11 @@ class Blogpost < ActiveRecord::Base
   default_scope order: 'blogposts.created_at DESC'
 
   def add_tag!(tag)
-  	t = Tag.find_by_name(tag.downcase)
+    t = Tag.where(name: tag.downcase).to_a[0]
 	if not t then
 		t = Tag.create(name: tag.downcase)
 	end
-	if not post_tag_relationships.find_by_tag_id(t.id) then
+	if post_tag_relationships.where(tag_id: t.id).to_a.empty? then
 		post_tag_relationships.create!(tag_id: t.id)
 	end
   end
@@ -35,8 +33,8 @@ class Blogpost < ActiveRecord::Base
 	end
   end
   def destroy_tag_relationship!(tag)
-	t = Tag.find_by_name(tag.downcase)
-	if t and rel = post_tag_relationships.find_by_tag_id(t.id) then
+	t = Tag.where(name: tag.downcase)
+	if t and rel = post_tag_relationships.where(tag_id: t.id).to_a[0] then
 		rel.destroy
 	end
   end

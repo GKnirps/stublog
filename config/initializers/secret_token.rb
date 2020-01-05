@@ -1,7 +1,12 @@
 # Be sure to restart your server when you modify this file.
 
-# Your secret key for verifying the integrity of signed cookies.
+# Your secret key is used for verifying the integrity of signed cookies.
 # If you change this key, all old signed cookies will become invalid!
+
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Stublog::Application.config.secret_token = '5fe8bf986f6bb8b67906b7176619c386543e694dcb51e80f3db74983e57aecbf83e5ded94eedb2ad8a345246248a4c1f0c51fefc6475415060869aeb04e4a35a'
+# You can use `rake secret` to generate a secure secret key.
+
+# Make sure your secret_key_base is kept private
+# if you're sharing your code publicly.
+Stublog::Application.config.secret_key_base = 'fec321c5424fbf0cdf17fdbf5eb77ee58670538d0e2144f10c555609f55401352b3a589a8305794646f370e4c0cc3ee62f68d1fcef53be8c659283d2ff7f62d9'

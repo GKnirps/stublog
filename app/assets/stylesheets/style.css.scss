@@ -64,16 +64,14 @@ $button-text-color: DarkSlateGray;
 
     /*Textfelder*/
     input[type="text"], input[type="password"] {
-      width: 100%;
+        width: 90%;
     }
 
-    /*Checkboxen*/
-    input[type="checkbox"] {
-    }
-
-    input[type="checkbox"]:checked {
+    textarea {
+        width: 90%;
     }
     
+
 /****************************   T E X T F O R M A T I E R U N G E N   ****************************/
 
     /*** Grundelegende Textformatierungen ***/
@@ -534,26 +532,6 @@ $button-text-color: DarkSlateGray;
             }
         }
     
-    
-    /* Comment Content */
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            /* Comment Content */
-            .comment-content textarea {
-                width: 35.9em;
-                height: 9.375em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Comment Content */
-            .comment-content textarea {
-                width: 19.56em;
-                height: 11.8em;
-            }
-        }
-    
-    
     /* Submit-Button */
     .comment-buttons {
         text-align: right;
@@ -898,29 +876,9 @@ $button-text-color: DarkSlateGray;
     
 /*****************************   B E I T R A G   V E R F A S S E N   *****************************/
 
-    .editpost {
-        
-    }
-    
-    /* Bereich Posttitel */
-    .blogpost-caption {
-        
-    }
-    
-    /* Eingabefeld Posttitel */
-    .blogpost-caption input#blogpost_caption {
-        width: 50.875em;
-        font-size: 1.125em;
-    }
-    
     /* Bereich Post-Content */
     .blogpost-content {
         
-    }
-    
-    /* Eingabefeld Post-Content */
-    .blogpost-content textarea#blogpost_content {
-        width: 50.875em;
     }
     
     /* Bereich Blogpost-Kategorie */
