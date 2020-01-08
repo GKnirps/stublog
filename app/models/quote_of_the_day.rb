@@ -12,15 +12,7 @@ class QuoteOfTheDay < ActiveRecord::Base
   scope :unpublished, -> { where published: false }
 
   def self.current_quote
-    quote = self.published.first 
-    today = Date.today
-    if today.day == 1 and today.month == 4 then
-      quote.published = true
-      quote.content = self.fehlerImSystem
-      quote.sourceurl = nil
-      quote.sourcedesc = nil
-    end
-    quote
+    self.published.first 
   end
 
   def self.publish_next!
@@ -34,19 +26,6 @@ class QuoteOfTheDay < ActiveRecord::Base
   
   def self.publish_probability
 	prob(self.where(published:false).count, {})
-  end
-
-  def self.fehlerImSystem
-    s = "kein fehler im system"
-    n = rand(1..5)
-    (0..n).each do
-      p1 = rand(0...s.length)
-      p2 = rand(0...s.length)
-      buff = s[p1]
-      s[p1] = s[p2]
-      s[p2] = buff
-    end
-    return s
   end
 
   private

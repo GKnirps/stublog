@@ -111,7 +111,6 @@ GEM
       sanitize
       treetop
     ref (2.0.0)
-    rschmutz (0.0.1)
     rufus-scheduler (3.6.0)
       fugit (~> 1.1, >= 1.1.6)
     sanitize (5.1.0)
@@ -162,7 +161,6 @@ DEPENDENCIES
   mysql2
   rails (~> 4.2)
   rbbcode (~> 1.0)
-  rschmutz
   rufus-scheduler (~> 3.6)
   sanitize (~> 5.1)
   sassc-rails
@@ -172,4 +170,4 @@ DEPENDENCIES
   will_paginate (~> 3.1)
 
 BUNDLED WITH
-   1.16.1
+   1.17.3

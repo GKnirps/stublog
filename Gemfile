@@ -30,9 +30,6 @@ gem 'sanitize', '~> 5.1'
 #scheduler (kind of like cron)
 gem 'rufus-scheduler', '~> 3.6'
 
-#for april fool
-gem 'rschmutz'
-
 group :development do
   gem 'web-console', '~> 2.0'
   
