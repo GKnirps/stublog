@@ -13,5 +13,6 @@ class ApplicationController < ActionController::Base
     response.headers["x-clacks-overhead"] = "GNU Terry Pratchett";
     #TODO: Log if content security has been violated
     response.header["content-security-policy"] = "default-src 'none'; style-src 'self'; img-src *; frame-ancestors 'none';"
+    response.header["Referrer-Policy"] = "same-origin"
   end
 end
