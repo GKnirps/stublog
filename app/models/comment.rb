@@ -8,7 +8,7 @@ class Comment < ActiveRecord::Base
   belongs_to :blogpost
 
   #order the comments by date, oldest first
-  default_scope order: 'comments.created_at ASC'
+  default_scope { order(created_at: :desc) }
 
   def comments
     @comment || []

@@ -16,7 +16,7 @@ class Blogpost < ActiveRecord::Base
   validates :user_id, presence: true
 
   #order the blogposts by date, newest first
-  default_scope order: 'blogposts.created_at DESC'
+  default_scope {order(created_at: :desc)}
 
   def add_tag!(tag)
     t = Tag.where(name: tag.downcase).to_a[0]

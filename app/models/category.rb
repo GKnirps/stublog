@@ -10,7 +10,7 @@ class Category < ActiveRecord::Base
   before_destroy :delete_category_references
 
   #order categories by name
-  default_scope order: 'categories.name'
+  default_scope {order(:name)}
 
   private
   def delete_category_references
