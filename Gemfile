@@ -9,14 +9,8 @@ gem 'sqlite3', '~> 1.3.0'
 #mysql for production
 gem 'mysql2'
 
-gem 'jquery-rails'
-
 # To use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1'
-
-#Don't know what that is for (since I don't use JS), but rails won't start without it
-gem 'execjs'
-gem 'therubyracer'
 
 #for pagination
 gem 'will_paginate', '~> 3.1'
