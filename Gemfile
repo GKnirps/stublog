@@ -1,10 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'sassc-rails'
-gem 'rails', '~> 4.1.0'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'rails', '~> 4.2'
 
 #Database gems
 #sqlite for development and testing
@@ -21,9 +18,6 @@ gem 'bcrypt-ruby', '~> 3.0'
 gem 'execjs'
 gem 'therubyracer'
 
-#for creating sample data
-gem 'faker'
-
 #for pagination
 gem 'will_paginate', '~> 3.1'
 
@@ -38,3 +32,11 @@ gem 'rufus-scheduler', '~> 3.6'
 
 #for april fool
 gem 'rschmutz'
+
+group :development do
+  gem 'web-console', '~> 2.0'
+  
+  #for creating sample data
+  gem 'faker'
+
+end

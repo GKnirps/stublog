@@ -1,8 +1,8 @@
-# Load the rails application
+# Load the rails application.
 require File.expand_path('../application', __FILE__)
 
-# Initialize the rails application
-Stublog::Application.initialize!
+# Initialize the rails application.
+Rails.application.initialize!
 
 require 'rufus/scheduler'
 #when running with passenger, restart rufus scheduler if needed
