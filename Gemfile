@@ -12,7 +12,7 @@ gem 'mysql2'
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.0'
+gem 'bcrypt', '~> 3.1'
 
 #Don't know what that is for (since I don't use JS), but rails won't start without it
 gem 'execjs'
