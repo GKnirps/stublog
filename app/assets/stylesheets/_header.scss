@@ -16,22 +16,9 @@
         
         margin: 0;
         padding: 1em 0 1.2em 0;
+        font-size: 3em;
     }
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            /* Blog-Überschrift */
-            h1 {
-                font-size: 3em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Blog-Überschrift */
-            h1 {
-                font-size: 4em;
-            }
-        }
-        
+
     h1 a:hover {
         text-decoration: none;
     }
@@ -80,21 +67,9 @@
         font-family: Georgia, serif;
         
         margin: 0 .3125em 0 .3125em;  /* Abstand zwischen den Elementen */
+        font-size: 1.5em;
     }
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            ul.main-nav li a:link, ul.main-nav li a:visited {
-                font-size: 1.5em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            ul.main-nav li a:link, ul.main-nav li a:visited {
-                font-size: 2.5em;
-            }
-        }
-    
-    
+
     /* Hover über aktivem Element */
     ul.main-nav li a:hover {
         text-decoration: none;

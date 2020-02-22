@@ -17,22 +17,7 @@ $button-text-color: DarkSlateGray;
         background-color: $main-background-color;
         height: 100%;
     }
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-width: 481px) {
-            body {
-                font-size: 16px;
-            }
-        }
-        
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            body {
-                font-size: 18px;
-            }
-        }
-    
-    
-    
+
     /* Grundformatierung sämtlicher Links */
     a:link, a:active, a:visited {
         text-decoration: none;
@@ -98,21 +83,8 @@ $button-text-color: DarkSlateGray;
         em {
           font-style: normal;
         }
+        margin: 1.25em 1.875em 1.25em 1.875em;
     }
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            /* Zitatboxen */
-            blockquote {
-                margin: 1.25em 1.875em 1.25em 1.875em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Zitatboxen */
-            blockquote {
-                margin: 1.25em 1.875em 1.25em .7em;
-            }
-        }
 
 /**********************************   M I T T E I L U N G E N   **********************************/
 
@@ -135,8 +107,6 @@ $button-text-color: DarkSlateGray;
         @media only screen and (max-device-width: 480px) {
             /* Alerts generell */
             .alert {
-                font-size: 2.4em;
-
                 width: 16em;
                 padding: .7em .5em;
             }
@@ -202,6 +172,7 @@ $button-text-color: DarkSlateGray;
         @media only screen and (max-device-width: 480px) {
             .wrapper {
                 padding: 0; 
+                margin: 0 1em 0 1em;
             }
         }
     
@@ -213,43 +184,18 @@ $button-text-color: DarkSlateGray;
 
     .wrapper .content {
         width: inherit;
+        padding-top: 1.875em;
     }
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            .wrapper .content {        
-                padding-top: 1.875em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            .wrapper .content {        
-                padding-top: 3em;
-            }
-        }
-    
+
     /* Überschriften über bestimmten Bereichen der Website */
     h2.section-heading {
         font-family: Georgia, serif;
         color: $main-foreground-color;
         
         margin: 0 0 2em .625em;
+        font-size: 2em;
     }
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            /* Überschriften über bestimmten Bereichen der Website */
-            h2.section-heading {
-                font-size: 2em; 
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Überschriften über bestimmten Bereichen der Website */
-            h2.section-heading {
-                font-size: 3.2em;
-            }
-        }
-    
-    
+
     /* Artikel Vor/Zurück */
     .pagination {
         text-align: right;
@@ -258,8 +204,6 @@ $button-text-color: DarkSlateGray;
         @media only screen and (max-device-width: 480px) {
             /* Artikel Vor/Zurück */
             .pagination {
-                font-size: 2em;
-                
                 padding-bottom: 2em;
             }
         }
@@ -284,26 +228,10 @@ $button-text-color: DarkSlateGray;
     /* Titel des Postings */
     h3.posttitle {
         font-family: Georgia, serif;
-    }
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            /* Titel des Postings */
-            h3.posttitle {
-                font-size: 1.4em;
-                
-                margin: 0 0 0 .625em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Titel des Postings */
-            h3.posttitle {
-                font-size: 3.4em;
-                
-                margin: 1.65em 0 0 .3em;
-            }
-        }
+        font-size: 1.4em;
 
+        margin: 0 0 0 .625em;
+    }
 
     /* Datum des Postings */
     h3.postdate {
@@ -311,22 +239,9 @@ $button-text-color: DarkSlateGray;
         font-weight: normal;
         
         margin: 0 0 0 .625em;
+        font-size: .9em;
     } 
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            /* Datum des Postings */
-            h3.postdate {
-                font-size: .9em;
-            } 
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Datum des Postings */
-            h3.postdate {
-                font-size: 1.6em;
-            } 
-        }
-    
+
     /* Fließtext des Postings */
     article.blogpost .entry {
         font-family: serif;
@@ -334,46 +249,15 @@ $button-text-color: DarkSlateGray;
         margin-top: .8em;
         margin-bottom: 1.4em;
     }
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            /* Fließtext des Postings */
-            article.blogpost .entry { 
-                margin-top: .8em;
-                margin-bottom: 1.4em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Fließtext des Postings */
-            article.blogpost .entry {
-                font-size: 2.4em;
-                        
-                margin-top: .8em;
-                margin-bottom: 1.4em;
-            }
-        }
-    
+
     /* Metadaten unter dem Posting */
     article.blogpost footer span {
         font-family: Verdana, Arial, sans-serif;
         margin: 0;
         padding: 0;
+        font-size: .5em;
     }
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            /* Metadaten unter dem Posting */
-            article.blogpost footer span {
-                font-size: .5em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Metadaten unter dem Posting */
-            article.blogpost footer span {
-                font-size: .7em;
-            }
-        }
-    
+
     /* „Bearbeiten“ & „Löschen“ */
     article.blogpost .modify span {
         font-family: Verdana, Arial, sans-serif;
@@ -416,15 +300,7 @@ $button-text-color: DarkSlateGray;
         
         margin-bottom: 0;
     }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Titel eines Kommentars */
-            h4.comment-title {
-                font-size: 2em;
-            }
-        }
-   
-    
+
     /* Kommentartext */
     .comment-entry p {
         font-family: serif;
@@ -432,62 +308,26 @@ $button-text-color: DarkSlateGray;
         margin-top: .4em;
         margin-bottom: .6em;
     }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Kommentartext */
-            .comment-entry p {
-                font-size: 2.4em;
-            }
-        }
-    
-    
+
     /* Kommentar Meta-Infos */
     .comment-metainfo, .comment-reply-link {
         font-family: Verdana, Arial, sans-serif;
+        font-size: .5em;
     }
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            /* Kommentar Meta-Infos */
-            .comment-metainfo, .comment-reply-link {
-                font-size: .5em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Kommentar Meta-Infos */
-            .comment-metainfo, .comment-reply-link {
-                font-size: .8em;
-            }
-        }
 
-    
 /*********************************   E D I T   C O M M E N T S   *********************************/
 
 
     /* New Comment Form Wrapper */
     .editcomment {
         margin: .1875em auto 3em auto;
+        width: 100%;
     }
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            /* New Comment Form Wrapper */
-            .editcomment {
-                width: 25em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* New Comment Form Wrapper */
-            .editcomment {
-                width: 12.3em;
-            }
-        }
-    
-    
+
     .editcomment form div {
         margin-bottom: 1px;
     }
-    
+
     /* honeypot field for comments to filter out spambots. Let's see if it works. */
     .editcomment .topyenoh {
       display: none;
@@ -497,119 +337,31 @@ $button-text-color: DarkSlateGray;
     .comment-author-name label {
         display: none;
     }
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            .comment-author-name input {
-                width: 35.9em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            .comment-author-name input {
-                width: 19em;
-                height: 2em;
-                margin-bottom: 1em;
-            }
-        }
-    
-    
+
     /* Comment Caption */
     .comment-caption label {
         display: none;
     }
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            .comment-caption input {
-                width: 35.9em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            .comment-caption input {
-                width: 19em;
-                height: 2em;
-                margin-bottom: 1em;
-            }
-        }
-    
+
     /* Submit-Button */
     .comment-buttons {
-        text-align: right;
+        text-align: center;
     }
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            /* Submit-Button */
-            .comment-buttons {
-                width: 25em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Submit-Button */
-            .comment-buttons {
-                width: 12.4em;
-            }
-        }
-
-    
+ 
 /******************************   Q U O T E   O F   T H E   D A Y   ******************************/
 
     .bufferinfo {
         margin-bottom: 3.125em;
     }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            .bufferinfo {
-                font-size: 2.4em;
-            }
-        }
 
-
-    /* Ein Quote mit allem drum und dran */
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            /* Ein Quote mit allem drum und dran */
-            .qotd {
-                margin: 1em 0 4em 2em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Ein Quote mit allem drum und dran */
-            .qotd {
-                font-size: 2.4em;
-                
-                margin: .5em 0 2em 1em;
-            }
-        }
-         
-            
     /* Ein noch nicht veröffentlichtes Quote */
     .unpublished .qotd {
         margin: 1em 0 4em 1.6em; /* angepasst, damit der Abstand zum linken Rand der Website wieder passt (border ist dazugekommen) */
         border-left-style: solid;
         border-left-width: .4em;
         border-left-color: #66a4bb;
-    }
-    
-    
-    /* Source */
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            /* Source */
-            .quote-source {
-                margin: 0 0 0 1.5em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Source */
-            .quote-source {
-                margin: 0 0 0 .7em;
-            }
-        }
-    
-    
+    } 
+
     /* Edit/Delete-Links */
     .quote-author-links {
         font-family: Verdana, Arial, sans-serif;
@@ -646,44 +398,18 @@ $button-text-color: DarkSlateGray;
     .sign-in-form {
         margin: 0 auto 4.375em auto;
         padding: .9375em 1.25em;
+        width: 10.625em;
                 
         border: $main-foreground-color 1px dashed;
     }
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            .sign-in-form {
-                width: 10.625em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            .sign-in-form {
-                width: 12.3em;
-            }
-        }
-        
+
     .sign-in-form .email {
         padding-bottom: .625em;
     }
     
     /* E-Mail-Input-Feld */
-    /* Kleinere Geräte */
-    @media only screen and (max-device-width: 480px) {
-        .sign-in-form .email input {
-            height: 2em;
-        }
-    }
-        
     .sign-in-form .password {
         padding-bottom: 1.25em;
-    }
-    
-    /* Passwort-Input-Feld */
-    /* Kleinere Geräte */
-    @media only screen and (max-device-width: 480px) {
-        .sign-in-form .password input {
-            height: 2em;
-        }
     }
     
     /* Eingelogged-bleiben-Checkbox */
@@ -691,46 +417,19 @@ $button-text-color: DarkSlateGray;
         text-align: right;
         padding-bottom: 1.25em;
     }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Eingelogged-bleiben-Checkbox */
-            .sign-in-form .permanent {
-                padding-right: 1em;
-            }
-        }
-    
+
     /* Sign-In-Button */
     .sign-in-form .sign-in {
         float: right;
         padding-bottom: 1.875em;
     }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Sign-In-Button */
-            .sign-in-form .sign-in {
-                padding-right: 1em;
-            }
-        }
-    
+ 
     /* New-User-Link */
     .sign-in-form .new-user {
         text-align: right;
         clear: both;
     }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* New-User-Link */
-            .sign-in-form .new-user {
-                padding-right: 1em;
-            }
-        }
-    
-    
-    
-    
-    
-    
-    
+
     /* Formular um neuen Benutzer anzulegen */
     .new-user-form {
         margin: 0 auto 3.75em auto;
@@ -738,109 +437,28 @@ $button-text-color: DarkSlateGray;
         padding: 1.25em 1.25em;
 
         border: $main-foreground-color 1px dashed;
+        width: 17.5em;
     }
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            /* Formular um neuen Benutzer anzulegen */
-            .new-user-form {
-                width: 17.5em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Formular um neuen Benutzer anzulegen */
-            .new-user-form {
-                width: 18em;
-            }
-        }
-    
+
     /* Wrapper Username */
     .user-name {
         padding-bottom: .3125em;
     }
     
-    /* Input-Feld Username */
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            /* Input-Feld Username */
-            #user_name {
-                width: 11.25em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Input-Feld Username */
-            #user_name {
-                width: 18.9em;
-                height: 2em;
-            }
-        }
-    
     /* Wrapper E-Mail  */
     .user-email {
         padding-bottom: .9375em;
     }
-    
-    /* Input-Feld E-Mail */
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            /* Input-Feld E-Mail */
-            #user_email {
-                width: 11.25em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Input-Feld E-Mail */
-            #user_email {
-                width: 18.9em;
-                height: 2em;
-            }
-        }
-    
+
     /* Wrapper Passwort */
     .user-password {
         padding-bottom: .3125em;
     }
-    
-    /* Input-Feld Passwort */
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            /* Input-Feld Passwort */
-            #user_password {
-                width: 11.25em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Input-Feld Passwort */
-            #user_password {
-                width: 18.9em;
-                height: 2em;
-            }
-        }
-    
+
     /* Wrapper Passwort-Confirm */
     .user-password-confirm {
         padding-bottom: .9375em;
     }
-    
-    /* Input-Feld Passwort-Confirm */
-        /* Desktop, iPad, etc. */
-        @media only screen and (min-device-width: 481px) {
-            /* Input-Feld Passwort-Confirm */
-            #user_password_confirmation {
-                width: 11.25em;
-            }
-        }
-        /* Kleinere Geräte */
-        @media only screen and (max-device-width: 480px) {
-            /* Input-Feld Passwort-Confirm */
-            #user_password_confirmation {
-                width: 18.9em;
-                height: 2em;
-            }
-        }
     
     /* Button Create-User */
     .create-user-button {

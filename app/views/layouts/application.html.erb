@@ -4,6 +4,7 @@
     	<meta charset="UTF-8">
         <title><%=full_title yield :title %></title>    	
 	      <%= stylesheet_link_tag "style", media: "screen" %>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <%= favicon_link_tag "favicon.png", type: 'image/png', rel: 'icon' %>
     
 	      <%= auto_discovery_link_tag :atom, "/feed.atom" %>
