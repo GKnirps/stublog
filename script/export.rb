@@ -33,7 +33,6 @@ def write_blogpost(fname, blogpost)
     file.puts("allow-html: true")
     file.puts("---\n")
 
-    file.puts("### %s\n" % blogpost.caption)
     file.puts(html_whitelist(blogpost.content))
   end
 end
