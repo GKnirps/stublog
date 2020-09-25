@@ -23,6 +23,9 @@ def write_blogpost(fname, blogpost)
     file.puts("title: %s" % blogpost.caption)
     file.puts("filename: %d" % blogpost.id)
     file.puts("date: %s" % blogpost.created_at.iso8601)
+    if blogpost.updated_at and blogpost.updated_at != blogpost.created_at then
+      file.puts("update-date: %s" % blogpost.updated_at.iso8601)
+    end
     file.puts("tags: %s" % blogpost.tagstring)
     if blogpost.category then
       file.puts("category: %s" % normalize_cat_name(blogpost.category.name))
