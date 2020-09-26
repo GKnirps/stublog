@@ -85,6 +85,34 @@ def write_categories(main_path)
   end
 end
 
+def write_hosted_file(fname, hosted_file)
+  if !hosted_file.public then
+    puts "Hosted file #%d (%s) is not public" % [hosted_file.id, hosted_file.name]
+    return
+  end
+  File.open(fname, mode="w") do |file|
+    file.puts("---")
+    file.puts("old-id: %d" % hosted_file.id)
+    file.puts("path: %s" % hosted_file.name)
+    file.puts("mime-type: %s" % hosted_file.mime_type)
+    file.puts("---")
+    file.puts(html_whitelist(hosted_file.description))
+  end
+end
+
+def write_hosted_files(main_path)
+  hosted_files_path = main_path + "/files"
+  if !File.directory? hosted_files_path then
+    Dir.mkdir(hosted_files_path)
+  end
+
+  HostedFile.all.each do |hosted_file|
+    filename = "%s/%s__%s.md" % [hosted_files_path, hosted_file.created_at.strftime("%Y-%m-%dT%H:%M"), File.basename(hosted_file.name, File.extname(hosted_file.name))]
+    write_hosted_file(filename, hosted_file)
+    puts("written %s" % filename)
+  end
+end
+
 if ARGV.size != 1 then
   puts("Expected exactly one argument: A destination directory")
   exit(1)
@@ -92,3 +120,4 @@ end
 
 write_blogposts(ARGV[0])
 write_categories(ARGV[0])
+write_hosted_files(ARGV[0])
