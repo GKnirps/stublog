@@ -101,7 +101,7 @@ def write_hosted_file(fname, hosted_file)
 end
 
 def write_hosted_files(main_path)
-  hosted_files_path = main_path + "/files"
+  hosted_files_path = main_path + "/file"
   if !File.directory? hosted_files_path then
     Dir.mkdir(hosted_files_path)
   end
