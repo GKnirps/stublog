@@ -138,6 +138,33 @@ def write_quotes(main_path)
 
 end
 
+def write_comment(fname, comment)
+  File.open(fname, mode="w") do |file|
+    file.puts("---")
+    file.puts("blogpost-filename: %d" % comment.blogpost_id)
+    if comment.author then file.puts("author-name: %s" % comment.author.name) end
+    if comment.caption && !comment.caption.strip.empty? then file.puts("caption: %s" % comment.caption) end
+    file.puts("date: %s" % comment.created_at.iso8601)
+    file.puts("id: %d" % comment.id)
+    if comment.predecessor_id then file.puts("predecessor_id: %d" % comment.predecessor_id) end
+    file.puts("---")
+    file.puts(html_whitelist(comment.content))
+  end
+end
+
+def write_comments(main_path)
+  comments_path = main_path + "/comments"
+  if !File.directory? comments_path then
+    Dir.mkdir(comments_path)
+  end
+
+  Comment.all.each do |comment|
+    filename = "%s/%s__04d.md" % [comments_path, comment.created_at.strftime("%Y-%m-%dT%H:%M"), comment.id]
+    write_comment(filename, comment)
+    puts("written %s" % filename)
+  end
+end
+
 if ARGV.size != 1 then
   puts("Expected exactly one argument: A destination directory")
   exit(1)
@@ -147,3 +174,4 @@ write_blogposts(ARGV[0])
 write_categories(ARGV[0])
 write_hosted_files(ARGV[0])
 write_quotes(ARGV[0])
+write_comments(ARGV[0])
