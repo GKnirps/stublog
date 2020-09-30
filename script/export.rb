@@ -113,6 +113,31 @@ def write_hosted_files(main_path)
   end
 end
 
+def write_quote(fname, quote)
+  File.open(fname, mode="w") do |file|
+    file.puts("---")
+    if quote.sourceurl && !quote.sourceurl.strip.empty? then file.puts("source-url: %s" % quote.sourceurl) end
+    if quote.sourcedesc && !quote.sourcedesc.strip.empty? then file.puts("source-name: %s" % quote.sourcedesc) end
+    file.puts("published: %s" % quote.published)
+    file.puts("---")
+    file.puts(html_whitelist(quote.content))
+  end
+end
+
+def write_quotes(main_path)
+  quotes_path = main_path + "/quotes"
+  if !File.directory? quotes_path then
+    Dir.mkdir(quotes_path)
+  end
+
+  QuoteOfTheDay.all.each do |quote|
+    filename = "%s/%s__%04d.md" % [quotes_path, quote.created_at.strftime("%Y-%m-%dT%H:%M"), quote.id]
+    write_quote(filename, quote)
+    puts("written %s" % filename)
+  end
+
+end
+
 if ARGV.size != 1 then
   puts("Expected exactly one argument: A destination directory")
   exit(1)
@@ -121,3 +146,4 @@ end
 write_blogposts(ARGV[0])
 write_categories(ARGV[0])
 write_hosted_files(ARGV[0])
+write_quotes(ARGV[0])
